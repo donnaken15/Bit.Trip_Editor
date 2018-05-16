@@ -1,0 +1,203 @@
+
+
+
+
+
+
+
+
+
+
+
+
+varying  vec3 fPosition;	
+varying  vec3 fNormal;
+varying  vec2 fTexCoord0;
+varying  vec2 fTexCoord1;
+varying  vec4 fColor0;
+varying  vec4 fColor1;
+
+uniform  vec3 sTexCoordRotX;
+uniform  vec3 sTexCoordRotY;
+uniform  vec3 sTexCoordXlat;
+
+
+
+uniform mat4 sLocalMatrixList[16];
+
+uniform mat4 sWorldMatrix;	
+uniform mat4 sProjectionMatrix;
+uniform mat4 sLocalToProjMatrix;
+uniform mat4 sWorldToProjMatrix;
+
+uniform  float sPositionScale;
+uniform  float sTexCoordScale0;
+
+attribute  vec3 vPosition;
+attribute  vec3 vNormal;
+attribute  vec2 vTexCoord0;
+attribute  vec2 vTexCoord1;
+attribute  vec4 vColor0;
+attribute  vec4 vColor1;
+
+attribute vec4 vIndices;
+
+
+
+attribute  vec4 vWeights;
+
+
+
+
+
+
+
+
+
+uniform  vec3 sGlobalAmbient;
+
+
+
+uniform  vec4 sPointLightPosList[4];
+uniform  vec4 sPointLightDiffuseList[4];
+uniform  vec4 sPointLightSpecList[4];
+uniform int sNumPointLights;
+
+
+
+
+
+
+
+uniform  vec4 sSpotLightPosList[2];
+uniform  vec4 sSpotLightDirList[2];
+uniform  vec4 sSpotLightDiffuseList[2];
+uniform  vec4 sSpotLightSpecList[2];
+uniform int sNumSpotLights;
+
+
+
+
+
+
+
+
+
+
+uniform  vec4 sDirLightDirList[4];
+uniform  vec4 sDirLightDiffuseList[4];
+uniform  vec4 sDirLightSpecList[4];
+uniform int sNumDirLights;
+
+
+
+
+
+
+uniform  vec3 sCameraPosition;
+
+
+
+uniform  vec3 sAmbientColor;
+uniform  vec3 sDiffuseColor;
+uniform  vec3 sSpecularColor;
+uniform  float sMaterialAlpha;
+uniform  float sSpecularExponentScale;
+
+
+
+
+
+void applyPointLight(int index,  vec3 pos,  vec3 n,  vec3 eyeDir,
+					 inout  vec3 diffuse, inout  vec3 specular)
+{
+	 vec3 delta = sPointLightPosList[index].xyz - pos;
+	 float len = length(delta);
+	 vec3 dir = delta / len;
+	 float falloff = max(0.0, 1.0 - (len * len) * sPointLightPosList[index].w);
+	 float diffIntensity = max(0.0, dot(dir, n)) * falloff;
+
+	diffuse += diffIntensity * sPointLightDiffuseList[index].rgb;
+
+	 vec3 refl = reflect(-dir, n);
+	 float specIntensity = pow(max(0.0, dot(refl, eyeDir)), sPointLightSpecList[index].a) * falloff;
+	specular += specIntensity * sPointLightSpecList[index].rgb;
+}
+
+void applySpotLight(int index,  vec3 pos,  vec3 n,  vec3 eyeDir,
+					inout  vec3 diffuse, inout  vec3 specular)
+{
+	 vec3 delta = sSpotLightPosList[index].xyz - pos;
+	 float len = length(delta);
+	 vec3 dir = delta / len;
+	 float z = max(0.0, -dot(delta, sSpotLightDirList[index].xyz));
+	 float r = sqrt(len * len - z * z);
+	 float zamt = z * sSpotLightPosList[index].w;
+	 float ramt = max(0.0, 1.0 - (r - sSpotLightDiffuseList[index].w) * sSpotLightDirList[index].w);
+	 float falloff = zamt * ramt;
+	 float diffIntensity = max(0.0, dot(dir, n)) * falloff;
+
+	diffuse += diffIntensity * sSpotLightDiffuseList[index].rgb;
+
+	 vec3 refl = reflect(-dir, n);
+	 float specIntensity = pow(max(0.0, dot(refl, eyeDir)), sSpotLightSpecList[index].a) * falloff;
+	specular += specIntensity * sSpotLightSpecList[index].rgb;
+}
+
+void applyDirectionalLight(int index,  vec3 n,  vec3 eyeDir,
+						   inout  vec3 diffuse, inout  vec3 specular)
+{
+	 float dp = dot(sDirLightDirList[index].xyz, n);
+	 vec3 r = sDirLightDirList[index].xyz - 2.0 * dp * n;
+
+	diffuse += max(0.0, -dp) * sDirLightDiffuseList[index].rgb;
+
+	
+	specular += pow(max(0.0, dot(r, eyeDir)), sDirLightSpecList[index].a) * sDirLightSpecList[index].rgb;
+}
+
+void doStandardLighting( vec3 pos,  vec3 n,
+						inout  vec3 diffuse, inout  vec3 specular)
+{
+	 vec3 eyeDir = normalize(sCameraPosition - pos);
+	
+	for (int i = 0; i < 4; i++)
+		applyPointLight(i, pos, n, eyeDir, diffuse, specular);
+
+	for (int i = 0; i < 2; i++)
+		applySpotLight(i, pos, n, eyeDir, diffuse, specular);
+
+	for (int i = 0; i < 4; i++)
+		applyDirectionalLight(i, n, eyeDir, diffuse, specular);
+}
+
+
+
+void main()
+{
+	mat4 localMatrix = sLocalMatrixList[int(vIndices[0])] * vWeights[0] +
+					   sLocalMatrixList[int(vIndices[1])] * vWeights[1] +
+					   sLocalMatrixList[int(vIndices[2])] * vWeights[2];
+
+	vec4 localPos = vec4(sPositionScale * vPosition, 1.0);
+	vec4 worldPos = localMatrix * localPos;
+	
+	fPosition = worldPos.xyz;
+
+	mat3 wtf;
+	wtf[0] = vec3(localMatrix[0]);
+	wtf[1] = vec3(localMatrix[1]);
+	wtf[2] = vec3(localMatrix[2]);
+	fNormal = wtf * vNormal;
+
+
+
+
+	vec2 uv0 = sTexCoordScale0 * vTexCoord0;
+	
+	fTexCoord0 = uv0.x * sTexCoordRotX.xy +
+				 uv0.y * sTexCoordRotY.xy +
+				 sTexCoordXlat.xy;
+
+	gl_Position = sWorldToProjMatrix * worldPos;
+}

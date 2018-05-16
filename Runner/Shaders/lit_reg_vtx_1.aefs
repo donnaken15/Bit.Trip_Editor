@@ -1,0 +1,222 @@
+
+
+
+
+
+
+
+
+
+
+
+
+varying  vec3 fPosition;	
+varying  vec3 fNormal;
+varying  vec2 fTexCoord0;
+varying  vec2 fTexCoord1;
+varying  vec4 fColor0;
+varying  vec4 fColor1;
+
+uniform  vec3 sTexCoordRotX;
+uniform  vec3 sTexCoordRotY;
+uniform  vec3 sTexCoordXlat;
+
+
+uniform sampler2D sTexture_Color0;
+uniform sampler2D sTexture_Color1;
+
+
+
+
+
+
+
+
+
+
+
+uniform  vec3 sGlobalAmbient;
+
+
+
+uniform  vec4 sPointLightPosList[4];
+uniform  vec4 sPointLightDiffuseList[4];
+uniform  vec4 sPointLightSpecList[4];
+uniform int sNumPointLights;
+
+
+
+
+
+
+
+uniform  vec4 sSpotLightPosList[2];
+uniform  vec4 sSpotLightDirList[2];
+uniform  vec4 sSpotLightDiffuseList[2];
+uniform  vec4 sSpotLightSpecList[2];
+uniform int sNumSpotLights;
+
+
+
+
+
+
+
+
+
+
+uniform  vec4 sDirLightDirList[4];
+uniform  vec4 sDirLightDiffuseList[4];
+uniform  vec4 sDirLightSpecList[4];
+uniform int sNumDirLights;
+
+
+
+
+
+
+uniform  vec3 sCameraPosition;
+
+
+
+uniform  vec3 sAmbientColor;
+uniform  vec3 sDiffuseColor;
+uniform  vec3 sSpecularColor;
+uniform  float sMaterialAlpha;
+uniform  float sSpecularExponentScale;
+
+
+
+
+
+void applyPointLight(int index,  vec3 pos,  vec3 n,  vec3 eyeDir,
+					 inout  vec3 diffuse, inout  vec3 specular)
+{
+	 vec3 delta = sPointLightPosList[index].xyz - pos;
+	 float len = length(delta);
+	 vec3 dir = delta / len;
+	 float falloff = max(0.0, 1.0 - (len * len) * sPointLightPosList[index].w);
+	 float diffIntensity = max(0.0, dot(dir, n)) * falloff;
+
+	diffuse += diffIntensity * sPointLightDiffuseList[index].rgb;
+
+	 vec3 refl = reflect(-dir, n);
+	 float specIntensity = pow(max(0.0, dot(refl, eyeDir)), sPointLightSpecList[index].a) * falloff;
+	specular += specIntensity * sPointLightSpecList[index].rgb;
+}
+
+void applySpotLight(int index,  vec3 pos,  vec3 n,  vec3 eyeDir,
+					inout  vec3 diffuse, inout  vec3 specular)
+{
+	 vec3 delta = sSpotLightPosList[index].xyz - pos;
+	 float len = length(delta);
+	 vec3 dir = delta / len;
+	 float z = max(0.0, -dot(delta, sSpotLightDirList[index].xyz));
+	 float r = sqrt(len * len - z * z);
+	 float zamt = z * sSpotLightPosList[index].w;
+	 float ramt = max(0.0, 1.0 - (r - sSpotLightDiffuseList[index].w) * sSpotLightDirList[index].w);
+	 float falloff = zamt * ramt;
+	 float diffIntensity = max(0.0, dot(dir, n)) * falloff;
+
+	diffuse += diffIntensity * sSpotLightDiffuseList[index].rgb;
+
+	 vec3 refl = reflect(-dir, n);
+	 float specIntensity = pow(max(0.0, dot(refl, eyeDir)), sSpotLightSpecList[index].a) * falloff;
+	specular += specIntensity * sSpotLightSpecList[index].rgb;
+}
+
+void applyDirectionalLight(int index,  vec3 n,  vec3 eyeDir,
+						   inout  vec3 diffuse, inout  vec3 specular)
+{
+	 float dp = dot(sDirLightDirList[index].xyz, n);
+	 vec3 r = sDirLightDirList[index].xyz - 2.0 * dp * n;
+
+	diffuse += max(0.0, -dp) * sDirLightDiffuseList[index].rgb;
+
+	
+	specular += pow(max(0.0, dot(r, eyeDir)), sDirLightSpecList[index].a) * sDirLightSpecList[index].rgb;
+}
+
+void doStandardLighting( vec3 pos,  vec3 n,
+						inout  vec3 diffuse, inout  vec3 specular)
+{
+	 vec3 eyeDir = normalize(sCameraPosition - pos);
+	
+	for (int i = 0; i < 4; i++)
+		applyPointLight(i, pos, n, eyeDir, diffuse, specular);
+
+	for (int i = 0; i < 2; i++)
+		applySpotLight(i, pos, n, eyeDir, diffuse, specular);
+
+	for (int i = 0; i < 4; i++)
+		applyDirectionalLight(i, n, eyeDir, diffuse, specular);
+}
+
+
+
+
+uniform  vec4 sDirAmbientColor;
+uniform  vec4 sFogColor;
+uniform  vec4 sFogParams;
+
+void applyInfinitePointLight(int index,  vec3 pos,  vec3 n,  vec3 eyeDir,
+							 inout  vec3 diffuse, inout  vec3 specular)
+{
+	 vec3 delta = sPointLightPosList[index].xyz - pos;
+	 vec3 dir = normalize(delta);
+	 float diffIntensity = max(0.0, dot(dir, n));
+
+	diffuse += diffIntensity * sPointLightDiffuseList[index].rgb;
+
+	 vec3 refl = reflect(-dir, n);
+	 float specIntensity = pow(max(0.0, dot(refl, eyeDir)), sPointLightSpecList[index].a);
+	specular += specIntensity * sPointLightSpecList[index].rgb;
+}
+
+void applyCoreDirLight(int index,  vec3 n,  vec3 eyeDir,
+					   inout  vec3 diffuse)
+{
+	 float dp = dot(sDirLightDirList[index].xyz, n);
+	 vec3 r = sDirLightDirList[index].xyz - 2.0 * dp * n;
+
+	diffuse += max(0.0, -dp) * sDirLightDiffuseList[index].rgb;
+}
+
+ vec3 doCoreLighting( vec3 ambientColor,  vec3 diffuseColor)
+{
+	 vec3 normal = normalize(fNormal);
+	 vec3 diffuse = vec3(0, 0, 0);
+	 vec3 specular = vec3(0, 0, 0);
+	 vec3 eyeDelta = sCameraPosition - fPosition;
+	 float dist = length(eyeDelta);
+	 vec3 eyeDir = eyeDelta / dist;
+
+	applyInfinitePointLight(0, fPosition, normal, eyeDir, diffuse, specular);
+
+	applyCoreDirLight(0, normal, eyeDir, diffuse);
+	applyCoreDirLight(1, normal, eyeDir, diffuse);
+	applyCoreDirLight(2, normal, eyeDir, diffuse);
+	applyCoreDirLight(3, normal, eyeDir, diffuse);
+
+	 vec3 dirAmbient = dot(eyeDir, normal) * sDirAmbientColor.rgb;
+
+	 vec3 ambdiff = (sGlobalAmbient + dirAmbient) * ambientColor + diffuse;
+	specular *= sSpecularColor;
+
+	ambdiff = min(vec3(1.0, 1.0, 1.0), ambdiff);
+
+	 vec3 color = vec3(ambdiff * diffuseColor + specular);
+
+	 float fog = clamp((dist - sFogParams.x) * sFogParams.y, 0.0, 1.0);
+
+	return mix(color, sFogColor.rgb, fog);
+}
+
+
+void main()
+{
+	 vec4 texColor = texture2D(sTexture_Color0, fTexCoord0);
+	 vec3 color = doCoreLighting(sAmbientColor, texColor.rgb * fColor0.rgb);
+
+	gl_FragColor = vec4(color, texColor.a * fColor0.a * sMaterialAlpha);
+}
