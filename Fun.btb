@@ -1,0 +1,1 @@
+bot=1beat_beat(0,360,8,0)beat_beat(0,360-15,8,0)beat_beat(0,360-30,8,0)beat_beat(0,360+15,8,0)beat_beat(0,360+30,8,0)beat_beat(0,360-45,8,0)timeline_loop=true

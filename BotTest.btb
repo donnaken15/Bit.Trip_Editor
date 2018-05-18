@@ -1,0 +1,1 @@
+bot=1beat_beat(0,random_range(135,585),random_range(10,50),random_range(-27,27))timeline_loop=true
