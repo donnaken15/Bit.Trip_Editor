@@ -1,0 +1,46 @@
+draw_rectangle_color(x-8,y-32,x+8,y+32,make_color_rgb(252,165,0),make_color_rgb(252,165,0),make_color_rgb(252,165,0),make_color_rgb(252,165,0),false)
+draw_rectangle_color(x+9,104,1219,120,make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),false)
+draw_rectangle_color(x+9,600,1219,616,make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),false)
+draw_rectangle_color(1219-16,120-64,1219,120,make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),false)
+draw_rectangle_color(1219-47,120-64,1219,120-64+16,make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),false)
+
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+
+draw_set_font(global.numfont)
+draw_text_transformed_color(85,37,string_replace(string_replace(string_replace(string_replace(string_replace(string_replace(string_replace(string_replace(string_replace(string_replace(string_format(score,10,0)
+,' ','0'),' ','0'),' ','0'),' ','0'),' ','0'),' ','0'),' ','0'),' ','0'),' ','0'),' ','0'),5.9,5.9,0,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,1)
+draw_text_transformed_color(924,37,"MEGA",5.9,5.9,0,make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),1)
+draw_text_transformed_color(85,637,combo_str,5.9,5.9,0,c_bittrip_pink,c_bittrip_pink,c_bittrip_pink,c_bittrip_pink,1)
+draw_text_transformed_color(315,637,"X",5.9,5.9,0,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,1)
+draw_text_transformed_color(381,637,string_replace(string_replace(string_replace(string_replace(string_format(multi,4,0)
+,' ','0'),' ','0'),' ','0'),' ','0'),5.9,5.9,0,c_bittrip_orange,c_bittrip_orange,c_bittrip_orange,c_bittrip_orange,1)
+
+
+hyper_up_part1 = hyper_up*1.3334
+hyper_up_part2 = hyper_up-75*20
+hyper_up_part3 = hyper_up-78*50
+
+if hyper_up > 0 {
+draw_healthbar(x+10,105,1218,119,hyper_up_part1,make_color_rgb(0,150,0),make_color_rgb(0,150,0),make_color_rgb(0,150,0),0,false,false) }
+
+switch hyper_up {
+       case 76: draw_rectangle_color(1219-15,120-31,1218,119,make_color_rgb(0,150,0),make_color_rgb(0,150,0),
+                make_color_rgb(0,150,0),make_color_rgb(0,150,0),false) break
+       case 77: draw_rectangle_color(1219-15,120-47,1218,119,make_color_rgb(0,150,0),make_color_rgb(0,150,0),
+                make_color_rgb(0,150,0),make_color_rgb(0,150,0),false) break
+       case 78: draw_rectangle_color(1219-15,120-63,1218,119,make_color_rgb(0,150,0),make_color_rgb(0,150,0),
+                make_color_rgb(0,150,0),make_color_rgb(0,150,0),false) break
+       case 79: draw_rectangle_color(1219-46+15,120-63,1218,120-65+16,make_color_rgb(0,150,0),
+                make_color_rgb(0,150,0),make_color_rgb(0,150,0),make_color_rgb(0,150,0),false)
+                draw_rectangle_color(1219-15,120-63,1218,119,make_color_rgb(0,150,0),make_color_rgb(0,150,0),
+                make_color_rgb(0,150,0),make_color_rgb(0,150,0),false) break
+       case 80: draw_rectangle_color(1219-15,120-63,1218,119,make_color_rgb(0,150,0),make_color_rgb(0,150,0),
+                make_color_rgb(0,150,0),make_color_rgb(0,150,0),false)
+                draw_rectangle_color(1219-46,120-63,1218,120-65+16,make_color_rgb(0,150,0),
+                make_color_rgb(0,150,0),make_color_rgb(0,150,0),make_color_rgb(0,150,0),false) break
+}
+
+draw_set_font(font)
+draw_set_color(c_white)
+draw_text(x+12,y-34,"x: "+string(x)+"#y: "+string(y)+"#score: "+string(score)+"#combo: "+string(combo)+"#multi: "+string(multi)+"x")
