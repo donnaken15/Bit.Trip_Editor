@@ -1,4 +1,4 @@
-beat_beat(0,360,5,0,0,0)timeline_loop=true
+beat_beat(0,360,5,0)timeline_loop=true
 
 
 
