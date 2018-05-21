@@ -717,7 +717,7 @@ caster_play(caster_load("Equinox.ogg"),1,1)global.songname=object_add()object_ev
 
 
 
-beat_beat(0,240,25,45)
+beat_beat(0,240,25,45,0,0)
 
 
 
@@ -729,7 +729,7 @@ beat_beat(0,240,25,45)
 
 
 
-beat_beat(0,360,25,45)
+beat_beat(0,360,25,45,0,0)
 
 
 
@@ -739,4 +739,4 @@ beat_beat(0,360,25,45)
 
 
 
-beat_beat(0,360,25,45)
+beat_beat(0,360,25,45,0,0)
