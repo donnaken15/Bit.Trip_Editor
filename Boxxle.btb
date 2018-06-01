@@ -1,4 +1,4 @@
-bpm=27room_speed=30music("Boxxle.ogg")//set_bg_color(make_color_rgb(255,255,255))
+bot=1bpm=27room_speed=30music("Boxxle.ogg")//set_bg_color(make_color_rgb(255,255,255))
 beat_beat(0,360,10.4,0,0,0)
 
 
@@ -143,7 +143,7 @@ beat_beat(0,480,24,0,0,0)
 beat_beat(0,450,11.5,0,0,0)
 
 
-beat_beat(0,450,12,-25,0,0)
+beat_beat(0,450,14,-27,0,0)
 
 
 
@@ -158,7 +158,24 @@ beat_beat(0,450,12,-25,0,0)
 
 
 
-beat_beat(0,450,9,0,0,0)
-beat_beat(0,450,9.5,0,0,0)
 beat_beat(0,450,12,0,0,0)
 
+
+beat_beat(0,450,11,0,0,0)
+beat_beat(0,450,10.5,0,0,0)
+
+
+
+
+
+
+beat_beat(1,135,8,0,0,-5,99)
+
+
+
+
+
+
+
+beat_beat(0,450,11,0,0,0)
+beat_beat(0,450,10,0,0,0)
