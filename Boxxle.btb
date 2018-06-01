@@ -1,4 +1,4 @@
-bpm=27caster_play(caster_load("Boxxle.ogg"),1,1)//set_bg_color(make_color_rgb(255,255,255))
+bpm=27room_speed=30music("Boxxle.ogg")//set_bg_color(make_color_rgb(255,255,255))
 beat_beat(0,360,10.4,0,0,0)
 
 
