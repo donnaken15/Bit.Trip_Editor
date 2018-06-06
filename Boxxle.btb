@@ -1,4 +1,4 @@
-bpm=27bot=1room_speed=60music("Boxxle1.ogg")//set_bg_color(make_color_rgb(255,255,255))
+bpm=27bot=1room_speed=60music("Boxxle.ogg")set_bg_color(make_color_rgb(255,255,255))
 beat_beat(0,360,10.4,0,0,0)
 
 
@@ -266,31 +266,31 @@ beat_beat(0,360,5.5,0)
 
 
 
+beat_beat(0,480,5.3,0)
 
 
 
 
 
 
-beat_beat(0,480,5.5,0)
 
 
 
+beat_beat(0,360,5.3,0)
 
 
 
 
-beat_beat(0,360,5.5,0)
 
 
+beat_beat(0,420,5.3,0)
 
-beat_beat(0,420,5.5,0)
 
 
 
-beat_beat(0,480,5.5,0)
 
 
+beat_beat(0,480,5.3,0)
 
 
 
@@ -417,7 +417,7 @@ beat_beat(0,480,5.5,0)
 
 
 
-if loop=0 || loop = 2 { skip(2) loop+=1 }
+if part = 0 || part = 1 { skip(2) part+=1 } if part = 2 { skip(423) }
 
 
 
@@ -523,5 +523,76 @@ beat_beat(0,130,25,0)
 
 
 beat_beat(0,360,25,0)
-pause(45)
-beat_beat(0,135,12.5,0)
+pause(30)
+beat_beat(0,135,13,0)
+pause(25)
+beat_beat(0,135,13,0)
+pause(5)
+beat_beat(0,135,13,0)
+pause(10)
+beat_beat(0,135,13,0)
+pause(12)
+beat_beat(0,240,13,0)
+pause(12)
+beat_beat(0,240,13,0)
+pause(12)
+beat_beat(0,360,13,0)
+pause(12)
+beat_beat(0,360,13,0)
+pause(12)
+beat_beat(0,240,13,0)
+pause(12)
+beat_beat(0,360,13,0)
+pause(12)
+beat_beat(0,480,13,0)
+pause(12)
+beat_beat(0,585,13,0)
+pause(12)
+beat_beat(0,480,13,0)
+pause(114)
+beat_beat(0,590,25,0)
+
+
+
+
+
+
+
+
+
+beat_beat(0,360,25,0)
+pause(90)
+beat_beat(0,130,25,0)
+
+
+
+
+
+
+
+
+
+beat_beat(0,360,25,0)
+pause(30)
+beat_beat(0,135,13,0)
+pause(25)
+beat_beat(0,135,13,0)
+pause(5)
+beat_beat(0,135,13,0)
+pause(10)
+beat_beat(0,135,13,0)
+pause(12)
+beat_beat(0,240,13,0)
+pause(12)
+beat_beat(0,240,13,0)
+pause(12)
+beat_beat(0,360,13,0)
+pause(12)
+beat_beat(0,360,13,0)
+pause(12)
+beat_beat(0,480,13,0)
+pause(12)
+beat_beat(0,480,13,0)
+pause(66)
+if loop2 = 0 { part = 0 skip(2) loop2 += 1 } else { pause(60) }
+game_end()
