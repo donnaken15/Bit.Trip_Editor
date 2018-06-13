@@ -1,4 +1,4 @@
-music("Equinox.ogg")global.songname=object_add()object_event_add(global.songname,ev_create,0,'alarm[0]=360alpha_=1')object_event_add(global.songname,ev_alarm,0,'alpha_-=0.01alarm[0]=3')object_event_add(global.songname,ev_draw,0,"draw_set_font(global.ltrfont)draw_set_halign(fa_center)draw_set_valign(fa_center)draw_text_transformed_color(640,360,'E Q U I N O X# #FIRST OF THE YEAR',5.9,5.9,0,c_white,c_white,c_white,c_white,alpha_)")instance_create(640,360,global.songname)
+music("Equinox.ogg")global.songname=object_add()object_event_add(global.songname,ev_create,0,'alarm[0]=360alpha_=1')object_event_add(global.songname,ev_alarm,0,'alpha_-=0.01alarm[0]=3')object_event_add(global.songname,ev_draw,0,"draw_set_font(global.font_)draw_set_halign(fa_center)draw_set_valign(fa_center)draw_text_transformed_color(640,360,'E Q U I N O X# #FIRST OF THE YEAR',5.9,5.9,0,c_white,c_white,c_white,c_white,alpha_)")instance_create(640,360,global.songname)
 
 
 

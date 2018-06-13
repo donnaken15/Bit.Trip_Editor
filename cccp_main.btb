@@ -1,0 +1,9 @@
+music("cccp_main.ogg")bmp=0pause(678)
+beat_beat(0,240,20,-15)pause(13)
+beat_beat(0,480,20,15)pause(13)
+beat_beat(0,240,20,-15)pause(13)
+beat_beat(0,480,20,15)
+beat_beat(0,585-y2,16,0)
+pause(3)
+if y2<41*11{y2+=41skip(5)}
+beat_beat(0,130,13.7,0)
