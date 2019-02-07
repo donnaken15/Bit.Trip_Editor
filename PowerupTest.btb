@@ -10,5 +10,5 @@ beat_beat(0,i,20,0)beat_beat(0,i+120,20,0)
 
 if (i<470){i+=5skip(7)}
 pause(120)
-beat_beat(11,360,25,0,1,420)pause(60)i=142
+beat_beat(11,360,25,0,1,420,999999)pause(60)i=142
 for(j=136;j<584;j+=15)beat_beat(0,j,16,0)timeline_position-=1
