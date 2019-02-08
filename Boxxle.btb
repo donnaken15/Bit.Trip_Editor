@@ -388,5 +388,4 @@ beat_beat(0,480,13,0)
 pause(12)
 beat_beat(0,480,13,0)
 pause(66)
-if loop2 = 0 { part = 0 skip(1) loop2 += 1 } else { pause(60) }
-game_end()
+if loop2 = 0 { part = 0 skip(1) loop2 += 1 } else { win() }
