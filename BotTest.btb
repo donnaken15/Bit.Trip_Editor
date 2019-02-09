@@ -1,1 +1,0 @@
-nofail=1bot=1repeat random_range(1,5){beat_beat(0,random_range(135,585),random_range(10,50),random_range(-25,25),0,0)}timeline_loop=true

@@ -1,1 +1,0 @@
-room_speed=180beat_beat(0,360,7,0)beat_beat(0,360-15,7,0)beat_beat(0,360-30,7,0)beat_beat(0,360+15,7,0)beat_beat(0,360+30,7,0)timeline_loop=true
