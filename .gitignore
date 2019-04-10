@@ -1,16 +1,7 @@
-# Windows thumbnail cache files
 Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
-
-# Folder config file
 Desktop.ini
-
-# Recycle Bin used on file shares
 $RECYCLE.BIN/
-
-# =========================
-# Operating System Files
-# =========================
 settings.ini
 game_errors.log
