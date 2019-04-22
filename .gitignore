@@ -5,3 +5,9 @@ Desktop.ini
 $RECYCLE.BIN/
 settings.ini
 game_errors.log
+*.btb
+*.btc
+*.btv
+*.btr
+*.btf
+*.btx
