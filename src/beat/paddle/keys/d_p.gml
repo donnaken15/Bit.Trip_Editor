@@ -1,0 +1,1 @@
+difficulty=toggle(difficulty)

@@ -1,0 +1,49 @@
+draw_set_alpha(.25+(frame/40))
+for (i = 1; i <= 2; i += 1)
+{
+  draw_rectangle_color(x-36-(4*frame*i),
+                       y-36+(8*frame*flip*i),
+                       x+36-(4*frame*i),
+                       y+36+(8*frame*flip*i),
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       0)
+  draw_rectangle_color(x-36-(8*frame*i),
+                       y-36+(4*frame*flip*i),
+                       x+36-(8*frame*i),
+                       y+36+(4*frame*flip*i),
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       0)
+  draw_rectangle_color(x-36,
+                       y-36+(8*frame*flip*i),
+                       x+36,
+                       y+36+(8*frame*flip*i),
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       0)
+  draw_rectangle_color(x-36+(8*frame*i),
+                       y-36+(4*frame*flip*i),
+                       x+36+(8*frame*i),
+                       y+36+(4*frame*flip*i),
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       0)
+  draw_rectangle_color(x-36+(4*frame*i),
+                       y-36+(8*frame*flip*i),
+                       x+36+(4*frame*i),
+                       y+36+(8*frame*flip*i),
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       c_bittrip_yellow,
+                       0)
+}

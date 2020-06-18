@@ -1,0 +1,1 @@
+mouse=toggle(mouse)

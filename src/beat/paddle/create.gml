@@ -1,0 +1,25 @@
+mode = 1
+hyper_up = 0
+hyper_lose = 0
+mega_multi = 0
+mega_lose = 0
+nether_up = 0
+nether_lose = 0
+combo = 0
+score = 0
+multi = 1
+paddle_visible = 1
+mode_animation = 0
+timeline_index=level
+timeline_position=-1
+timeline_running=1
+timeline_speed=1
+timeline_loop=0
+if init=0{
+sounds()
+timeline_position=-1
+init=1}
+show_score=0
+show_health=0
+show_lives=0
+alarm[1]=bpm
