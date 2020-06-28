@@ -9,6 +9,7 @@ snd_unpause = caster_load(path_sfx+"Common\Unpause.ogg")
 snd_death = caster_load(path_sfx+"Common\PaddleDeath.ogg")
 snd_game_over = caster_load(path_sfx+"Common\GameOver.ogg")
 snd_challenge = caster_load(path_sfx+"Beat\Challenge.ogg")
+// try optimizing along with other numbered files
 snd_score_tally_1 = caster_load(path_sfx+"Common\ScoreTally1.ogg")
 snd_score_tally_2 = caster_load(path_sfx+"Common\ScoreTally2.ogg")
 snd_score_tally_3 = caster_load(path_sfx+"Common\ScoreTally3.ogg")
@@ -31,7 +32,9 @@ snd_beat_lvl3_h_hit1,snd_beat_lvl3_h_hit2,snd_beat_lvl3_h_hit3,snd_beat_lvl3_h_h
 snd_beat_lvl1_d_hit1,snd_beat_lvl1_d_hit2,snd_beat_lvl1_d_hit3,snd_beat_lvl1_d_hit4,
 snd_beat_lvl2_d_hit1,snd_beat_lvl2_d_hit2,snd_beat_lvl2_d_hit3,snd_beat_lvl2_d_hit4,
 snd_beat_lvl3_d_hit1,snd_beat_lvl3_d_hit2,snd_beat_lvl3_d_hit3,snd_beat_lvl3_d_hit4,
-snd_beat_lvl2_d2_hit1,snd_beat_lvl2_d2_hit2,snd_beat_lvl2_d2_hit3,snd_beat_lvl2_d2_hit4,snd_beat_miss;
+snd_beat_lvl2_d2_hit1,snd_beat_lvl2_d2_hit2,snd_beat_lvl2_d2_hit3,snd_beat_lvl2_d2_hit4,snd_beat_miss,
+snd_beat_trans_1,snd_beat_trans_2,snd_beat_trans_3,
+snd_beat_trans_1_back,snd_beat_trans_2_back,snd_beat_trans_3_back;
 snd_beat_miss = caster_load(path_sfx+"Common\BeatMiss.ogg")
 snd_beat_lvl1_h_hit1 = caster_load(path_sfx+"Beat\H_PaddleImpact1.ogg")
 snd_beat_lvl1_h_hit2 = caster_load(path_sfx+"Beat\H_PaddleImpact2.ogg")
@@ -74,6 +77,12 @@ snd_beat_lvl2_d2_hit1 = caster_load(path_sfx+"Beat\L2M_BeatDeath1.ogg")
 snd_beat_lvl2_d2_hit2 = caster_load(path_sfx+"Beat\L2M_BeatDeath2.ogg")
 snd_beat_lvl2_d2_hit3 = caster_load(path_sfx+"Beat\L2M_BeatDeath3.ogg")
 snd_beat_lvl2_d2_hit4 = caster_load(path_sfx+"Beat\L2M_BeatDeath4.ogg")
+snd_beat_trans_1 = caster_load(path_sfx+"Beat\StageTransition.ogg")
+snd_beat_trans_2 = caster_load(path_sfx+"Beat\L2StageTransition.ogg")
+snd_beat_trans_3 = caster_load(path_sfx+"Beat\L3StageTransition.ogg")
+snd_beat_trans_1_back = caster_load(path_sfx+"Beat\StageTransitionBackward.ogg")
+snd_beat_trans_2_back = caster_load(path_sfx+"Beat\L2StageTransitionBackward.ogg")
+snd_beat_trans_3_back = caster_load(path_sfx+"Beat\L3StageTransitionBackward.ogg")
 break
 case core:
 globalvar snd_core_lvl1_h_hit1,snd_core_lvl1_h_hit2,snd_core_lvl1_h_hit3,snd_core_lvl1_h_hit4,snd_core_lvl1_h_hit5,snd_core_lvl1_h_hit6,snd_core_lvl1_h_hit7,
@@ -82,7 +91,10 @@ snd_core_lvl2_h_hit1,snd_core_lvl2_h_hit2,snd_core_lvl2_h_hit3,snd_core_lvl2_h_h
 snd_core_lvl2_m_hit1,snd_core_lvl2_m_hit2,snd_core_lvl2_m_hit3,snd_core_lvl2_m_hit4,snd_core_lvl2_m_hit5,snd_core_lvl2_m_hit6,snd_core_lvl2_m_hit7,
 snd_core_lvl3_h_hit1,snd_core_lvl3_h_hit2,snd_core_lvl3_h_hit3,snd_core_lvl3_h_hit4,snd_core_lvl3_h_hit5,snd_core_lvl3_h_hit6,snd_core_lvl3_h_hit7,
 snd_core_lvl3_h_hit8,snd_core_lvl3_m_hit1,snd_core_lvl3_m_hit2,snd_core_lvl3_m_hit3,snd_core_lvl3_m_hit4,snd_core_lvl3_m_hit5,snd_core_lvl3_m_hit6,
-snd_core_lvl3_m_hit7,snd_core_lvl3_m_hit8,snd_core_bomb;
+snd_core_lvl3_m_hit7,snd_core_lvl3_m_hit8,snd_core_bomb,
+snd_core_trans_1,snd_core_trans_2,snd_core_trans_3,
+snd_core_trans_1_back,snd_core_trans_2_back,snd_core_trans_3_back
+;
 snd_core_lvl1_h_hit1 = caster_load(path_sfx+"Core\L1H_BEATBLAST1.ogg")
 snd_core_lvl1_h_hit2 = caster_load(path_sfx+"Core\L1H_BEATBLAST2.ogg")
 snd_core_lvl1_h_hit3 = caster_load(path_sfx+"Core\L1H_BEATBLAST3.ogg")
@@ -130,6 +142,12 @@ snd_core_lvl3_m_hit8 = caster_load(path_sfx+"Core\L3M_BEATBLAST8.ogg")
 snd_core_bomb = caster_load(path_sfx+"Core\Boom.ogg")
 snd_nether_tick = caster_load(path_sfx+"Core\NetherTick1.ogg")
 snd_nether_tick2 = caster_load(path_sfx+"Core\NetherTick2.ogg")
+snd_core_trans_1 = caster_load(path_sfx+"Core\StageTransition.ogg")
+snd_core_trans_2 = caster_load(path_sfx+"Core\L2StageTransition.ogg")
+snd_core_trans_3 = caster_load(path_sfx+"Core\L3StageTransition.ogg")
+snd_core_trans_1_back = caster_load(path_sfx+"Core\StageTransitionBackward.ogg")
+snd_core_trans_2_back = caster_load(path_sfx+"Core\L2StageTransitionBackward.ogg")
+snd_core_trans_3_back = caster_load(path_sfx+"Core\L3StageTransitionBackward.ogg")
 break
 }
 enablesounds=1}

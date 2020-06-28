@@ -14,23 +14,32 @@ switch special
     specialbumper = 0
     break
 }
-if bot = 0 && mouse = 1
+if !bot && mouse
 {
+  if !controltype {
   y = mouse_y
-  if mouse_y < 136 + specialbumper y = 136 + specialbumper
-  if special = 3 && mouse_y < 136 + 112 y = 136 + 112
-  if mouse_y > 584 - specialbumper y = 584 - specialbumper
-  //if special = 3 && mouse_y > 586 y = 586
+  if y < 136 + specialbumper y = 136 + specialbumper
+  if special = 3 && y < 136 + 112 y = 136 + 112
+  if y > 584 - specialbumper y = 584 - specialbumper
+  //if special = 3 && y > 586 y = 586
   if mouse_y < 136 + specialbumper window_mouse_set(mouse_x,
   (136 + specialbumper) * (window_get_height()/720))
   if special = 3 && mouse_y < 136 + 112 window_mouse_set(mouse_x, 136 + 112)
   if mouse_y > 584 - specialbumper window_mouse_set(mouse_x,
   (584 - specialbumper) * (window_get_height()/720))
   //if special = 3 && mouse_y > 586 window_mouse_set(mouse_x, 586)
-  window_mouse_set(640, mouse_y*(window_get_height()/720))
+  window_mouse_set(640, mouse_y*(window_get_height()/720)) }
+  else {
+  y += mouse_y - 360//(window_get_height()/720)
+  if y < 136 + specialbumper y = 136 + specialbumper
+  if special = 3 && y < 136 + 112 y = 136 + 112
+  if y > 584 - specialbumper y = 584 - specialbumper
+  //if special = 3 && y > 586 y = 586
+  window_mouse_set(640, window_get_height()/2)
+  }
   window_set_cursor(cr_none)
 }
-else if bot = 1 || bot = true
+else if bot
 {
   window_set_cursor(cr_default)
   nearest_beat = collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_normal,false,false)
@@ -49,7 +58,7 @@ else if bot = 1 || bot = true
   if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_follow,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y if flip = 0 y=room_height/2}
 }
 
-if mouse = 0
+if !mouse
 {
   if y < 135 + specialbumper y = 136 + specialbumper
   if special = 3 && y < 136 + 112 y = 136 + 112

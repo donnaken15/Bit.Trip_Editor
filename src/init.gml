@@ -1,4 +1,4 @@
-//window_set_visible(false)
+window_set_visible(false)
 globalvar file, file_data, combo, multi, mode, difficulty,
 nofail, bot, stopped, background_music, paused, mega_music,
 soundtype, stepcode, drawcode, nowin, KBsensitivity, windows,
@@ -169,6 +169,7 @@ score = 0
 set_application_title("BIT . TRIP EDITOR")
 set_automatic_draw(true)
 
+
 globalvar skip_scr,skiprel_scr,set_bg_color_scr,toggle_scr,pause_scr,
 lose_scr,win_scr,nosounds_scr,sounds_scr,recursion_scr,draw_rainbow_scr,
 load_level_scr,timeline_load_scr,file_text_read_all_scr,newline_scr,
@@ -238,6 +239,9 @@ music_stop_scr = get_code(path_src+"scr/music/stop.gml")
 	object_event_add(update_headsup,ev_draw,0,get_code(path_src+"global/updhu/draw.gml",0))
 }
 
+//external_define('C:\Windows\system32\msvcrt.dll','_exit',dll_stdcall,ty_real,1,ty_real);
+//external_call("_exit",5)
+
 if parameter_count() = 0
 {
     if !load_level()
@@ -274,5 +278,12 @@ if file_exists(parameter_string(1)) && parameter_string(1) != "-designer"
             execute_file(file)
     }
 }
+/*if parameter_string(1) = "--blank"
+	if parameter_count > 1
+		setup_game(real(parameter_string(2)))
+	else
+		show_error("Specify a game number.",true)*/
 if parameter_string(1) = "-designer"
     setup_game(6)
+if !file_exists(parameter_string(1))
+    show_error("File not found.",true)

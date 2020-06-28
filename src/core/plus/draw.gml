@@ -62,8 +62,12 @@ room_width,mode_animation+1440,make_color_rgb(15,15,15),make_color_rgb(15,15,15)
 draw_set_alpha(1)
 
 if (mode_animation>-360)
-draw_set_color(make_color_hsv(0,255,(127+round
-(image_index/30)*127)))else draw_set_color(c_white)
+{
+if floor(image_index/30) > 0
+draw_set_color(make_color_rgb(177,4,4))
+else draw_set_color(make_color_rgb(141,3,3))
+}
+else draw_set_color(c_white)
 for (i = -1; i < 3; i += 1) {
 draw_rectangle((room_width/2-(8/((gameover>24)*(gameover-24)+1))-((i==1)*(581/((gameover>24)*(gameover-24)+1))+((i==2)*(581/((gameover>24)*(gameover-24)+1))*-1))),room_height/2-(24/((gameover>24)*(gameover-24)+1)),room_width/2+(7/((gameover>24)*(gameover-24)+1))-((i==1)*(581/((gameover>24)*(gameover-24)+1))+((i==2)*(581/((gameover>24)*(gameover-24)+1))*-1)),room_height/2+(23/((gameover>24)*(gameover-24)+1)),false)
 draw_rectangle((room_width/2-(24/((gameover>24)*(gameover-24)+1))),room_height/2-(8/((gameover>24)*(gameover-24)+1))-((i==1)*(326/((gameover>24)*(gameover-24)+1))+((i==2)*(327/((gameover>24)*(gameover-24)+1))*-1)),room_width/2+(23/((gameover>24)*(gameover-24)+1)),room_height/2+(7/((gameover>24)*(gameover-24)+1))-((i == 1)*(326/((gameover>24)*(gameover-24)+1))+((i==2)*(327/((gameover>24)*(gameover-24)+1))*-1)),0)
@@ -85,7 +89,7 @@ leftpressed=0 uppressed=0 downpressed=1 rightpressed=0 }
 if (keyboard_check_released(vk_down)||keyboard_check_released(ord('S'))) downpressed=0 }
 
 draw_set_color((c_white*!(beam>0))+
-(c_bittrip_orange*(beam>0)*(mode>0))+
+(make_color_rgb(255,100,3)*(beam>0)*(mode>0))+
 (c_white*(beam>0)*(mode==0)))
 draw_set_alpha((.125+((7/8)*(beam>0)))*(leftpressed>0))
 draw_rectangle(room_width/2-8-549,room_height/2-8,
@@ -100,12 +104,13 @@ draw_set_alpha((.125+((7/8)*(beam>0)))*(downpressed>0))
 draw_rectangle(room_width/2-8,room_height/2-8+32,
 room_width/2+7,room_height/2+7+295,false)
 if mode_animation<-360 {
-draw_set_alpha(.5)
-draw_rectangle_color(0,b_a_c_k_d_r_o_p.y+(mode_animation+720)-28,1280,b_a_c_k_d_r_o_p.y+(mode_animation+720)-28+9,c_black,c_black,c_black,c_black,false)
-draw_set_alpha(.25)
-draw_rectangle_color(0,b_a_c_k_d_r_o_p.y+(mode_animation+720)-28+9,1280,b_a_c_k_d_r_o_p.y+(mode_animation+720)-28+19,c_black,c_black,c_black,c_black,false)
-draw_set_alpha(.125)
-draw_rectangle_color(0,b_a_c_k_d_r_o_p.y+(mode_animation+720)-28+19,1280,b_a_c_k_d_r_o_p.y+(mode_animation+720)-28+27,c_black,c_black,c_black,c_black,false) }
+tempvar01110011 = .25
+for (i = 0; i < 8; i+=1) {
+draw_set_alpha(tempvar01110011)
+draw_rectangle_color(0,b_a_c_k_d_r_o_p.y+(mode_animation+720)-28,1280,
+b_a_c_k_d_r_o_p.y+(mode_animation+720)-28+(i*9),c_black,c_black,c_black,c_black,false)
+tempvar01110011 /= 1.5 }
+}
 draw_set_alpha(1)
 
 
@@ -147,7 +152,7 @@ draw_set_font(global.fontx4[3])
 draw_set_color(make_color_rgb(255,108,0))
 draw_text_transformed_color(1038,51+(mode_animation+(k*720)),"BOMB",
 2.2,2.2,0,make_color_rgb(255,108,0),make_color_rgb(255,108,0),
-make_color_rgb(255,108,0),make_color_rgb(255,108,0),.5+(bomb/4))}
+make_color_rgb(255,108,0),make_color_rgb(255,108,0),.25+(bomb/1))}
 
 if mode_animation>720
 for (j = 0; j < 2; j += 1) {

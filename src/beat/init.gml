@@ -3,7 +3,7 @@ beat_hspeed,combo_str,skip_to_level_time,mode_animation,bpm,mouse,powerupmode,
 mega_color1,mega_color2,mega_color3,mega_color4,mega_color5,mega_color6,mega_color7,mega_color8,mega_color9,
 current_mega_color1,current_mega_color2,current_mega_color3,current_mega_color4,current_mega_color5,current_mega_color6,
 current_mega_color7,current_mega_color8,current_mega_color9,dangertxtvisible,misstxtvisible,combotxtvisible,gameover,win_,special,specialbumper,
-chalbeats,chalbeatshit,paddle_visible,level_directory;
+chalbeats,chalbeatshit,paddle_visible,level_directory,controltype,mouse;
 log = ""
 logmax = 2048
 i = 0;
@@ -11,6 +11,9 @@ nohitsounds = 1
 bpm = 60
 gameover = 0
 win_ = 0 special = 0
+controltype = ini_read_real("Beat","ControlType",0)
+mouse = ini_read_real("Beat","Mouse",1)
+// 0 = relative, 1 = absolute
 instance_create(0,0,b_a_c_k_d_r_o_p)
 mega_color1=make_color_rgb(198,67,153)
 mega_color2=make_color_rgb(230,120,162)
@@ -112,6 +115,5 @@ snd_beat_lvl2_d2_hit2 = caster_load("Beat\Sounds\Effects\Level2\L2M_BeatDeath2.o
 snd_beat_lvl2_d2_hit3 = caster_load("Beat\Sounds\Effects\Level2\L2M_BeatDeath3.ogg")
 snd_beat_lvl2_d2_hit4 = caster_load("Beat\Sounds\Effects\Level2\L2M_BeatDeath4.ogg")
 */
-mouse = 1
 try+=1
  // hyper+ = 80 multi+ = 14 mega- = 5 hyper- 14 nether- = 11 nether+ = 20

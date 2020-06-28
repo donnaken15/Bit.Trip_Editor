@@ -72,7 +72,7 @@ if keyboard_check_pressed(vk_space)
        keyboard_check(vk_up) || keyboard_check(ord('W')) ||
        keyboard_check(vk_right) || keyboard_check(ord('D')) ||
        keyboard_check(vk_down) || keyboard_check(ord('S'))
-    beam = 6
+    beam = 7
 
 for (j = 0; j < 100; j += 1) {
 if beam > 0 {
@@ -104,7 +104,7 @@ if beam <= 1 { leftpressed = 0 uppressed = 0 rightpressed = 0 downpressed = 0 } 
 
 if beam = 0 __hitonce = 0 }
 
-if image_index >= room_speed - 1
+if image_index >= room_speed+(60-room_speed) - 1
 {
 measure += 1
 
