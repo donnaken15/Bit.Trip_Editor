@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--lol lok meh plist h4x0r1n9-->
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>YoYo70</string>
+	<key>CFBundleName</key>
+	<string>Bit . Trip Editor</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.dk15.bittrip</string>
+	<key>CFBundleIconFile</key>
+	<string>Icons/Beat.icns</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>YoYo</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.0.0</string>
+	<key>CFBundleVersion</key>
+	<string>0000</string>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>*</string>
+			</array>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>fold</string>
+				<string>disk</string>
+				<string>****</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>btb</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Icons/Beat</string>
+			<key>CFBundleTypeName</key>
+			<string>Bit . Trip Beat Level</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>btc</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Icons/Core</string>
+			<key>CFBundleTypeName</key>
+			<string>Bit . Trip Core Level</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>btv</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Icons/Void</string>
+			<key>CFBundleTypeName</key>
+			<string>Bit . Trip Void Level</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

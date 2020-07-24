@@ -1,6 +1,5 @@
-Thumbs.db
-ehthumbs.db
-ehthumbs_vista.db
+*Thumbs*.db
+*thumbs*.db
 Desktop.ini
 $RECYCLE.BIN/
 settings.ini
@@ -10,4 +9,6 @@ game_errors.log
 *.btv
 *.btr
 *.btf
-*.btx
+*.btz
+*.log
+.DS_Store
