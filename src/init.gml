@@ -100,8 +100,6 @@ music_scr,music_loop_scr,music_mega_scr,music_mega_loop_scr,music_play_scr,music
 get_code_scr,get_code_scr
 ;
 
-show_message("1")
-
 if !realtimesrc {
 file_text_read_all_scr =
 	execute_file(path_src+"scr/file_text_read_all.gml",path_src+"scr/file_text_read_all.gml")
