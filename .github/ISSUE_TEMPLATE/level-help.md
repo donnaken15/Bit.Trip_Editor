@@ -7,4 +7,4 @@ assignees: ''
 
 ---
 
-Describe what you want to your level to do, or if you did included such and it didn't work, submit it here.
+(This line may be deleted) Describe what you want to your level to do, or if you did include such and it didn't work, submit it here.
