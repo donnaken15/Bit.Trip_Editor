@@ -20,6 +20,15 @@ path_sfx = path_root+"sfx/"
 path_mus = path_root+"mus/"
 path_bin = path_root+"bin/"
 
+/*var bintest, bintest2;
+bintest = file_bin_open(path_src+"/scr/win.gml",0)
+bintest2 = ""
+file_bin_seek(bintest,0)
+for (bintest3 = 0; i < file_bin_size(bintest); i+=1)
+	//bintest2 += chr(file_bin_read_byte(bintest))
+	show_message(file_bin_read_byte(bintest))
+//show_message(bintest2)*/
+
 showscore = 1 showmodes = 1 showcombo = 1 showmulti = 1 showbars = 1 showpaddletext = 1 showpaddle = 1
 background_music_free=1
 lastmusicfile = ""
@@ -100,6 +109,9 @@ music_scr,music_loop_scr,music_mega_scr,music_mega_loop_scr,music_play_scr,music
 get_code_scr,get_code_scr
 ;
 
+if os_type = 2 realtimesrc = 0 // Enter something. my a**
+
+if os_type = os_windows {
 if !realtimesrc {
 file_text_read_all_scr =
 	execute_file(path_src+"scr/file_text_read_all.gml",path_src+"scr/file_text_read_all.gml")
@@ -131,7 +143,34 @@ music_loop_scr = get_code(path_src+"scr/music/hyper_loop.gml")
 music_mega_scr = get_code(path_src+"scr/music/mega.gml")
 music_mega_loop_scr = get_code(path_src+"scr/music/mega_loop.gml")
 music_play_scr = get_code(path_src+"scr/music/play.gml")
-music_stop_scr = get_code(path_src+"scr/music/stop.gml")
+music_stop_scr = get_code(path_src+"scr/music/stop.gml") }
+else {
+skip_scr = file_text_read_all(path_src+"scr/skip.gml")
+skiprel_scr = file_text_read_all(path_src+"scr/skiprel.gml")
+set_bg_color_scr = file_text_read_all(path_src+"scr/set_bg_color.gml")
+toggle_scr = file_text_read_all(path_src+"scr/toggle.gml")
+pause_scr = file_text_read_all(path_src+"scr/pause.gml")
+lose_scr = file_text_read_all(path_src+"scr/lose.gml")
+win_scr = file_text_read_all(path_src+"scr/win.gml")
+nosounds_scr = file_text_read_all(path_src+"scr/nosounds.gml")
+sounds_scr = file_text_read_all(path_src+"scr/sounds.gml")
+seconds_scr = file_text_read_all(path_src+"scr/seconds.gml")
+recursion_scr = file_text_read_all(path_src+"scr/recursion.gml")
+draw_rainbow_scr = file_text_read_all(path_src+"scr/draw_rainbow.gml")
+load_level_scr = file_text_read_all(path_src+"scr/load_level.gml")
+timeline_load_scr = file_text_read_all(path_src+"scr/timeline_load.gml")
+newline_scr = file_text_read_all(path_src+"scr/newline.gml")
+setup_game_scr = file_text_read_all(path_src+"scr/setup_game.gml")
+
+music_scr = file_text_read_all(path_src+"scr/music/hyper.gml")
+music_loop_scr = file_text_read_all(path_src+"scr/music/hyper_loop.gml")
+music_mega_scr = file_text_read_all(path_src+"scr/music/mega.gml")
+music_mega_loop_scr = file_text_read_all(path_src+"scr/music/mega_loop.gml")
+music_play_scr = file_text_read_all(path_src+"scr/music/play.gml")
+music_stop_scr = file_text_read_all(path_src+"scr/music/stop.gml")
+
+globalvar level;
+}
 
 // global objs
 {
@@ -162,6 +201,7 @@ music_stop_scr = get_code(path_src+"scr/music/stop.gml")
 	object_event_add(update_headsup,ev_draw,0,get_code(path_src+"global/updhu/draw.gml",0))
 }
 
+// why isnt this working
 //external_define('C:\Windows\system32\msvcrt.dll','_exit',dll_stdcall,ty_real,1,ty_real);
 //external_call("_exit",5)
 
@@ -182,8 +222,7 @@ if file_exists(parameter_string(1)) && parameter_string(1) != "-designer"
     file = parameter_string(1)
     if file != ""
     {
-        file_data = f_readfromfile(file)
-        file_data = f_gettext()
+        file_data = file_text_read_all(file)
         window_set_visible(true)
         if string_pos(".btb",file) != 0 {
 			setup_game(0)

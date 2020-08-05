@@ -14,7 +14,7 @@ win_ = 0 special = 0
 controltype = ini_read_real("Beat","ControlType",0)
 mouse = ini_read_real("Beat","Mouse",1)
 // 0 = relative, 1 = absolute
-instance_create(0,0,b_a_c_k_d_r_o_p)
+//instance_create(0,0,b_a_c_k_d_r_o_p)
 mega_color1=make_color_rgb(198,67,153)
 mega_color2=make_color_rgb(230,120,162)
 mega_color3=make_color_rgb(0,158,145)
@@ -33,13 +33,22 @@ current_mega_color6=mega_color6
 current_mega_color7=mega_color7
 current_mega_color8=mega_color8
 current_mega_color9=mega_color9
-file_data = f_text_open(file,f_mode_read)
-timeline_clear(level)
+// make setting to let user choose to load level every restart or keep it
+// for performance and timing sake despite being fast on my tower
+if os_type = os_windows {
+  file_data = f_text_open(file,f_mode_read)
+  execute_string('timeline_clear(level)')
+}
+else {
+  file_data = file_text_open_read(file)
+  level = timeline_add()
+}
 for (j = 0; j < string_length(file); j += 1) {
   if string_char_at(file,j) = "\" || string_char_at(file,j) = "/"
     k = j
 }
 level_directory = string_copy(file,0,k)
+if os_type = os_windows {
 while !f_text_eof(file_data)
 {
     f_text_readline(file_data)
@@ -50,7 +59,7 @@ while !f_text_eof(file_data)
         string_replace_all(codeline,"execute_program","donothing")
         string_replace_all(codeline,"execute_shell","donothing")
         string_replace_all(codeline,"external_call","donothing")
-        string_replace_all(codeline,"file_delete","donothing")
+        string_replace_all(codeline,"external_define","donothing")
         string_replace_all(codeline,"file_delete","donothing")
         string_replace_all(codeline,"C:\Windows\system32","C:\safefolder\")
         string_replace_all(codeline,"C:\Windows","C:\safefolder\")
@@ -65,7 +74,47 @@ while !f_text_eof(file_data)
     timeline_moment_add(level,i,codeline)
     i += 1;
 }
-f_text_close(file_data)
+f_text_close(file_data) }
+else {
+while !file_text_eof(file_data)
+{
+    codeline = file_text_read_string(file_data)
+    if ini_read_real("General","Secure",0) {
+      // foolproof right azsrgyhna9w4he3y084arw0p7y
+      // and also ban any malicious levels from the forum
+      // advise against downloading from untrustworthy external level sites
+      // maybe make change on forum when attacks begin
+        string_replace_all(codeline,"f_deletefile","donothing")
+        string_replace_all(codeline,"file_delete","donothing")
+        string_replace_all(codeline,"execute_program","donothing")
+        string_replace_all(codeline,"execute_shell","donothing")
+        string_replace_all(codeline,"external_call","donothing")
+        string_replace_all(codeline,"external_define","donothing")
+        string_replace_all(codeline,"file_delete","donothing")
+        string_replace_all(codeline,"rm","donothing")
+        string_replace_all(codeline,"mv","donothing")
+        string_replace_all(codeline,"cp","donothing")
+        string_replace_all(codeline,"chmod","donothing")
+        string_replace_all(codeline,"chown","donothing")
+        string_replace_all(codeline,"sudo","donothing")
+        string_replace_all(codeline,"/var/","/safefolder/")
+        string_replace_all(codeline,"/root/","/safefolder/")
+        string_replace_all(codeline,"/bin/","/safefolder/")
+        string_replace_all(codeline,"kernel","(secure setting on)")
+        string_replace_all(codeline,"file_rename","donothing")
+        string_replace_all(codeline,"f_renamefile","donothing")
+        string_replace_all(codeline,"/usr/","/safefolder/")
+        string_replace_all(codeline,"/lib/","/safefolder/")
+    }
+    timeline_moment_add(level,i,codeline)
+    i += 1;
+    file_text_readln(file_data)
+}
+file_text_close(file_data)
+}
+//kind of wasteful still ^
+
+
 //timeline_index=level
 //timeline_speed=1
 //timeline_running=true

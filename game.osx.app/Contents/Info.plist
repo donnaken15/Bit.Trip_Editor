@@ -2,7 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<!--lol lok meh plist h4x0r1n9-->
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -12,7 +11,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.dk15.bittrip</string>
 	<key>CFBundleIconFile</key>
-	<string>Icons/Beat.icns</string><!-- why no work >:( -->
+	<string>Game.icns</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -52,6 +51,14 @@
 			<string>Bit . Trip Beat Level</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.bte-beat</string>
+			</array>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>bittrip/beat</string>
+			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>

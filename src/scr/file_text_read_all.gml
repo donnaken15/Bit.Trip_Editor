@@ -1,4 +1,4 @@
-if os_type = os_windows
+if os_type = os_windows {
   if file_exists(argument0)
   {
     var f,s;
@@ -15,16 +15,20 @@ if os_type = os_windows
   }
   else
     show_error("File does not exist: "+argument0,false)
+}
 else
 {
   // maybe stick with this if it will work on both platforms
+  // for some reason yoyo wants to be nice to me now
   if file_exists(argument0)
   {
     var f,s;
     f = file_text_open_read(argument0)
+    s = ""
     while (!file_text_eof(f))
     {
-      s+=file_text_read_string(f)
+      s += file_text_read_string(f)
+      s += chr($D)
       file_text_readln(f)
     }
     file_text_close(f)

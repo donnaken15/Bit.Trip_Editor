@@ -8,8 +8,12 @@ switch (argument0)
 		object_event_add(paddle,ev_create,0,get_code(path_src+"beat/paddle/create.gml",0))
 		object_event_add(paddle,ev_step,0,get_code(path_src+"beat/paddle/step.gml",0))
 		object_event_add(paddle,ev_draw,0,get_code(path_src+"beat/paddle/draw.gml",0))
-		sprite_replace(glados,path_gfx+"glados.png",2,0,0,13,33)
-        room_goto(beat)
+		if os_type = os_windows
+			execute_string('sprite_replace(glados,path_gfx+"glados.png",2,0,0,13,33)')
+		else
+			sprite_replace(glados,path_gfx+"glados.png",2,0,0,0,0,13,33)
+		//sprite_load(glados,path_gfx+"glados.png",2,13,33)
+    room_goto(beat)
 		break
 	case 1:
 		globalvar core_beat_scr,core_hit_scr,core_miss_scr,core_beam_scr;
@@ -20,8 +24,11 @@ switch (argument0)
 		//object_event_add(plus,ev_create,0,get_code(path_src+"core/plus/create.gml"))
 		object_event_add(plus,ev_step,0,get_code(path_src+"core/plus/step.gml",0))
 		object_event_add(plus,ev_draw,0,get_code(path_src+"core/plus/draw.gml",0))
-		sprite_replace(rainbow,path_gfx+"rainbow.png",2,0,0,13,33)
-        room_goto(core)
+		if os_type = os_windows
+			execute_string('sprite_replace(rainbow,path_gfx+"rainbow.png",2,0,0,13,33)')
+		else
+			sprite_replace(rainbow,path_gfx+"rainbow.png",2,0,0,0,0,13,33)
+    room_goto(core)
 		break
 	case 2:
 		break
@@ -39,7 +46,10 @@ switch (argument0)
 		object_event_add(leveleditor_beat,ev_draw,0,get_code(path_src+"designer/leveleditor/beat.gml",0))
 		//object_event_add(designer_ctrl,ev_room_start,0,get_code(path_src+"designer/ctrl/room_start.gml"))
 		//object_event_add(designer_ctrl,ev_room_end,0,get_code(path_src+"designer/ctrl/room_end.gml"))
-		sprite_replace(form_icons,path_gfx+"form_icons.png",27,0,0,0,0)
+		if os_type = os_windows
+			execute_string('sprite_replace(form_icons,path_gfx+"form_icons.png",27,0,0,0,0)')
+		else
+			sprite_replace(form_icons,path_gfx+"form_icons.png",27,0,0,0,0,0,0)
 		globalvar draw_window_scr,mouse_rectangle_scr,string_onedecimal_scr,show_menu_ext_scr,
 		textbox_draw_scr,textbox_create_scr,designerprotection_scr,designer_beat_create_scr,
 		get_scrollbarvalue_scr,scrollbar_create_scr,scrollbar_draw_scr;
