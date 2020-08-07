@@ -28,6 +28,15 @@
 [9999999](https://www.mediafire.com/file/ffd6sny948gyeyo/) - donnaken15<br/>
 [Descent Demo](https://drive.google.com/uc?id=1AN-estUjS2RrBpZci0gJW4Uij2Yavim5) (test replicating the original level)
 
+## Progress:
+![](https://progress-bar.dev/065?width=200&title=%E2%80%86Beat) &nbsp;-- [Project](https://github.com/donnaken15/Bit.Trip_Editor/projects/1)<br/>
+![](https://progress-bar.dev/042?width=200&title=%E2%80%86Core) &nbsp;-- [Project](https://github.com/donnaken15/Bit.Trip_Editor/projects/3)<br/>
+![](https://progress-bar.dev/000?width=200&title=%E2%80%86Void) &nbsp;-- [Project](https://github.com/donnaken15/Bit.Trip_Editor/projects/4)<br/>
+![](https://progress-bar.dev/000?width=188&title=%E2%80%86Runner) &nbsp;-- [Project](https://github.com/donnaken15/Bit.Trip_Editor/projects/5)<br/>
+![](https://progress-bar.dev/000?width=200&title=%E2%80%86Fate) &nbsp;-- [Project](https://github.com/donnaken15/Bit.Trip_Editor/projects/6)<br/>
+![](https://progress-bar.dev/000?width=200&title=%E2%80%86Flux) &nbsp;-- [Project](https://github.com/donnaken15/Bit.Trip_Editor/projects/7)<br/>
+![](https://progress-bar.dev/021?width=176&title=%E2%80%86Designer) &nbsp;-- [Project](https://github.com/donnaken15/Bit.Trip_Editor/projects/2)
+
 ## Credits:
 Developed by donnaken15<br/>
 Original game by Choice Provisions
