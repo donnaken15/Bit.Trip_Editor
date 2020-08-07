@@ -1,4 +1,4 @@
-![](https://i.ibb.co/KFnG4Dm/bit-triptest.png)
+![](https://i.ibb.co/KFnG4Dm/bit-triptest.png)<br/>
 <!--link rel="shortcut icon" type="image/x-icon" href="https://storage.proboards.com/6944403/images/LCsrUrxjAmLwpmZiPHef.ico"/-->
 <!--![](https://img.shields.io/github/commit-activity/m/donnaken15/Bit.Trip_Editor)-->
 ![](https://img.shields.io/github/v/tag/donnaken15/Bit.Trip_Editor)
