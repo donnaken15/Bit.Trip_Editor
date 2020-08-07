@@ -1,6 +1,6 @@
 ![](https://i.ibb.co/KFnG4Dm/bit-triptest.png)
 
-![](https://img.shields.io/github/commit-activity/y/donnaken15/Bit.Trip_Editor)
+![](https://img.shields.io/github/commit-activity/m/donnaken15/Bit.Trip_Editor)
 ![](https://img.shields.io/github/v/tag/donnaken15/Bit.Trip_Editor)
 ![](https://img.shields.io/badge/Made%20with-GameMaker%208-1f425f)
 ![](https://img.shields.io/discord/447122379265802240)<br/>
