@@ -5,7 +5,7 @@ soundtype, stepcode, drawcode, nowin, KBsensitivity, windows,
 winid, designer_mode, init, updateout, rainbow_index, rainbow_speed,
 showscore, showmodes, showcombo, showmulti, showbars, showpaddletext, showpaddle,
 showparticles, background_music_free, try, /*Discord_Initialize,*/ lastgame, lastmusicfile, enablesounds,
-realtimesrc,
+realtimesrc, loadonce,
 path_root,path_src,
 path_gfx,path_sfx,
 path_mus,path_bin
@@ -63,105 +63,12 @@ KBsensitivity = ini_read_real("Beat","KBsensitivity",0)
 execute_string(ini_read_string("General","Autoexec",""))
 //display_reset(ini_read_real("General","Antialiasing",0))
 window_set_region_scale(ini_read_real("General","Scale",-0.01),true)
-window_center()
 window_set_fullscreen(ini_read_real("General","Fullscreen",0))
 set_synchronization(ini_read_real("General","Verticalsync",0))
 window_set_region_size(ini_read_real("General","Width",1280),ini_read_real("General","Height",720),true)
 realtimesrc = ini_read_real("General","RealtimeSrc",0)
-
-/*registry_set_root(2)
-if registry_read_string("\.btb") != 'BitTripEditor.Beat'//if !registry_exists("\.btb")
-execute_shell("reg",'add HKCR\.btb /ve /d BitTripEditor.Beat /f')
-if registry_read_string("\.btc") != 'BitTripEditor.Core'//if !registry_exists("\.btc")
-execute_shell("reg",'add HKCR\.btc /ve /d BitTripEditor.Core /f')
-if registry_read_string("\.btv") != 'BitTripEditor.Void'//if !registry_exists("\.btv")
-execute_shell("reg",'add HKCR\.btv /ve /d BitTripEditor.Void /f')
-if registry_read_string("\.btr") != 'BitTripEditor.Runner'//if !registry_exists("\.btr")
-execute_shell("reg",'add HKCR\.btr /ve /d BitTripEditor.Runner /f')
-if registry_read_string("\.btf") != 'BitTripEditor.Fate'//if !registry_exists("\.btf")
-execute_shell("reg",'add HKCR\.btf /ve /d BitTripEditor.Fate /f')
-if registry_read_string("\.btz") != 'BitTripEditor.Flux'//if !registry_exists("\.btx")
-execute_shell("reg",'add HKCR\.btx /ve /d BitTripEditor.Flux /f')
-if registry_read_string("\BitTripEditor.Beat") != 'Bit . Trip Beat Level'//if !registry_exists("\BitTripEditor.Beat")
-execute_shell("reg",'add HKCR\BitTripEditor.Beat /ve /d "Bit . Trip Beat Level" /f')
-if registry_read_string("\BitTripEditor.Core") != 'Bit . Trip Core Level'//if !registry_exists("\BitTripEditor.Core")
-execute_shell("reg",'add HKCR\BitTripEditor.Core /ve /d "Bit . Trip Core Level" /f')
-if registry_read_string("\BitTripEditor.Void") != 'Bit . Trip Void Level'//if !registry_exists("\BitTripEditor.Void")
-execute_shell("reg",'add HKCR\BitTripEditor.Void /ve /d "Bit . Trip Void Level" /f')
-if registry_read_string("\BitTripEditor.Runner") != 'Bit . Trip Runner Level'//if !registry_exists("\BitTripEditor.Runner")
-execute_shell("reg",'add HKCR\BitTripEditor.Runner /ve /d "Bit . Trip Runner Level" /f')
-if registry_read_string("\BitTripEditor.Fate") != 'Bit . Trip Fate Level'//if !registry_exists("\BitTripEditor.Fate")
-execute_shell("reg",'add HKCR\BitTripEditor.Fate /ve /d "Bit . Trip Fate Level" /f')
-if registry_read_string("\BitTripEditor.Flux") != 'Bit . Trip Flux Level'//if !registry_exists("\BitTripEditor.Flux")
-execute_shell("reg",'add HKCR\BitTripEditor.Flux /ve /d "Bit . Trip Flux Level" /f')
-if registry_read_string("\BitTripEditor.Beat\DefaultIcon") != path_root+'\icons.dll,0'//if !registry_exists("\BitTripEditor.Beat\DefaultIcon")
-execute_shell("reg",'add HKCR\BitTripEditor.Beat\DefaultIcon /ve /d "'+path_root+'\icons.dll,0" /f')
-if registry_read_string("\BitTripEditor.Core\DefaultIcon") != path_root+'\icons.dll,1'//if !registry_exists("\BitTripEditor.Core\DefaultIcon")
-execute_shell("reg",'add HKCR\BitTripEditor.Core\DefaultIcon /ve /d "'+path_root+'\icons.dll,1" /f')
-if registry_read_string("\BitTripEditor.Void\DefaultIcon") != path_root+'\icons.dll,2'//if !registry_exists("\BitTripEditor.Void\DefaultIcon")
-execute_shell("reg",'add HKCR\BitTripEditor.Void\DefaultIcon /ve /d "'+path_root+'\icons.dll,2" /f')
-if registry_read_string("\BitTripEditor.Runner\DefaultIcon") != path_root+'\icons.dll,3'//if !registry_exists("\BitTripEditor.Runner\DefaultIcon")
-execute_shell("reg",'add HKCR\BitTripEditor.Runner\DefaultIcon /ve /d "'+path_root+'\icons.dll,3" /f')
-if registry_read_string("\BitTripEditor.Fate\DefaultIcon") != path_root+'\icons.dll,4'//if !registry_exists("\BitTripEditor.Fate\DefaultIcon")
-execute_shell("reg",'add HKCR\BitTripEditor.Fate\DefaultIcon /ve /d "'+path_root+'\icons.dll,4" /f')
-if registry_read_string("\BitTripEditor.Flux\DefaultIcon") != path_root+'\icons.dll,5'//if !registry_exists("\BitTripEditor.Flux\DefaultIcon")
-execute_shell("reg",'add HKCR\BitTripEditor.Flux\DefaultIcon /ve /d "'+path_root+'\icons.dll,5" /f')
-if registry_read_string("\BitTripEditor.Beat\shell\edit\command") != 'BitTripEditor.Beat'//if !registry_exists("\BitTripEditor.Beat\shell\edit\command")
-execute_shell("reg",'add HKCR\BitTripEditor.Beat\shell\edit\command /ve /d "\"C:\Windows\System32\notepad.exe\" \"%1\"" /f')
-if registry_read_string("\BitTripEditor.Core\shell\edit\command") != 'BitTripEditor.Core'//if !registry_exists("\BitTripEditor.Core\shell\edit\command")
-execute_shell("reg",'add HKCR\BitTripEditor.Core\shell\edit\command /ve /d "\"C:\Windows\System32\notepad.exe\" \"%1\"" /f')
-if registry_read_string("\BitTripEditor.Void\shell\edit\command") != 'BitTripEditor.Void'//if !registry_exists("\BitTripEditor.Void\shell\edit\command")
-execute_shell("reg",'add HKCR\BitTripEditor.Void\shell\edit\command /ve /d "\"C:\Windows\System32\notepad.exe\" \"%1\"" /f')
-if registry_read_string("\BitTripEditor.Runner\shell\edit\command") != 'BitTripEditor.Runner'//if !registry_exists("\BitTripEditor.Runner\shell\edit\command")
-execute_shell("reg",'add HKCR\BitTripEditor.Runner\shell\edit\command /ve /d "\"C:\Windows\System32\notepad.exe\" \"%1\"" /f')
-if registry_read_string("\BitTripEditor.Fate\shell\edit\command") != 'BitTripEditor.Fate'//if !registry_exists("\BitTripEditor.Fate\shell\edit\command")
-execute_shell("reg",'add HKCR\BitTripEditor.Fate\shell\edit\command /ve /d "\"C:\Windows\System32\notepad.exe\" \"%1\"" /f')
-if registry_read_string("\BitTripEditor.Flux\shell\edit\command") != 'BitTripEditor.Flux'//if !registry_exists("\BitTripEditor.Flux\shell\edit\command")
-execute_shell("reg",'add HKCR\BitTripEditor.Flux\shell\edit\command /ve /d "\"C:\Windows\System32\notepad.exe\" \"%1\"" /f')
-//if /*!registry_exists("\BitTripEditor.Beat\shell\edit\command") || *///registry_read_string("\BitTripEditor.Beat\shell\open\command") != '"'+program_directory+'\GAME.EXE" "%1\"'
-//execute_shell("reg",'add HKCR\BitTripEditor.Beat\shell\open\command /ve /d "\"'+path_root+'\GAME.EXE\" \"%1\"" /f')
-//if /*!registry_exists("\BitTripEditor.Core\shell\edit\command") || */registry_read_string("\BitTripEditor.Core\shell\open\command") != '"'+program_directory+'\GAME.EXE" "%1\"'
-//execute_shell("reg",'add HKCR\BitTripEditor.Core\shell\open\command /ve /d "\"'+path_root+'\GAME.EXE\" \"%1\"" /f')
-//if /*!registry_exists("\BitTripEditor.Void\shell\edit\command") || */registry_read_string("\BitTripEditor.Void\shell\open\command") != '"'+program_directory+'\GAME.EXE" "%1\"'
-//execute_shell("reg",'add HKCR\BitTripEditor.Void\shell\open\command /ve /d "\"'+path_root+'\GAME.EXE\" \"%1\"" /f')
-//if /*!registry_exists("\BitTripEditor.Runner\shell\edit\command") || */registry_read_string("\BitTripEditor.Runner\shell\open\command") != '"'+program_directory+'\GAME.EXE" "%1\"'
-//execute_shell("reg",'add HKCR\BitTripEditor.Runner\shell\open\command /ve /d "\"'+path_root+'\GAME.EXE\" \"%1\"" /f')
-//if /*!registry_exists("\BitTripEditor.Fate\shell\edit\command") || */registry_read_string("\BitTripEditor.Fate\shell\open\command") != '"'+program_directory+'\GAME.EXE" "%1\"'
-//execute_shell("reg",'add HKCR\BitTripEditor.Fate\shell\open\command /ve /d "\"'+path_root+'\GAME.EXE\" \"%1\"" /f')
-//if /*!registry_exists("\BitTripEditor.Flux\shell\edit\command") || */registry_read_string("\BitTripEditor.Flux\shell\open\command") != '"'+program_directory+'\GAME.EXE" "%1\"'
-//execute_shell("reg",'add HKCR\BitTripEditor.Flux\shell\open\command /ve /d "\"'+path_root+'\GAME.EXE\" \"%1\"" /f')
-
-/*registry_set_root(2)
-registry_write_string("\.btb","BitTripEditor.Beat")
-registry_write_string("\.btc","BitTripEditor.Core")
-registry_write_string("\.btv","BitTripEditor.Void")
-registry_write_string("\.btr","BitTripEditor.Runner")
-registry_write_string("\.btf","BitTripEditor.Fate")
-registry_write_string("\.btz","BitTripEditor.Flux")
-registry_write_string("\BitTripEditor.Beat","Bit . Trip Beat Level")
-registry_write_string("\BitTripEditor.Beat\DefaultIcon",'"E:\Bit . Trip Editor\icons.dll,0"')
-registry_write_string("\BitTripEditor.Beat\shell\edit\command",'"C:\Windows\System32\notepad.exe" "%1"')
-registry_write_string("\BitTripEditor.Beat\shell\open\command",'"'+path_root+'\GAME.EXE" "%1"')
-registry_write_string("\BitTripEditor.Core","Bit . Trip Core Level")
-registry_write_string("\BitTripEditor.Core\DefaultIcon",'"E:\Bit . Trip Editor\icons.dll,1"')
-registry_write_string("\BitTripEditor.Core\shell\edit\command",'"C:\Windows\System32\notepad.exe" "%1"')
-registry_write_string("\BitTripEditor.Core\shell\open\command",'"'+path_root+'\GAME.EXE" "%1"')
-registry_write_string("\BitTripEditor.Void","Bit . Trip Void Level")
-registry_write_string("\BitTripEditor.Void\DefaultIcon",'"E:\Bit . Trip Editor\icons.dll,2"')
-registry_write_string("\BitTripEditor.Void\shell\edit\command",'"C:\Windows\System32\notepad.exe" "%1"')
-registry_write_string("\BitTripEditor.Void\shell\open\command",'"'+path_root+'\GAME.EXE" "%1"')
-registry_write_string("\BitTripEditor.Runner","Bit . Trip Runner Level")
-registry_write_string("\BitTripEditor.Runner\DefaultIcon",'"E:\Bit . Trip Editor\icons.dll,3"')
-registry_write_string("\BitTripEditor.Runner\shell\edit\command",'"C:\Windows\System32\notepad.exe" "%1"')
-registry_write_string("\BitTripEditor.Runner\shell\open\command",'"'+path_root+'\GAME.EXE" "%1"')
-registry_write_string("\BitTripEditor.Fate","Bit . Trip Fate Level")
-registry_write_string("\BitTripEditor.Fate\DefaultIcon",'"E:\Bit . Trip Editor\icons.dll,4"')
-registry_write_string("\BitTripEditor.Fate\shell\edit\command",'"C:\Windows\System32\notepad.exe" "%1"')
-registry_write_string("\BitTripEditor.Fate\shell\open\command",'"'+path_root+'\GAME.EXE" "%1"')
-registry_write_string("\BitTripEditor.Flux","Bit . Trip Flux Level")
-registry_write_string("\BitTripEditor.Flux\DefaultIcon",'"E:\Bit . Trip Editor\icons.dll,5"')
-registry_write_string("\BitTripEditor.Flux\shell\edit\command",'"C:\Windows\System32\notepad.exe" "%1"')
-registry_write_string("\BitTripEditor.Flux\shell\open\command",'"'+path_root+'\GAME.EXE" "%1"')*/
+loadonce = ini_read_real("General","LoadOnce",1)
+window_center()
 
 combo = 0
 multi = 1
@@ -169,7 +76,6 @@ mode = 1
 score = 0
 set_application_title("BIT . TRIP EDITOR")
 set_automatic_draw(true)
-
 
 globalvar skip_scr,skiprel_scr,set_bg_color_scr,toggle_scr,pause_scr,
 lose_scr,win_scr,nosounds_scr,sounds_scr,recursion_scr,draw_rainbow_scr,
@@ -247,13 +153,11 @@ if parameter_count() = 0
 {
     if !load_level()
         game_end()
-    else
+    else {
         window_set_visible(true)
+		exit
+	}
 }
-
-timeline_index=0
-timeline_speed=0
-timeline_running=false
 
 if file_exists(parameter_string(1)) && parameter_string(1) != "-designer"
 {

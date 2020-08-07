@@ -33,6 +33,7 @@ current_mega_color6=mega_color6
 current_mega_color7=mega_color7
 current_mega_color8=mega_color8
 current_mega_color9=mega_color9
+if loadonce < 2 {
 file_data = f_text_open(file,f_mode_read)
 timeline_clear(level)
 for (j = 0; j < string_length(file); j += 1) {
@@ -65,55 +66,8 @@ while !f_text_eof(file_data)
     timeline_moment_add(level,i,codeline)
     i += 1;
 }
-f_text_close(file_data)
-//timeline_index=level
-//timeline_speed=1
-//timeline_running=true
+if loadonce = 1 loadonce = 2
+f_text_close(file_data) }
 instance_create(69,mouse_y,paddle)
-/*if init=0{snd_beat_death = caster_load("Beat\Sounds\Effects\NetherSphere\PaddleDeath.ogg")}
-snd_beat_miss = caster_load("Beat\Sounds\Effects\Level1\BeatMiss.ogg")
-snd_beat_nether = caster_load("Beat\Sounds\Effects\NetherSphere\N_PaddleImpact1.ogg")
-snd_beat_lvl1_h_hit1 = caster_load("Beat\Sounds\Effects\Level1\H_PaddleImpact1.ogg")
-snd_beat_lvl1_h_hit2 = caster_load("Beat\Sounds\Effects\Level1\H_PaddleImpact2.ogg")
-snd_beat_lvl1_h_hit3 = caster_load("Beat\Sounds\Effects\Level1\H_PaddleImpact3.ogg")
-snd_beat_lvl1_h_hit4 = caster_load("Beat\Sounds\Effects\Level1\H_PaddleImpact4.ogg")
-snd_beat_lvl1_h_hit5 = caster_load("Beat\Sounds\Effects\Level1\H_PaddleImpact5.ogg")
-snd_beat_lvl1_m_hit1 = caster_load("Beat\Sounds\Effects\Level1\M_PaddleImpact1.ogg")
-snd_beat_lvl1_m_hit2 = caster_load("Beat\Sounds\Effects\Level1\M_PaddleImpact2.ogg")
-snd_beat_lvl1_m_hit3 = caster_load("Beat\Sounds\Effects\Level1\M_PaddleImpact3.ogg")
-snd_beat_lvl1_m_hit4 = caster_load("Beat\Sounds\Effects\Level1\M_PaddleImpact4.ogg")
-snd_beat_lvl2_h_hit1 = caster_load("Beat\Sounds\Effects\Level2\L2H_PaddleImpact1.ogg")
-snd_beat_lvl2_h_hit2 = caster_load("Beat\Sounds\Effects\Level2\L2H_PaddleImpact2.ogg")
-snd_beat_lvl2_h_hit3 = caster_load("Beat\Sounds\Effects\Level2\L2H_PaddleImpact3.ogg")
-snd_beat_lvl2_h_hit4 = caster_load("Beat\Sounds\Effects\Level2\L2H_PaddleImpact4.ogg")
-snd_beat_lvl2_m_hit1 = caster_load("Beat\Sounds\Effects\Level2\L2M_PaddleImpact1.ogg")
-snd_beat_lvl2_m_hit2 = caster_load("Beat\Sounds\Effects\Level2\L2M_PaddleImpact2.ogg")
-snd_beat_lvl2_m_hit3 = caster_load("Beat\Sounds\Effects\Level2\L2M_PaddleImpact3.ogg")
-snd_beat_lvl2_m_hit4 = caster_load("Beat\Sounds\Effects\Level2\L2M_PaddleImpact4.ogg")
-snd_beat_lvl3_h_hit1 = caster_load("Beat\Sounds\Effects\Level3\L3H_PaddleImpact1.ogg")
-snd_beat_lvl3_h_hit2 = caster_load("Beat\Sounds\Effects\Level3\L3H_PaddleImpact2.ogg")
-snd_beat_lvl3_h_hit3 = caster_load("Beat\Sounds\Effects\Level3\L3H_PaddleImpact3.ogg")
-snd_beat_lvl3_h_hit4 = caster_load("Beat\Sounds\Effects\Level3\L3H_PaddleImpact4.ogg")
-snd_beat_lvl3_m_hit1 = caster_load("Beat\Sounds\Effects\Level3\L3M_PaddleImpact1.ogg")
-snd_beat_lvl3_m_hit2 = caster_load("Beat\Sounds\Effects\Level3\L3M_PaddleImpact2.ogg")
-snd_beat_lvl3_m_hit3 = caster_load("Beat\Sounds\Effects\Level3\L3M_PaddleImpact3.ogg")
-snd_beat_lvl3_m_hit4 = caster_load("Beat\Sounds\Effects\Level3\L3M_PaddleImpact4.ogg")
-snd_beat_lvl1_d_hit1 = caster_load("Beat\Sounds\Effects\Level1\H_BeatDeath1.ogg")
-snd_beat_lvl1_d_hit2 = caster_load("Beat\Sounds\Effects\Level1\H_BeatDeath2.ogg")
-snd_beat_lvl1_d_hit3 = caster_load("Beat\Sounds\Effects\Level1\H_BeatDeath3.ogg")
-snd_beat_lvl1_d_hit4 = caster_load("Beat\Sounds\Effects\Level1\H_BeatDeath4.ogg")
-snd_beat_lvl2_d_hit1 = caster_load("Beat\Sounds\Effects\Level2\L2H_BeatDeath1.ogg")
-snd_beat_lvl2_d_hit2 = caster_load("Beat\Sounds\Effects\Level2\L2H_BeatDeath2.ogg")
-snd_beat_lvl2_d_hit3 = caster_load("Beat\Sounds\Effects\Level2\L2H_BeatDeath3.ogg")
-snd_beat_lvl2_d_hit4 = caster_load("Beat\Sounds\Effects\Level2\L2H_BeatDeath4.ogg")
-snd_beat_lvl3_d_hit1 = caster_load("Beat\Sounds\Effects\Level3\L3H_BeatDeath1.ogg")
-snd_beat_lvl3_d_hit2 = caster_load("Beat\Sounds\Effects\Level3\L3H_BeatDeath2.ogg")
-snd_beat_lvl3_d_hit3 = caster_load("Beat\Sounds\Effects\Level3\L3H_BeatDeath3.ogg")
-snd_beat_lvl3_d_hit4 = caster_load("Beat\Sounds\Effects\Level3\L3H_BeatDeath4.ogg")
-snd_beat_lvl2_d2_hit1 = caster_load("Beat\Sounds\Effects\Level2\L2M_BeatDeath1.ogg")
-snd_beat_lvl2_d2_hit2 = caster_load("Beat\Sounds\Effects\Level2\L2M_BeatDeath2.ogg")
-snd_beat_lvl2_d2_hit3 = caster_load("Beat\Sounds\Effects\Level2\L2M_BeatDeath3.ogg")
-snd_beat_lvl2_d2_hit4 = caster_load("Beat\Sounds\Effects\Level2\L2M_BeatDeath4.ogg")
-*/
 try+=1
  // hyper+ = 80 multi+ = 14 mega- = 5 hyper- 14 nether- = 11 nether+ = 20
