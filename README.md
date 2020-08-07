@@ -5,7 +5,7 @@
 ![](https://img.shields.io/badge/Made%20with-GameMaker%208-1f425f)
 ![](https://img.shields.io/discord/447122379265802240)<br/>
 ![](https://badges.frapsoft.com/os/v2/open-source.png?v=103)
-![](https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-blue.svg)
+![](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-blue.svg)
 ![](https://img.shields.io/github/languages/code-size/donnaken15/Bit.Trip_Editor)
 ![](https://img.shields.io/github/last-commit/donnaken15/Bit.Trip_Editor)
 [![](https://img.shields.io/twitter/url?style=social&url=http%3A%2F%2Fbittripeditor.boards.net)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdonnaken15%2FBit.Trip_Editor)<br/>
