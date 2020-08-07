@@ -12,15 +12,14 @@
 ![](https://img.shields.io/github/downloads/donnaken15/Bit.Trip_Editor/installer/total)
 ![](https://img.shields.io/badge/platform-windows-lightgrey)<!--%20|%20macos--><!--[![HitCount](http://hits.dwyl.com/donnaken15/Bit.Trip_Editor.svg)](http://hits.dwyl.com/donnaken15/BitTrip_editor)-->
 # Customize your pixelated rhythmic hype<br/>experience with a faithful level engine!
-​
 ## Downloads:
 [Online Installer](https://github.com/donnaken15/Bit.Trip_Editor/releases/download/installer/setup.exe) (recommended)<br/>
 [Online Dowloader](https://github.com/donnaken15/Bit.Trip_Editor/releases/download/online-dl/onlinedl.7z)<br/>
 [Portable Download](https://github.com/donnaken15/Bit.Trip_Editor/archive/master.zip)<br/>
 
-## Screenshots​:
+## Screenshots:
 ![](https://i.ibb.co/0r7y1gH/scrtest2.png)
-​![](https://i.ibb.co/7tZLXBH/scrtest1.png)<br/>
+![](https://i.ibb.co/7tZLXBH/scrtest1.png)<br/>
 ![](https://i.ibb.co/0FV4q6m/scrtest3.png)
 <img src=https://i.ibb.co/B6dRS84/image.png width="320">
 
