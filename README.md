@@ -15,7 +15,9 @@
 ## Downloads:
 [Online Installer](https://github.com/donnaken15/Bit.Trip_Editor/releases/download/installer/setup.exe) (recommended)<br/>
 [Online Dowloader](https://github.com/donnaken15/Bit.Trip_Editor/releases/download/online-dl/onlinedl.7z)<br/>
-[Portable Download](https://github.com/donnaken15/Bit.Trip_Editor/archive/master.zip)<br/>
+[Portable Download](https://github.com/donnaken15/Bit.Trip_Editor/archive/master.zip)
+
+[Previous Updates](https://github.com/donnaken15/Bit.Trip_Editor/tags)
 
 ## Screenshots:
 ![](https://i.ibb.co/0r7y1gH/scrtest2.png)
