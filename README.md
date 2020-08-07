@@ -1,5 +1,5 @@
 ![](https://i.ibb.co/KFnG4Dm/bit-triptest.png)
-
+<link rel="shortcut icon" type="image/x-icon" href="https://storage.proboards.com/6944403/images/LCsrUrxjAmLwpmZiPHef.ico">
 <!--![](https://img.shields.io/github/commit-activity/m/donnaken15/Bit.Trip_Editor)-->
 ![](https://img.shields.io/github/v/tag/donnaken15/Bit.Trip_Editor)
 ![](https://img.shields.io/badge/Made%20with-GameMaker%208-1f425f)
