@@ -14,7 +14,7 @@
 # Customize your pixelated rhythmic hype<br/>experience with a faithful level engine!
 ## Downloads:
 [Online Installer](https://github.com/donnaken15/Bit.Trip_Editor/releases/download/installer/install.exe) (recommended)<br/>
-[Online Dowloader](https://github.com/donnaken15/Bit.Trip_Editor/releases/download/online-dl/onlinedl.7z)<br/>
+[Online Dowloader](https://github.com/donnaken15/Bit.Trip_Editor/releases/download/online-dl/online-dl.zip)<br/>
 [Portable Download](https://github.com/donnaken15/Bit.Trip_Editor/archive/master.zip)
 
 [Previous Updates](https://github.com/donnaken15/Bit.Trip_Editor/tags)
