@@ -10,7 +10,7 @@
 ![](https://img.shields.io/badge/Open%20Source-%E2%99%A5-00b788)<!--https://i.ibb.co/k99mssc/osrc.png--><!--https://badges.frapsoft.com/os/v2/open-source.png?v=103-->
 ![](https://img.shields.io/github/downloads/donnaken15/Bit.Trip_Editor/total)
 ![](https://img.shields.io/badge/platform-windows-lightgrey)<!--%20|%20macos--><!--[![HitCount](http://hits.dwyl.com/donnaken15/Bit.Trip_Editor.svg)](http://hits.dwyl.com/donnaken15/BitTrip_editor)><br/-->
-[![](https://img.shields.io/twitter/url?style=social&url=http%3A%2F%2Fbittripeditor.boards.net)](https://twitter.com/intent/tweet?text=This project is so cool!:&url=https%3A%2F%2Fgithub.com%2Fdonnaken15%2FBit.Trip_Editor)
+[![](https://img.shields.io/twitter/url?style=social&url=http%3A%2F%2Fbittripeditor.boards.net)](https://twitter.com/intent/tweet?text=This%20project%20is%20so%20cool!:&url=https%3A%2F%2Fgithub.com%2Fdonnaken15%2FBit.Trip_Editor)
 # Customize your pixelated rhythmic hype<br/>experience with a faithful level engine!
 ## Downloads:
 [Online Installer](https://github.com/donnaken15/Bit.Trip_Editor/releases/download/installer/install.exe) (recommended)<br/>
