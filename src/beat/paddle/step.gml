@@ -72,7 +72,7 @@ if keyboard_check_pressed(219) {
 if mode = 1 {
    mode = 0
    caster_play(snd_mode_down,1,1)
-   paddle.alarm[11]=1
+   //paddle.alarm[11]=1
    mega_multi = 0
    mega_lose = 0
    exit
@@ -81,7 +81,7 @@ if mode = 1 {
 if mode = 2 {
    mode = 1
    caster_play(snd_mode_down,1,1)
-   paddle.alarm[10]=1
+   //paddle.alarm[10]=1
    hyper_up = 0
    hyper_lose = 0
    multi=1
@@ -101,19 +101,24 @@ if mode = 2 {
 }
 if mode = 1 {
    caster_play(snd_mode_up,1,1)
-   paddle.alarm[0]=1
+   //alarm[0]=1
    mode = 2
    mega_multi=0
    mega_lose=0
 }
 if mode = 0 {
    caster_play(snd_mode_up,1,1)
-   paddle.alarm[12]=1
+   //alarm[11]=1
    mode = 1
    hyper_up=0
    hyper_lose=0
 }
 }
+
+if (mode = 0 && mode_animation > -720) mode_animation -= 48
+if (mode = 1 && mode_animation < 0) mode_animation += 48
+if (mode = 1 && mode_animation > 0) mode_animation -= 48
+if (mode = 2 && mode_animation < 720) mode_animation += 48	
 
 if special = 0
   sprite_index = paddle_coll
@@ -149,5 +154,57 @@ if win_>0 {win_+=1}
 
 if win_>120 {room_goto(finalscore)}
 
-execute_string(stepcode)
+for (i=1;i<10;i+=1)
+current_mega_colors[i] = mega_colors[(floor(timeline_position/room_speed)+i) mod 9+1]
+
+//for (i=0;i<12;i+=1)
+//{
+	//if alarm[i]=-1 execute_file(path_src+"beat/paddle/alarms/"+string(i)+".gml") // maybe figure out !realtimesrc or whatever for this
+//}
+// why arent alarms working here
+// alarms apparently werent moving while watching the variables
+
+// figure out keyboard events and others
+
+// vague af programmatic practices >:(
+
+if keyboard_check(ord('8')) tempvar+=1
+if keyboard_check_released(ord('8')) { beat_beat(8,mouse_y,10,0,tempvar) tempvar=0 }
+
+if keyboard_check_pressed(vk_enter) {
+message_size(290,64)
+message_position(window_get_x()+(window_get_width()/2.5),window_get_y()+(window_get_height()/2.125))
+caster_pause(background_music)caster_pause(mega_music)
+if enablesounds=1 caster_play(snd_pause,1,1)
+switch show_message_ext("","Continue","Restart","Quit")
+{
+    case 1: if enablesounds=1 caster_play(snd_unpause,1,1) caster_resume(background_music) caster_resume(mega_music) break
+    case 2: music_stop() caster_set_volume(background_music,0) room_restart() break
+    case 3: game_end() break
+}
+}
+
+if keyboard_check_pressed(ord('1')) beat_beat(0,mouse_y,10,0)
+if keyboard_check_pressed(ord('2')) beat_beat(1,mouse_y,10,0,random_range(0,5),random_range(-5,5))
+if keyboard_check_pressed(ord('6')) beat_beat(6,mouse_y,10,0,random_range(10,50),mouse_y)
+if keyboard_check_pressed(ord('B')) bot=!bot
+if keyboard_check_pressed(ord('C')) bgcolor=get_color(0)
+if keyboard_check_pressed(ord('D')) difficulty=!difficulty
+if keyboard_check_pressed(ord('M')) mouse=!mouse
+if keyboard_check_pressed(ord('N')) nofail=!nofail
+if keyboard_check_pressed(ord('R')) {music_stop()timeline_running=true;paused=false;room_restart()}
+if keyboard_check_pressed(ord('S')) if soundtype<2{soundtype+=1}else{soundtype=0}
+if keyboard_check_pressed(ord('T')) test=!test
+if keyboard_check_pressed(ord('W')) nowin=!nowin
+if keyboard_check_pressed(vk_f7) {message_size(320,120)
+execute_string(get_string("Execute any code:",""))}
+
+if bot = 0 && mouse = 0 {
+if keyboard_check_pressed(vk_up) if y >= 135 vspeed-=KBsensitivity
+if keyboard_check_pressed(vk_down) if y >= 585 vspeed+=KBsensitivity
+if keyboard_check_released(vk_up) vspeed+=KBsensitivity
+if keyboard_check_released(vk_down) vspeed-=KBsensitivity
+}
+
+if stepcode != "" execute_string(stepcode)
 

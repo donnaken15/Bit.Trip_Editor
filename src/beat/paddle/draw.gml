@@ -98,24 +98,24 @@ draw_set_font(global.fontx5[4])
 if showmodes {
 draw_text_transformed_color(930,37+mode_animation,"MEGA",2.4,2.4,0,make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),1)
 draw_text_transformed_color(829,640+mode_animation,"NETHER",2.4,2.4,0,make_color_rgb(172,170,191),make_color_rgb(172,170,191),make_color_rgb(172,170,191),make_color_rgb(172,170,191),1)
-draw_text_transformed_color(846,-720+37+mode_animation,"MULTI+",2.4,2.4,0,current_mega_color3,current_mega_color3,current_mega_color3,current_mega_color3,1)
-draw_text_transformed_color(884,-720+640+mode_animation,"HYPER",2.4,2.4,0,current_mega_color4,current_mega_color4,current_mega_color4,current_mega_color4,1) }
+draw_text_transformed_color(846,-720+37+mode_animation,"MULTI+",2.4,2.4,0,current_mega_colors[3],current_mega_colors[3],current_mega_colors[3],current_mega_colors[3],1)
+draw_text_transformed_color(884,-720+640+mode_animation,"HYPER",2.4,2.4,0,current_mega_colors[4],current_mega_colors[4],current_mega_colors[4],current_mega_colors[4],1) }
 draw_set_font(global.fontx5[9])
 if showscore {
 draw_text_transformed_color(85,37+mode_animation,string_replace_all(string_format(score,10,0)
 ,' ','0'),2.4,2.4,0,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,1)
 draw_text_transformed_color(85,-720+37+mode_animation,string_replace_all(string_format(score,10,0)
-,' ','0'),2.4,2.4,0,current_mega_color9,current_mega_color9,current_mega_color9,current_mega_color9,1) }
+,' ','0'),2.4,2.4,0,current_mega_colors[9],current_mega_colors[9],current_mega_colors[9],current_mega_colors[9],1) }
 if showcombo {
 draw_text_transformed_color(85,637+mode_animation,combo_str,2.4,2.4,0,c_bittrip_pink,c_bittrip_pink,c_bittrip_pink,c_bittrip_pink,1)
-draw_text_transformed_color(85,-720+637+mode_animation,combo_str,2.4,2.4,0,current_mega_color4,current_mega_color4,current_mega_color4,current_mega_color4,1) }
+draw_text_transformed_color(85,-720+637+mode_animation,combo_str,2.4,2.4,0,current_mega_colors[4],current_mega_colors[4],current_mega_colors[4],current_mega_colors[4],1) }
 if showmulti {
 draw_text_transformed_color(310,637+mode_animation,"X",2.4,2.4,0,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,1)
 draw_text_transformed_color(376,637+mode_animation,string_replace_all(string_format(multi,4,0)
 ,' ','0'),2.4,2.4,0,c_bittrip_orange,c_bittrip_orange,c_bittrip_orange,c_bittrip_orange,1)
-draw_text_transformed_color(310,-720+637+mode_animation,"X",2.4,2.4,0,current_mega_color2,current_mega_color2,current_mega_color2,current_mega_color2,1)
+draw_text_transformed_color(310,-720+637+mode_animation,"X",2.4,2.4,0,current_mega_colors[2],current_mega_colors[2],current_mega_colors[2],current_mega_colors[2],1)
 draw_text_transformed_color(376,-720+637+mode_animation,string_replace_all(string_format(multi,4,0)
-,' ','0'),2.4,2.4,0,current_mega_color3,current_mega_color3,current_mega_color3,current_mega_color3,1) }
+,' ','0'),2.4,2.4,0,current_mega_colors[3],current_mega_colors[3],current_mega_colors[3],current_mega_colors[3],1) }
 
 draw_set_halign(fa_center)draw_set_valign(fa_center)draw_set_font(global.fontx5[6])
 if mode=1
@@ -198,14 +198,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 [\]^_`
 abcdefghijklmnopqrstuvwxyz
 {|}~")
-draw_point_color(100,10,current_mega_color1)
-draw_point_color(101,10,current_mega_color2)
-draw_point_color(102,10,current_mega_color3)
-draw_point_color(103,10,current_mega_color4)
-draw_point_color(104,10,current_mega_color5)
-draw_point_color(105,10,current_mega_color6)
-draw_point_color(106,10,current_mega_color7)
-draw_point_color(107,10,current_mega_color8)
-draw_point_color(108,10,current_mega_color9) }
+for (i=0;i<10;i+=1)
+draw_point_color(100+i,10,current_mega_colors[i+1]) }
 
 execute_string(drawcode)

@@ -15,20 +15,11 @@ if test = 0
 {
     if nowin = 0
     {
-           switch difficulty {
-                  case 1:
-                        switch mode {
-                               case 0: nether_up += 1 break
-                               case 1: hyper_up += 1 break
-                               case 2: mega_multi += 1 break
-                        } break
-                  case 0:
-                        switch mode {
-                               case 0: nether_up += 2 break
-                               case 1: hyper_up += 2 break
-                               case 2: mega_multi += 2 break
-                        } break
-           }
+        switch mode {
+            case 0: nether_up += 2 / (difficulty + 1) break // not good idea, may /0 in certain cases :p
+            case 1: hyper_up += 2 / (difficulty + 1) break
+            case 2: mega_multi += 2 / (difficulty + 1) break
+        }
     }
 }
 if test = 1 && mode = 0

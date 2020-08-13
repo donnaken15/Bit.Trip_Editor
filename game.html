@@ -1,0 +1,448 @@
+<html lang="en">
+  <head>
+    <meta charset="ansi"/>
+    <title>BIT . TRIP EDITOR</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        overflow-y: hidden;
+        overflow: hidden;
+        letter-spacing: 0;
+      }
+      canvas {
+        background: black;
+        display: block;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        font-family: "BIT.TRIP Small" !important;
+      }
+      #debugee, textarea {
+      	position: absolute;
+      	right: 16px;
+      	bottom:64px;
+      	width: 480px;
+      	height:320px;
+      	resize:none;
+      	font-family: Courier New,monospace;
+      	font-size: 11px;
+      }
+      /*@font-face { font-family:"BIT.TRIP SMALL";
+        src:url("http://donnaken15.co.nf/fonts/bittrip/bittrip_small.eot?") format("eot"),
+          url("http://donnaken15.co.nf/fonts/bittrip/bittrip_small.woff") format("woff"),
+          url("http://donnaken15.co.nf/fonts/bittrip/bittrip_small.ttf") format("truetype"),
+          url("http://donnaken15.co.nf/fonts/bittrip/bittrip_small.svg#BIT.TRIP-SMALL") format("svg");
+        font-weight:normal;
+        font-style:normal;}*/
+    </style>
+    <link rel="shortcut icon" href="https://storage.proboards.com/6944403/images/LCsrUrxjAmLwpmZiPHef.ico"/>
+  </head>
+  <body onkeypress="keys(event)" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onhashchange="debug()">
+    <script>
+      function getMouse(event) { mouse = event; }
+    </script>
+    <canvas id="game" onmousemove="getMouse(event)" oncontextmenu="getMouse(event)" onclick="getMouse(event)" ondblclick="getMouse(event)" onmousedown="getMouse(event)" onmouseenter="getMouse(event)" onmouseleave="getMouse(event)" onmouseout="if (mouseoutalert && (event.clientX < 56 * (1280/window.innerWidth) || event.clientX > 1224 * (1280/window.innerWidth))) alert('Mouse has left the game.\n\nOK to resume')" onmouseover="getMouse(event)" onmouseup="getMouse(event)" ontouchstart="getMouse(event)" ontouchmove="getMouse(event)" ontouchend="getMouse(event)" click="getMouse(event)" width="1280" height="720"></canvas>
+    <a id="info" style='position:absolute;top:0;left:0;font:8px "BIT.TRIP SMALL",sans-serif,Arial,sans-serif,Courier New,monospaced,Times New Roman,serif;color:white;'></a>
+    <div id="debugee"><textarea wrap="off" id="debugee-js-draw"></textarea></div>
+  </body>
+</html>
+
+<script>
+  Number.prototype.pad = function(size) {
+    var s = String(this);
+    while (s.length < (size || 2)) {s = "0" + s;}
+    return s;
+  }
+  Array.prototype.remove = function(index) {
+    delete this[index];
+    for (var i = index + 1; i < this.length; i++)
+      this[i-1] = this[i];
+    this.pop();
+  }
+  Array.prototype.insert = function(index, value) {
+    this.unshift(undefined);
+    for (var i = 0; i < index + 1; i++)
+      this[i-1] = this[i];
+    this[index] = value;
+  }
+  class object {
+    constructor({x = 0, y = 0, hspeed = 0, vspeed = 0}) {
+      var index = lastobjindex
+      lastobjindex += 1
+      function kill() { objects.remove(id); }
+      objects.push(this);
+      var id = objects.length;
+    }
+  }
+  var mode_animation = 0, prevFrame, lasterror = "", test = false, timeline_position = 0, stop = false,
+  fps, fpsInterval, startTime, now, then, elapsed, canvas = document.getElementById("game"), ctx =
+  canvas.getContext("2d"), score, combo, multi = 1, bpm = 60, mouse = null, mouse_y = 360, file = null,
+  pauseframes = 0, mode = 1, nether_up = 0, nether_lose = 0, hyper_up = 0, hyper_lose = 0, mega_multi = 0,
+  mega_lose = 0, c_white = make_color_rgb(255,255,255), hide_mouse = false, lastobjindex, autosave = false,
+  sfx = "SFX\\", sfx_common = sfx+"Common\\", sfxbeat = sfx+"Beat\\", impact = "_PaddleImpact",
+  mouseoutalert = false, snd_beat_miss = new Audio(sfx_common+'BeatMiss.ogg'),
+  snd_pause = new Audio(sfx_common+'Pause.ogg'), snd_unpause = new Audio(sfx_common+'Unpause.ogg'),
+  snd_mode_up = new Audio(sfx_common+'ModeUp.ogg'), snd_mode_down = new Audio(sfx_common+'ModeDown.ogg'),
+  snd_beat_nether = new Audio(sfx_common+'N_PaddleImpact1.ogg'), oggext = ".ogg", h = 'H', m = 'M',
+  snd_beat_hyper_hit = [ null,
+    new Audio(sfxbeat+h+impact+1+oggext),
+    new Audio(sfxbeat+h+impact+2+oggext),
+    new Audio(sfxbeat+h+impact+3+oggext),
+    new Audio(sfxbeat+h+impact+4+oggext),
+    new Audio(sfxbeat+h+impact+5+oggext)],
+  snd_beat_mega_hit = [ null,
+    new Audio(sfxbeat+m+impact+1+oggext),
+    new Audio(sfxbeat+m+impact+2+oggext),
+    new Audio(sfxbeat+m+impact+3+oggext),
+    new Audio(sfxbeat+m+impact+4+oggext)],
+  snd_mode_multi = new Audio(sfx_common+'MultiUp'+oggext), debug = true,
+  code = new XMLHttpRequest(), fname = new URL(window.location.href).searchParams.get("file"),
+  snd_music = null, snd_music_mega = null, level_directory = "", ___snd = null, volume = 0.1, objects = [];
+  code.addEventListener("load", reqListener);
+  code.open("GET", fname);
+  if (debug) {
+  	var debugee_js_draw = document.getElementById("debugee-js-draw");
+    debugee_js_draw.value = draw.toString();
+	debugee_js_draw.oninput = function() { draw = new Function(debugee_js_draw.value.substring(16)); }
+  }
+  if (fname !== null)
+  if (fname.includes("\\") || fname.includes("/")) {
+  var j,k;
+  for (j = 0; j < fname.length; j += 1) {
+    if (fname.charAt(j) === "\\" || fname.charAt(j) === "/")
+      k = j;
+    }
+  level_directory = fname.substring(0,k)+"/"; }
+  if (autosave)
+  {
+    if (getCookie("score") !== null && getCookie("score") !== "")
+      score = parseInt(getCookie("score"))
+    if (getCookie("combo") !== null && getCookie("combo") !== "")
+      combo = parseInt(getCookie("combo"))
+    if (getCookie("multi") !== null && getCookie("multi") !== "")
+      multi = parseInt(getCookie("multi"))
+    if (getCookie("mouse_y") !== null && getCookie("mouse_y") !== "")
+      mouse_y = parseInt(getCookie("mouse_y"))
+    if (getCookie("nether_up") !== null && getCookie("nether_up") !== "")
+      nether_up = parseInt(getCookie("nether_up"))
+    if (getCookie("nether_lose") !== null && getCookie("nether_lose") !== "")
+      nether_lose = parseInt(getCookie("nether_lose"))
+    if (getCookie("hyper_up") !== null && getCookie("hyper_up") !== "")
+      hyper_up = parseInt(getCookie("hyper_up"))
+    if (getCookie("hyper_lose") !== null && getCookie("hyper_lose") !== "")
+      hyper_lose = parseInt(("hyper_lose"))
+    if (getCookie("mega_multi") !== null && getCookie("mega_multi") !== "")
+      mega_multi = parseInt(getCookie("mega_multi"))
+    if (getCookie("mega_lose") !== null && getCookie("mega_lose") !== "")
+      mega_lose = parseInt(getCookie("mega_lose"))
+  }
+  if (hide_mouse)
+    canvas.style += "; cursor: none"
+  function popup() {
+    if (!window.opener)
+      window.open(window.location.href, "_blank", "width=640,height=480,location=0,menubar=0,scrollbars=0,status=0,toolbar=0");
+  }
+  function sound_play(inst) {
+    ___snd = inst.cloneNode(true)
+    ___snd.volume = volume
+    ___snd.play()
+  }
+  function room_restart() {
+    score = 0
+	timeline_position = 0
+	if (fname !== null)
+    code.send();
+	else
+	  file = [""];
+  }
+  function pause(frames) {
+    pauseframes = frames;
+  }
+  function beat_beat(arg0 = 0,arg1 = null,arg2 = null,arg3 = null,arg4 = null,arg5 = null,arg6 = null,arg7 = null,arg8 = null,arg9 = null,arg10 = null,arg11 = null,arg12 = null,arg13 = null,arg14 = null,arg15 = null)
+  {
+  }
+  function make_color_rgb(r,g,b)
+  {
+	return "rgb("+r+", "+g+", "+b+")";
+	//return r+(g*256)+(b*256*256);
+  }
+  function set_bg_color(color)
+  {
+	canvas.style = "background-color: "+color
+  }
+  function gmlToJs(code)
+  {
+    return code.replace(/([A-Z]+=\b)+\+?\d+/gi, "$&;").replace(/\(+([^()]*|\([^()]*\))*\)+/gi, "$&;").replace(/\;+/gi, ";").replace(/if(.*?)(?={.*|\)\s*\w*\W*[;\n\{])/mgi, "if ($1)");
+  }
+  function reqListener () {
+    file = gmlToJs(this.responseText).split("\n",-1);
+  }
+  room_restart();
+  function fire( elem, type ) {
+    var evt = elem.createEvent("Events");
+    evt.initEvent( type, true, true, window, 1);
+    elem.dispatchEvent( evt );
+  }
+  function startAnimating(fps) {
+    fpsInterval = 1000 / fps;
+    then = Date.now();
+    startTime = then;
+    draw();
+  }
+  function debug()
+  {
+    eval(location.hash.substr(1));
+  }
+  function music(path)
+  {
+    console.log("PLAYING "+path);
+    snd_music = new Audio(path);
+	  snd_music.play();
+  }
+  function skip(frameselect)
+  {
+    timeline_position = frameselect;
+  }
+  function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  function keys(event) {
+  	if (document.activeElement.type !== "textarea")
+    switch(event.which || event.keyCode)
+	{
+	  case 92:
+	    try {
+	    eval(window.prompt("Enter code","")); }
+		catch (e) { alert(e.message); }
+	    break
+	  case 13:
+        if (snd_music !== null) snd_music.pause()
+        sound_play(snd_pause)
+	    //new Audio('SFX\\Common\\Pause.ogg').play()
+		alert("Paused")
+        if (snd_music !== null) snd_music.play()
+        sound_play(snd_unpause)
+		//new Audio('SFX\\Common\\Unpause.ogg').play()
+		break
+	  case 115:
+	    room_restart();
+	    break
+	  case 45:
+		if (mode > 0)
+	    sound_play(snd_beat_miss)
+		switch (mode)
+		{ case 0:
+		nether_lose += 1
+		break
+		case 1:
+		hyper_lose += 1
+		if (hyper_lose >= 14) { mode -= 1; sound_play(snd_mode_down); }
+		break
+		case 2:
+		mega_lose += 1
+		break
+		}
+		combo = 0
+		break
+	  case 61:
+		combo += 1
+		//if (mode > 0) sound_play(snd_beat_hyper_hit[rand(1,5)]);
+		switch (mode)
+		{ case 0:
+		nether_up += 1
+	    sound_play(snd_beat_nether)
+		break
+		case 1:
+		hyper_up += 1
+		if (hyper_up >= 80) { mode += 1; sound_play(snd_mode_up); }
+		sound_play(snd_beat_hyper_hit[rand(1,5)])
+		break
+		case 2:
+		mega_multi += 1
+		sound_play(snd_beat_mega_hit[rand(1,4)])
+		break }
+		score += 100 * multi
+		if (combo > 9)
+		score += combo * multi
+	    break
+	  case 93:
+		if (mode === 2)
+		{ multi += 1; sound_play(snd_mode_multi) }
+	    if (mode < 2)
+	    { mode += 1; sound_play(snd_mode_up); mega_multi = 0; mega_lose = 0;
+		nether_up = 0; nether_lose = 0; hyper_up = 0; hyper_lose = 0; }
+		break
+	  case 91:
+	    if (mode > 0)
+		{ mode -= 1; multi = 1; hyper_up = 0; hyper_lose = 0; nether_up = 0; nether_lose = 0; sound_play(snd_mode_down) }
+		break
+      default:
+	    //alert(event.which || event.keyCode)
+	    break
+	  }
+  }
+  function draw() {
+    requestAnimationFrame(draw);
+    now = Date.now();
+    elapsed = now - then;
+    if (elapsed > fpsInterval) {
+      then = now - (elapsed % fpsInterval);
+		if (mouse !== null)
+		{
+		  mouse_y = mouse.clientY * (720/window.innerHeight);
+		  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && mouse.touches[0] !== undefined )
+		    mouse_y = mouse.touches[0].clientY * (720/window.innerHeight);
+		}
+		if (mode === 0 && mode_animation > -720) mode_animation -= 48
+		if (mode === 1 && mode_animation < 0) mode_animation += 48
+		if (mode === 1 && mode_animation > 0) mode_animation -= 48
+		if (mode === 2 && mode_animation < 720) mode_animation += 48	
+		ctx.imageSmoothingEnabled = false;
+	  ctx.clearRect(0, 0, canvas.width, canvas.height);
+		if (mode_animation < 0) {
+      ctx.beginPath();
+		  ctx.fillStyle = "#000";
+      ctx.rect(0, 720+mode_animation, 1280, 720);
+		  ctx.fill();
+      ctx.closePath();
+      ctx.beginPath();
+		  ctx.fillStyle = "#FFFFFF";
+      ctx.rect(78, 104+720+mode_animation, 1141, 16);
+		  ctx.rect(78, 600+720+mode_animation, 1141, 16);
+		  ctx.fill();
+      ctx.closePath(); }
+		if (mode_animation > -720 && mode_animation < 720) {
+      ctx.beginPath();
+		  ctx.fillStyle = "#F7D800";
+      ctx.rect(78, 104+mode_animation, 1141, 16);
+		  ctx.rect(78, 600+mode_animation, 1141, 16);
+		  ctx.rect(1203, 56+mode_animation, 16, 48);
+		  ctx.rect(1172, 56+mode_animation, 31, 16);
+		  ctx.rect(1203, 616+mode_animation, 16, 48);
+		  ctx.rect(1172, 648+mode_animation, 31, 16);
+		  ctx.fill();
+      ctx.closePath(); }
+		if (mode_animation > 0) {
+      ctx.beginPath();
+		  ctx.fillStyle = "#F7D800";
+      ctx.rect(78, 104-720+mode_animation, 1141, 16);
+		  ctx.rect(78, 600-720+mode_animation, 1141, 16);
+		  ctx.rect(1203, 56-720+mode_animation, 16, 48);
+		  ctx.rect(1172, 56-720+mode_animation, 31, 16);
+		  ctx.rect(1203, 616-720+mode_animation, 16, 48);
+		  ctx.rect(1172, 648-720+mode_animation, 31, 16);
+		  ctx.fill();
+      ctx.closePath(); }
+		if (hyper_up > 0) {
+		  ctx.beginPath();
+		  ctx.fillStyle = "#009600";
+		  ctx.rect(79, 105+mode_animation, (1139*((hyper_up/75*(hyper_up<=75))))+(1139*(hyper_up>75)), 14);
+		  if (hyper_up > 75) {
+		    ctx.rect(1204, 105+mode_animation, 14, (-48*(((hyper_up-75)/3)*(hyper_up<=78)))+(-48*(hyper_up>78)));
+		    ctx.rect(1204, 57+mode_animation, (-31*((((hyper_up-78)/2)*(hyper_up>=78&&hyper_up<80))))+(-31*(hyper_up>79)), 14); }
+		  ctx.fill();
+		  ctx.closePath(); }
+    ctx.beginPath();
+		if (mode_animation>=-360) ctx.fillStyle = "#FCA500";
+		else ctx.fillStyle = "#FFFFFF";
+		ctx.rect(62, ((mouse_y-32)*(mouse_y<584)*(mouse_y>135))+(104*(mouse_y<=135))+(552*(mouse_y>=584)), 16, 64);
+		ctx.fill();
+    ctx.closePath();
+		/*ctx.font = "8px 'BIT.TRIP Small'";
+		ctx.fillStyle = "white";
+		ctx.fillText("FRAME: "+timeline_position+" RES: "+window.innerWidth+"X"+window.innerHeight+" PAUSETIME: "+pauseframes, 6, 16);
+		ctx.fillStyle = "red";
+		ctx.fillText("ERROR: "+lasterror, 6, 16);*/
+		ctx.font = "48px 'BIT.TRIP Small'";
+		if (mode_animation > -720 && mode_animation < 720) {
+		  ctx.fillStyle = "#3aa6aa";
+		  ctx.fillText((score).pad(10), 80, 92+mode_animation);
+		  ctx.fillText("X", 288, 680+mode_animation);
+      ctx.fillStyle = "lime";
+		  ctx.fillText("MEGA", 915, 92+mode_animation);
+		  ctx.fillStyle = "#ACAABF";
+		  ctx.fillText("NETHER", 803, 680+mode_animation);
+		  ctx.fillStyle = "#dc6aa5";
+		  if (combo > 9) ctx.fillText((combo+100).pad(4), 80, 680+mode_animation);
+		    else ctx.fillText("0100", 80, 680+mode_animation);
+		  ctx.fillStyle = "#FCA500";
+		  ctx.fillText((multi).pad(4), 353, 680+mode_animation); }
+		if (mode_animation > 0) {
+		  ctx.fillStyle = "#ff0000";
+		  ctx.fillText((score).pad(10), 80, 92-720+mode_animation);
+		  ctx.fillText("X", 288, 680-720+mode_animation);
+      ctx.fillStyle = "#ffff00";
+		  ctx.fillText("MULTI+", 803, 92-720+mode_animation);
+		  ctx.fillStyle = "#00ff00";
+		  ctx.fillText("HYPER", 859, 680-720+mode_animation);
+		  ctx.fillStyle = "#00ffff";
+		  if (combo > 9) ctx.fillText((combo+100).pad(4), 80, 680-720+mode_animation);
+		    else ctx.fillText("0100", 80, 680-720+mode_animation);
+		  ctx.fillStyle = "#0000ff";
+		  ctx.fillText((multi).pad(4), 353, 680-720+mode_animation); }
+    prevFrame = performance.now();
+		//if (timeline_position === 0)
+		  //eval(file[timeline_position]);
+		if (timeline_position < file.length)
+		  try { if (pauseframes === 0) eval(file[timeline_position]); }
+		  catch (e) { lasterror = "@ " + e.fileName + " : " + e.lineNumber + " :\n " +
+		  file[timeline_position] + " : " + e.message; console.log(lasterror); }
+		if (pauseframes <= 0 || file[timeline_position].includes("pause("))
+		  timeline_position++;
+		else if (pauseframes > 0)
+		  pauseframes--;
+		document.getElementById("info").innerHTML = "FRAME: " + timeline_position + " RES: " + window.innerWidth + "X" + window.innerHeight + " PAUSETIME: " + pauseframes + " MODE: " + mode + " MODEANIM: " + mode_animation + " </a><br/><br/><a style='color:red'>" + lasterror.replace("\n","<br/>");
+		if (snd_music !== null)
+      snd_music.volume = (mode > 0);
+    /*var noexpire = "; expires=Thu, 31 Dec 2038 11:59:59 UTC; ";
+    document.cookie = "score=" + score + ";combo=" + combo +
+    ";multi=" + multi + ";mouse_y=" + mouse_y + ";nether_up=" +
+    nether_up + ";nether_lose=" + nether_lose + ";hyper_up=" +
+    hyper_up + ";hyoer_lose=" + hyper_lose + ";mega_multi=" +
+    mega_multi + ";mega_lose=" + mega_lose
+    /*score
+    combo
+    multi
+    mouse_y
+    nether_up
+    nether_lose
+    hyper_up
+    hyper_lose
+    mega_multi
+    mega_lose*/
+		snd_beat_miss.volume = volume
+		snd_beat_nether.volume = volume
+		snd_pause.volume = volume
+		snd_unpause.volume = volume
+		snd_mode_up.volume = volume
+		snd_mode_down.volume = volume
+		snd_beat_hyper_hit[1].volume = volume
+		snd_beat_hyper_hit[2].volume = volume
+		snd_beat_hyper_hit[3].volume = volume
+		snd_beat_hyper_hit[4].volume = volume
+		snd_beat_hyper_hit[5].volume = volume
+  }
+}
+eval(location.hash.substr(1));
+startAnimating(60);
+//setInterval(draw, 1); <!--cursor: none; -->
+</script>

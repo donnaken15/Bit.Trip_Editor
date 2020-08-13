@@ -1,1 +1,1 @@
-start "" game_debug -designer
+start "" game_debug -designer %*

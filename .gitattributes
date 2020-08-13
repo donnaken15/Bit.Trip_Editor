@@ -1,0 +1,6 @@
+* text=auto
+*.cs  diff=csharp
+*.gml diff=gamemaker
+*.gm81 binary
+*.gex binary
+*.ifp text

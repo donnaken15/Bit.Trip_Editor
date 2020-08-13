@@ -1,4 +1,25 @@
+
 // READONLY
+
+// for some reason this is not working
+
+/*var _ret, _codestr
+if argument_count < 1 { show_error("Enter something.",false) exit }
+if argument_count > 15 { show_error("Too many arguments. Blame YoYo ;(",false) exit }
+
+_codestr = "execute_"
+if realtimesrc _codestr += "file" else _codestr += "string"
+_codestr += "(argument[0]"
+for (i = 1; i < argument_count; i += 1)
+  _codestr += ",argument["+string(i)+"]"
+_codestr += ")"
+
+_ret = execute_string(_codestr)
+return _ret
+
+show_error(_codestr,false)
+*/
+
 //bad, there should be a better way for this
 if !realtimesrc {
 var _ret

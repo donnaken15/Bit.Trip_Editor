@@ -1,3 +1,4 @@
+//depth=-2147483645
 mode = 1
 hyper_up = 0
 hyper_lose = 0

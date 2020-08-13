@@ -119,7 +119,7 @@ for (j = 0; j < 2; j += 1) {
 for (i = 0; i < 2; i += 1) {
 switch k {
 case 0: draw_set_color(make_color_rgb(247,216,0)) break
-case -1: draw_set_color(current_mega_color1) break }
+case -1: draw_set_color(current_mega_colors[1]) break }
 if k < 1 {
 draw_rectangle((i*room_width)+(51+(i*-102)),(j*room_height)+(26+(j*-52))+(mode_animation+(k*720)),
 (i*room_width)+(511+(i*-1022)),(j*room_height)+(44+(j*-88))+(mode_animation+(k*720)),false)
@@ -167,30 +167,6 @@ room_width,room_height,0,0,0,0,false)
 image_speed=room_speed/bpm
 
 if image_index >= 60 image_index = 0
-
-if debug_mode {
-draw_set_font(global.fontx1[2])
-draw_set_color(c_white)
-draw_text(x+32,y+32,"x: "+string(x)+"#y: "+string(y)+"#score: "+string(score)+"#combo: "+string(combo)+"#multi: "+
-string(multi)+"x#fps: "+string(fps)+"#mode: "+string(mode)+"#mega: "+string(mega_up)+"/14 : "+string(mega_lose)+
-"/5#hyper: "+string(hyper_up)+"/80 : "+string(hyper_lose)+"/14#nether: "+string(nether_up)+"/20 : "+
-string(nether_lose)+"/11#time: "+string(timeline_position)+"#instances: "+string(instance_count)+
-"#violet: "+string(beat_beat_violet.x)+"#powerup: "+string(special)+"#gameover: "+string(gameover)+"#win: "+string(win_)+
-'#chartest: !"$%^'+"'()*+,-./
-0123456789:;<=>?@
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-[\]^_`
-abcdefghijklmnopqrstuvwxyz
-{|}~")
-draw_point_color(100,10,current_mega_color1)
-draw_point_color(101,10,current_mega_color2)
-draw_point_color(102,10,current_mega_color3)
-draw_point_color(103,10,current_mega_color4)
-draw_point_color(104,10,current_mega_color5)
-draw_point_color(105,10,current_mega_color6)
-draw_point_color(106,10,current_mega_color7)
-draw_point_color(107,10,current_mega_color8)
-draw_point_color(108,10,current_mega_color9) }
 
 execute_string(drawcode)
 

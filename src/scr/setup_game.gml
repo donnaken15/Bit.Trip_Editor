@@ -54,7 +54,7 @@ switch (argument0)
 		get_scrollbarvalue_scr = get_code(path_src+"designer/scr/scrollbar/get_value.gml",0)
 		scrollbar_create_scr = get_code(path_src+"designer/scr/scrollbar/create.gml",0)
 		scrollbar_draw_scr = get_code(path_src+"designer/scr/scrollbar/draw.gml",0)
-		execute_file(path_src+"/designer/init.gml")
+		execute_file(path_src+"designer/init.gml")
 		room_goto(designer)
 		break
 	default:

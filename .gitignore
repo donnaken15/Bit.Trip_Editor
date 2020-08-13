@@ -1,10 +1,10 @@
 Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
-Desktop.ini
+[Dd]esktop.ini
 $RECYCLE.BIN/
 settings.ini
-game_errors.log
+*.log
 *.btb
 *.btc
 *.btv
