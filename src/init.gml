@@ -5,7 +5,7 @@ soundtype, stepcode, drawcode, nowin, KBsensitivity, windows,
 winid, designer_mode, init, updateout, rainbow_index, rainbow_speed,
 showscore, showmodes, showcombo, showmulti, showbars, showpaddletext, showpaddle,
 showparticles, background_music_free, try, /*Discord_Initialize,*/ lastgame, lastmusicfile, enablesounds,
-realtimesrc, loadonce, enable_error_logs, errlog, errlogpath,
+realtimesrc, loadonce, enable_error_logs, errlog, errlogpath, realframe,
 path_root,path_src,
 path_gfx,path_sfx,
 path_mus,path_bin
@@ -15,12 +15,10 @@ path_root = program_directory+"/"
 path_src = path_root+"src/"
 path_gfx = path_root+"gfx/"
 path_sfx = path_root+"sfx/"
-path_mus = path_root+"mus/"
-path_bin = path_root+"bin/"
 path_scr = path_src+"scr/"
 
 showscore = 1 showmodes = 1 showcombo = 1 showmulti = 1 showbars = 1 showpaddletext = 1 showpaddle = 1
-background_music_free=1
+background_music_free=1 init = 1
 lastmusicfile = ""
 message_background(blankbg)
 message_caption(false,"")
@@ -196,7 +194,42 @@ if file_exists(parameter_string(1)) && parameter_string(1) != "-designer"
 		setup_game(real(parameter_string(2)))
 	else
 		show_error("Specify a game number.",true)*/
-if parameter_string(1) = "-designer"
-    setup_game(6)
+if parameter_string(1) = "-designer" {
+	globalvar beat_beat_scr,core_beat_scr;
+	beat_beat_scr=get_code(path_src+"beat/scr/beat.gml",0)
+	core_beat_scr=get_code(path_src+"core/scr/beat.gml",0)
+	object_event_add(designer_ctrl,ev_draw,0,get_code(path_src+"designer/main.gml",0))
+	object_event_add(leveleditor_beat,ev_draw,0,get_code(path_src+"designer/leveleditor/beat.gml",0))
+	//object_event_add(designer_ctrl,ev_room_start,0,get_code(path_src+"designer/ctrl/room_start.gml"))
+	//object_event_add(designer_ctrl,ev_room_end,0,get_code(path_src+"designer/ctrl/room_end.gml"))
+	sprite_replace(form_icons,path_gfx+"form_icons.png",27,0,0,0,0)
+	globalvar draw_window_scr,mouse_rectangle_scr,string_onedecimal_scr,show_menu_ext_scr,
+	textbox_draw_scr,textbox_create_scr,designerprotection_scr,designer_beat_create_scr,
+	get_scrollbarvalue_scr,scrollbar_create_scr,scrollbar_draw_scr;
+	draw_window_scr = get_code(path_src+"designer/scr/draw_window.gml",0)
+	mouse_rectangle_scr = get_code(path_src+"designer/scr/mouse_rectangle.gml",0)
+	string_onedecimal_scr = get_code(path_src+"scr/string_onedecimal.gml",0)
+	show_menu_ext_scr = get_code(path_src+"scr/show_menu_ext.gml",0)
+	textbox_create_scr = get_code(path_src+"scr/textbox/create.gml",0)
+	textbox_draw_scr = get_code(path_src+"scr/textbox/draw.gml",0)
+	designerprotection_scr = get_code(path_src+"designer/scr/protection.gml",0)
+	designer_beat_create_scr = get_code(path_src+"designer/scr/beat/create.gml",0)
+	get_scrollbarvalue_scr = get_code(path_src+"designer/scr/scrollbar/get_value.gml",0)
+	scrollbar_create_scr = get_code(path_src+"designer/scr/scrollbar/create.gml",0)
+	scrollbar_draw_scr = get_code(path_src+"designer/scr/scrollbar/draw.gml",0)
+	globalvar beat_hit_scr,beat_miss_scr,playtest_mode; // <- playtest wont work for a second time for some reason, which is why ill disable it for now
+	beat_hit_scr =get_code(path_src+"beat/scr/hit.gml" )
+	beat_miss_scr=get_code(path_src+"beat/scr/miss.gml")
+	object_event_add(paddle,ev_create,0,get_code(path_src+"beat/paddle/create.gml",0))
+	object_event_add(paddle,ev_step,0,get_code(path_src+"beat/paddle/step.gml",0))
+	object_event_add(paddle,ev_draw,0,get_code(path_src+"beat/paddle/draw.gml",0))
+	object_event_add(beat_beat_base,ev_create,0,get_code(path_src+"beat/beat/create.gml",0))
+	object_event_add(beat_beat_base,ev_destroy,0,get_code(path_src+"beat/beat/destroy.gml",0))
+	object_event_add(beat_beat_base,ev_step,0,get_code(path_src+"beat/beat/step.gml",0))
+	object_event_add(beat_beat_base,ev_draw,0,get_code(path_src+"beat/beat/draw.gml",0))
+	execute_file(path_src+"designer/init.gml")
+	room_goto(designer)
+	break
+}
 if !file_exists(parameter_string(1))
     show_error("File not found.",true)

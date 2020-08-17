@@ -4,7 +4,7 @@ if httprequest!=-1 {
     st = httprequest_get_state(httprequest);
     if st=4 {
         if (real(httprequest_get_message_body(httprequest)) <= builddate)
-            instance_destroy()
+            { instance_destroy() exit }
         updateout = 1
         hspeed = 20
         image_index = 1

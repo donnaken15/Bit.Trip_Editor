@@ -16,6 +16,8 @@
         ^ that sets the color settings for the script, if you place it in first (use -1 for default)
 */
 
+//if realtimesrc { show_menu_pos(argument0, argument1, string(argument2), argument3) exit }
+
 var xx,yy,str,def,i,bg,curs,view;
 xx = view_xview+argument0;
 yy = argument1;

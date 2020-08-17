@@ -45,17 +45,19 @@ switch mode {
 }
 if hyper_up>=80 && mode = 1 {
    caster_play(snd_mode_up,1,1)
-   paddle.alarm[0]=1
+   //paddle.alarm[0]=1
    mode = 2
    mega_multi=0
    mega_lose=0
 }
 if nether_up>=20 && mode = 0 {
    caster_play(snd_mode_up,1,1)
-   paddle.alarm[12]=1
+   //paddle.alarm[12]=1
    mode = 1
    hyper_up=0
    hyper_lose=0
+   nether_up=0
+   nether_lose=0
 }
 if mega_multi>14 && mode = 2 {
    mega_multi=0

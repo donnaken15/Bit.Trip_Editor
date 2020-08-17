@@ -24,7 +24,7 @@ if nofail = 0 {
 if hyper_lose>=14 && mode = 1 {
    mode = 0
    caster_play(snd_mode_down,1,1)
-   paddle.alarm[11]=1
+   //paddle.alarm[11]=1
    mega_multi = 0
    mega_lose = 0
 }
@@ -32,9 +32,11 @@ if hyper_lose>=14 && mode = 1 {
 if mega_lose>=5 && mode = 2 {
    mode = 1
    caster_play(snd_mode_down,1,1)
-   paddle.alarm[10]=1
+   //paddle.alarm[10]=1
    hyper_up = 0
    hyper_lose = 0
+   nether_up=0
+   nether_lose=0
    multi=1
 }
 

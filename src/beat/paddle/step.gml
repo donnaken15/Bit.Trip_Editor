@@ -43,8 +43,8 @@ else if bot
 {
   window_set_cursor(cr_default)
   nearest_beat = collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_normal,false,false)
-  if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_normal,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y}
-  nearest_beat = collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_green,false,false)
+  if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_normal,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y if flip = 0 y=room_height/2}
+  /*nearest_beat = collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_green,false,false)
   if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_green,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y}
   nearest_beat = collision_rectangle(45,136 + specialbumper,80,584 - specialbumper,beat_beat_orange,false,false)
   if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_orange,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y}
@@ -55,7 +55,7 @@ else if bot
   nearest_beat = collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_powerup,false,false)
   if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_powerup,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y}
   nearest_beat = collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_follow,false,false)
-  if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_follow,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y if flip = 0 y=room_height/2}
+  if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_follow,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y}*/
 }
 
 if !mouse
@@ -154,8 +154,10 @@ if win_>0 {win_+=1}
 
 if win_>120 {room_goto(finalscore)}
 
+realframe+=1
+
 for (i=1;i<10;i+=1)
-current_mega_colors[i] = mega_colors[(floor(timeline_position/room_speed)+i) mod 9+1]
+current_mega_colors[i] = mega_colors[(floor(realframe/room_speed)+i) mod 9+1]
 
 //for (i=0;i<12;i+=1)
 //{
@@ -171,7 +173,7 @@ current_mega_colors[i] = mega_colors[(floor(timeline_position/room_speed)+i) mod
 if keyboard_check(ord('8')) tempvar+=1
 if keyboard_check_released(ord('8')) { beat_beat(8,mouse_y,10,0,tempvar) tempvar=0 }
 
-if keyboard_check_pressed(vk_enter) {
+if keyboard_check_pressed(vk_enter) if !playtest_mode {
 message_size(290,64)
 message_position(window_get_x()+(window_get_width()/2.5),window_get_y()+(window_get_height()/2.125))
 caster_pause(background_music)caster_pause(mega_music)
@@ -182,7 +184,7 @@ switch show_message_ext("","Continue","Restart","Quit")
     case 2: music_stop() caster_set_volume(background_music,0) room_restart() break
     case 3: game_end() break
 }
-}
+} else { playtest_mode=false designer_mode=true music_stop() room_goto(designer) }
 
 if keyboard_check_pressed(ord('1')) beat_beat(0,mouse_y,10,0)
 if keyboard_check_pressed(ord('2')) beat_beat(1,mouse_y,10,0,random_range(0,5),random_range(-5,5))
@@ -194,7 +196,7 @@ if keyboard_check_pressed(ord('M')) mouse=!mouse
 if keyboard_check_pressed(ord('N')) nofail=!nofail
 if keyboard_check_pressed(ord('R')) {music_stop()timeline_running=true;paused=false;room_restart()}
 if keyboard_check_pressed(ord('S')) if soundtype<2{soundtype+=1}else{soundtype=0}
-if keyboard_check_pressed(ord('T')) test=!test
+if keyboard_check_pressed(ord('T')) if !designer_mode test=!test
 if keyboard_check_pressed(ord('W')) nowin=!nowin
 if keyboard_check_pressed(vk_f7) {message_size(320,120)
 execute_string(get_string("Execute any code:",""))}

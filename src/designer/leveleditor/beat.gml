@@ -1,3 +1,6 @@
+
+window_set_cursor(cr_default)
+
 if mouse_check_button_pressed(mb_left)
 { if mouse_y>y-(sizey/2) && mouse_y<y-(sizey/2)+16 && mouse_x>x-(sizex/2)+6 && mouse_x<x+(sizex/2)-20 && activecheck { grab = true
 xx = x - mouse_x
@@ -8,8 +11,7 @@ if mouse_x>x-(sizex/2) && mouse_y>y-(sizey/2) && mouse_x<x+(sizex/2) && mouse_y<
 
 if mouse_y>y-192 && mouse_y<y-192+16 && mouse_x>x+(sizex/2)-16 && mouse_x<x+(sizex/2) { closepressed = true } }
 
-if mouse_check_button_released(mb_left)
-{ grab = false
+if mouse_check_button_released(mb_left) { grab = false
 if mouse_y>y-192 && mouse_y<y-192+16 && mouse_x<x+(sizex/2) && closepressed = true { instance_destroy() with timeline_txt instance_destroy() }
 closepressed = false }
 
@@ -29,11 +31,9 @@ draw_set_halign(fa_center)
 draw_set_valign(fa_top)
 draw_set_color(c_white)
 
-// will eventually make a function for this
-
 switch list {
 
-case 0:
+/*case 0:
 
 // maybe make func for this, may be wasteful copy and pasting
 
@@ -41,17 +41,19 @@ case 0:
 draw_rectangle_color(24-4,24-4,24+4,24+4,c_bittrip_yellow,c_bittrip_yellow,c_bittrip_yellow,c_bittrip_yellow,0)
 draw_text(24,48,"Normal")
 if mouse_rectangle(x-(sizex/2)+73+4,y-(sizey/2)+36,40,44) && active { window_set_cursor(cr_handpoint)
-if mouse_check_button_pressed(mb_left) & active designer_beat_create("Normal",beat_beat_normal) }
+//if mouse_check_button_pressed(mb_left) & active designer_beat_create("Normal",beat_beat_normal) }
+}
 // END LIST ITEM
 
 // LIST ITEM
 draw_rectangle_color(72-4,24-4,72+4,24+4,c_bittrip_orange,c_bittrip_orange,c_bittrip_orange,c_bittrip_orange,0)
 draw_text(72,48,"Orange")
 if mouse_rectangle(x-(sizex/2)+73+4+48,y-(sizey/2)+36,40,44) && active { window_set_cursor(cr_handpoint)
-if mouse_check_button_pressed(mb_left) & active designer_beat_create("Orange",beat_beat_orange) }
+//if mouse_check_button_pressed(mb_left) & active designer_beat_create("Orange",beat_beat_orange) }
+}
 // END LIST ITEM
 
-break
+break*/
 
 case 1:
 
@@ -65,7 +67,7 @@ draw_line(24*(i),24,24*(i)+4,28)
 draw_set_color(c_white)}
 draw_text(24,48,"Tempo")
 if mouse_rectangle(x-(sizex/2)+73+4,y-(sizey/2)+36,40,44) && active { window_set_cursor(cr_handpoint)
-if mouse_check_button_pressed(mb_left) & active timelineraw[timeline_position] += "bpm=" + string(get_integer("Enter value:",bpm)) }
+if mouse_check_button_pressed(mb_left) & active timelineraw[timeline_position] += "bpm=" + string(get_integer("Enter value:",bpm)) + ";" }
 // END LIST ITEM
 
 // LIST ITEM
@@ -77,28 +79,35 @@ draw_line(72,24,76,28)
 draw_set_color(c_white)
 draw_text(72,48,"FPS")
 if mouse_rectangle(x-(sizex/2)+73+4+48,y-(sizey/2)+36,40,44) && active { window_set_cursor(cr_handpoint)
-if mouse_check_button_pressed(mb_left) & active timelineraw[timeline_position] += "room_speed=" + string(get_integer("Enter value (FPS):",room_speed)) }
+if mouse_check_button_pressed(mb_left) & active timelineraw[timeline_position] += "room_speed=" + string(get_integer("Enter value (FPS):",room_speed)) + ";" }
+// END LIST ITEM
+
+// LIST ITEM
+draw_text(120,48,"Pause")
+draw_set_color($00007F)
+draw_rectangle(120-10,24-10,120-4,24+10,0)
+draw_rectangle(120+10,24+10,120+4,24-10,0)
+if mouse_rectangle(x-(sizex/2)+73+4+48+48,y-(sizey/2)+36,40,44) && active { window_set_cursor(cr_handpoint)
+if mouse_check_button_pressed(mb_left) & active timelineraw[timeline_position] += "pause(" + string(get_integer("Enter value (FPS):",30)) + ");" }
 // END LIST ITEM
 
 break
 
 case 2:
 
-// LIST ITEM
-draw_text(24,48,"Pause")
-draw_set_color($00007F)
-draw_rectangle(24-10,24-10,24-4,24+10,0)
-draw_rectangle(24+10,24+10,24+4,24-10,0)
+//* LIST ITEM
+draw_set_color(c_white)
+draw_text(24,48,"Win")
 if mouse_rectangle(x-(sizex/2)+73+4,y-(sizey/2)+36,40,44) && active { window_set_cursor(cr_handpoint)
-if mouse_check_button_pressed(mb_left) & active timelineraw[timeline_position] += "pause(" + string(get_integer("Enter value (FPS):",30)) + ")" }
-// END LIST ITEM
+if mouse_check_button_pressed(mb_left) & active timelineraw[timeline_position] += "win()" }
+// END LIST ITEM*/
 
 break
 
 }
 
 surface_reset_target()
-draw_surface_part(objlistbox,0,0,128,100,x-(sizex/2)+73,y-(sizey/2)+22)
+draw_surface_part(objlistbox,0,0,256,100,x-(sizex/2)+73,y-(sizey/2)+22)
 
 draw_set_color(c_black)
 draw_set_halign(fa_left)
@@ -106,12 +115,12 @@ draw_set_valign(fa_top)
 draw_text(x-(sizex/2)+16,y-(sizey/2)+28,"Beats")
 if mouse_rectangle(x-(sizex/2)+14,y-(sizey/2)+26,32,16) && active { window_set_cursor(cr_handpoint)draw_set_alpha(.5)draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+26,x-(sizex/2)+14+32,y-(sizey/2)+26+16,$7F0000,$7F0000,$7F0000,$7F0000,0)draw_set_alpha(1) if mouse_check_button_pressed(mb_left) & active list = 0 }
 if list = 0 { draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+26,x-(sizex/2)+14+32,y-(sizey/2)+26+16,$7F0000,$7F0000,$7F0000,$7F0000,0) draw_text_color(x-(sizex/2)+16,y-(sizey/2)+28,"Beats",c_white,c_white,c_white,c_white,1) }
-draw_text(x-(sizex/2)+16,y-(sizey/2)+48,"Effects")
-if mouse_rectangle(x-(sizex/2)+14,y-(sizey/2)+46,38,16) && active { window_set_cursor(cr_handpoint)draw_set_alpha(.5)draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+46,x-(sizex/2)+14+38,y-(sizey/2)+46+16,$7F0000,$7F0000,$7F0000,$7F0000,0)draw_set_alpha(1) if mouse_check_button_pressed(mb_left) & active list = 1 }
-if list = 1 { draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+46,x-(sizex/2)+14+38,y-(sizey/2)+46+16,$7F0000,$7F0000,$7F0000,$7F0000,0) draw_text_color(x-(sizex/2)+16,y-(sizey/2)+48,"Effects",c_white,c_white,c_white,c_white,1) }
-draw_text(x-(sizex/2)+16,y-(sizey/2)+68,"Misc.")
-if mouse_rectangle(x-(sizex/2)+14,y-(sizey/2)+66,28,16) && active { window_set_cursor(cr_handpoint)draw_set_alpha(.5)draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+66,x-(sizex/2)+14+28,y-(sizey/2)+66+16,$7F0000,$7F0000,$7F0000,$7F0000,0)draw_set_alpha(1) if mouse_check_button_pressed(mb_left) & active list = 2 }
-if list = 2 { draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+66,x-(sizex/2)+14+28,y-(sizey/2)+66+16,$7F0000,$7F0000,$7F0000,$7F0000,0) draw_text_color(x-(sizex/2)+16,y-(sizey/2)+68,"Misc.",c_white,c_white,c_white,c_white,1) }
+draw_text(x-(sizex/2)+16,y-(sizey/2)+48,"Timing")
+if mouse_rectangle(x-(sizex/2)+14,y-(sizey/2)+46,38,16) && active { window_set_cursor(cr_handpoint)draw_set_alpha(.5)draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+46,x-(sizex/2)+14+35,y-(sizey/2)+46+16,$7F0000,$7F0000,$7F0000,$7F0000,0)draw_set_alpha(1) if mouse_check_button_pressed(mb_left) & active list = 1 }
+if list = 1 { draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+46,x-(sizex/2)+14+35,y-(sizey/2)+46+16,$7F0000,$7F0000,$7F0000,$7F0000,0) draw_text_color(x-(sizex/2)+16,y-(sizey/2)+48,"Timing",c_white,c_white,c_white,c_white,1) }
+draw_text(x-(sizex/2)+16,y-(sizey/2)+68,"Events")
+if mouse_rectangle(x-(sizex/2)+14,y-(sizey/2)+66,28,16) && active { window_set_cursor(cr_handpoint)draw_set_alpha(.5)draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+66,x-(sizex/2)+14+37,y-(sizey/2)+66+16,$7F0000,$7F0000,$7F0000,$7F0000,0)draw_set_alpha(1) if mouse_check_button_pressed(mb_left) & active list = 2 }
+if list = 2 { draw_rectangle_color(x-(sizex/2)+14,y-(sizey/2)+66,x-(sizex/2)+14+37,y-(sizey/2)+66+16,$7F0000,$7F0000,$7F0000,$7F0000,0) draw_text_color(x-(sizex/2)+16,y-(sizey/2)+68,"Events",c_white,c_white,c_white,c_white,1) }
 //make_color_rgb(51,153,255)
 draw_line_color(x-(sizex/2),y-(sizey/2),x-(sizex/2),y+(sizey/2),c_white,c_white)
 draw_line_color(x-(sizex/2),y-(sizey/2),x+(sizex/2)+1,y-(sizey/2),c_white,c_white)

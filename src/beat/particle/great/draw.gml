@@ -3,8 +3,8 @@ draw_set_valign(fa_center)
 draw_set_font(global.fontx5[4])
 alpha -= 0.03/(room_speed/60)
 draw_text_transformed_color(x,y,"GREAT",2.4,2.4,0,
-current_mega_color5,current_mega_color5,
-current_mega_color5,current_mega_color5,alpha)
+current_mega_colors[5],current_mega_colors[5],
+current_mega_colors[5],current_mega_colors[5],alpha)
 draw_set_alpha(.25+(frame/40))
 //if instance_number(beat_particle_great) > 10
 for (l = 0; l <= (special / 3); l += 1)

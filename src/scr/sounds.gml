@@ -8,7 +8,7 @@ snd_pause = caster_load(path_sfx+"Common\Pause.ogg")
 snd_unpause = caster_load(path_sfx+"Common\Unpause.ogg")
 snd_death = caster_load(path_sfx+"Common\PaddleDeath.ogg")
 snd_game_over = caster_load(path_sfx+"Common\GameOver.ogg")
-snd_challenge = caster_load(path_sfx+"Beat\Challenge.ogg")
+snd_challenge = caster_load(path_sfx+"Common\Challenge.ogg")
 // try optimizing along with other numbered files
 snd_score_tally_1 = caster_load(path_sfx+"Common\ScoreTally1.ogg")
 snd_score_tally_2 = caster_load(path_sfx+"Common\ScoreTally2.ogg")
