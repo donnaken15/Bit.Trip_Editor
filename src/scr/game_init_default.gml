@@ -1,6 +1,7 @@
 // READONLY
 // why isnt this working as a file
 
+bpm=60
 instance_create(0,0,b_a_c_k_d_r_o_p)
 mega_colors[1]=make_color_rgb(198,67,153)
 mega_colors[2]=make_color_rgb(230,120,162)

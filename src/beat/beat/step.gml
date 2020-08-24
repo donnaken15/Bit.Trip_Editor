@@ -2,20 +2,19 @@
 /// PLEASE CUT ALL THIS CRAP DOWN LATER PLEEEAAASSSEEEEEE
 /// MY EEEEEYYYYEEEEESSSSS
 
+if gameover<1 {
+
 switch type {
 	case 0:
 	case 99:
-		if gameover<1{if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
 		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) vspeed *= -1 }
 		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && (beat_coll() || always_hit=1 ))
 		{ hspeed *= -1 if !designer_mode beat_hit() hit = 1 }
-		if (x < 0) { if !designer_mode beat_miss() instance_destroy() }
-		if (x > 1280+(15/2)) { instance_destroy() }}
-		else{speed=0hspeed=0vspeed=0}
 		if type=99 execute_string(stepcode_)
 		break
 	case 1:
-		if gameover<1{if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
 		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) vspeed *= -1 }
 		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && (beat_coll() || (always_hit=1 && hit = 0) ))
 		{ x = paddle.x+(69*designer_mode)+15 hspeed = origspeed if !designer_mode beat_hit() hit = hits vspeed = 0 }
@@ -32,11 +31,9 @@ switch type {
 		if (hit = 6) { hspeed -= bouncex5 / 10 vspeed -= bouncey5 / 10 }
 		if (hit = 7) { hspeed -= bouncex6 / 10 vspeed -= bouncey6 / 10 }
 		if (hit = hits) hit = 1*/
-		if (x < 0) { if !designer_mode beat_miss() instance_destroy() }
-		if (x > 1280+(15/2)) { instance_destroy() }}else{speed=0hspeed=0vspeed=0}
 		break
 	case 3:
-		if gameover<1{if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
 		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) vspeed *= -1 }
 		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && flip = 0 && ((y >= paddle.y-39
 		&& y <= paddle.y+39 && hit = 0 && special != 1 && special != 2)
@@ -48,14 +45,11 @@ switch type {
 		|| ((y *-1 + room_height) >= paddle.y-39-16 && (y *-1 + room_height) <= paddle.y+39+16 && hit = 0 && special = 1)
 		|| ((y *-1 + room_height) >= paddle.y-39+8 && (y *-1 + room_height) <= paddle.y+39-8 && hit = 0 && special = 2)
 		|| ((y *-1 + room_height) >= paddle.y-114-39 && (y *-1 + room_height) <= paddle.y-82+7 && special = 3 && hit = 0) || always_hit=1 )))
-		{ hspeed *= -1 if !designer_mode beat_hit() hit = 1 }
-		if (x < 0) { beat_miss() instance_destroy() }
-		if (x > 1280+(15/2)) { instance_destroy() }}
-		else{speed=0hspeed=0vspeed=0}
+		{ hspeed *= -1 if !designer_mode beat_hit() hit = 1 vspeed = 0 }
 		if hit != 1 y += (paddle.y - y) / follow
 		break
 	case 4:
-		if gameover<1{if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
 		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) vspeed *= -1 }
 		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && ((y >= paddle.y-39
 		&& y <= paddle.y+39 && hit = 0 && special != 1 && special != 2)
@@ -63,12 +57,9 @@ switch type {
 		|| (y >= paddle.y-39+8 && y <= paddle.y+39-8 && hit = 0 && special = 2)
 		|| (y >= paddle.y-114-39 && y <= paddle.y-82+7 && special = 3 && hit = 0) || always_hit=1 ))
 		{ hspeed *= -1 if !designer_mode beat_hit() hit = 1 }
-		if (x < 0) { if !designer_mode beat_miss() instance_destroy() }
-		if (x > 1280+(15/2)) { instance_destroy() }}
-		else{speed=0hspeed=0vspeed=0}
 		break
 	case 6:
-		if gameover<1{if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
 		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) if firstbouncecomplete = 0 { originalspeed = vspeed firstbouncecomplete = 1 } vspeed = originalspeed*-1 }
 		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && ((y >= paddle.y-39
 		&& y <= paddle.y+39 && hit = 0 && special != 1 && special != 2)
@@ -76,13 +67,11 @@ switch type {
 		|| (y >= paddle.y-39+8 && y <= paddle.y+39-8 && hit = 0 && special = 2)
 		|| (y >= paddle.y-114-39 && y <= paddle.y-82+7 && special = 3 && hit = 0) || always_hit=1))
 		{ hspeed *= -1 if !designer_mode beat_hit() hit = 1 }
-		if (x < 0) { if !designer_mode beat_miss() instance_destroy() }
-		if (x > 1280+(15/2)) { instance_destroy() }
 		/*if bounce > 0 && bouncespeed > 0 */vspeed += bounce / bouncespeed
-		/*else if bounce < 0 && bouncespeed < 0 vspeed -= */}else{speed=0hspeed=0vspeed=0}
+		/*else if bounce < 0 && bouncespeed < 0 vspeed -= */
 		break
 	case 8:
-		if gameover<1{if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
 		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) vspeed *= -1 }
 		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && ((y >= paddle.y-39
 		&& y <= paddle.y+39 && hit = 0 && special != 1 && special != 2)
@@ -91,11 +80,30 @@ switch type {
 		|| (y >= paddle.y-114-39 && y <= paddle.y-82+7 && special = 3 && hit = 0) || always_hit=1 ))
 		{ vspeed = 0 x = paddle.x+(69*designer_mode)+16 hspeed = 0 alarm[0] = staytime if !designer_mode beat_hit() hit = 1 }
 		if alarm[0] > -1 alarm[0] -= 1 if alarm[0] = 0 speed = originalspeed*-1
-		if (x < 0) { if !designer_mode beat_miss() instance_destroy() }
-		if (x > 1280+(15/2)) { instance_destroy() }}else{speed=0hspeed=0vspeed=0originalspeed=0}
+		break
+	case 10:
+		if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) vspeed *= -1 }
+		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && (beat_coll() || always_hit=1 ))
+		{ hspeed *= -1 if !designer_mode beat_hit() hit = 1 }
+		/*if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) vspeed *= -1 }
+		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && ((y >= paddle.y-39
+		&& y <= paddle.y+39 && hit = 0 && special != 1 && special != 2)
+		|| (y >= paddle.y-39-16 && y <= paddle.y+39+16 && hit = 0 && special = 1)
+		|| (y >= paddle.y-39+8 && y <= paddle.y+39-8 && hit = 0 && special = 2)
+		|| (y >= paddle.y-114-39 && y <= paddle.y-82+7 && special = 3 && hit = 0) || always_hit=1 ))
+		{ hspeed *= -1 if !designer_mode beat_hit() hit = 1 }*/
+		if alarm[0] > -1 alarm[0] -= 1
+		if alarm[0] = 0 {
+		velocity *= -1
+		alarm[0]=fliptime
+		}
+		vspeed += velocity/10
+		// i hate this beat so much
 		break
 	case 11:
-		if gameover<1{if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
 		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) vspeed *= -1 }
 		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && ((y >= paddle.y-39
 		&& y <= paddle.y+39 && hit = 0 && special != 1 && special != 2)
@@ -132,11 +140,9 @@ switch type {
 			paddle_visible=1
 			instance_destroy()
 		}
-		if (x < 0) { if !designer_mode beat_miss() instance_destroy() }
-		if (x > 1280+(15/2)) { instance_destroy() }}else{speed=0hspeed=0vspeed=0}
 		break
 	case 9:
-		if gameover<1{if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
+		if (y >= 600 - (15/2) - (vspeed*.3) || y <= 120 + (15/2) + (vspeed*-.3))
 		&& (x >= 70 && x <= 1219) { if mode = 2 && vspeed != 0 instance_create(x,y,beat_particle_mega_bounce) vspeed *= -1 }
 		if ((x >= 69-16-(hspeed*-.8) && x <= 69+16+(hspeed*-.8)) && ((y >= paddle.y-39
 		&& y <= paddle.y+39 && hit = 0 && special != 1 && special != 2)
@@ -144,13 +150,15 @@ switch type {
 		|| (y >= paddle.y-39+8 && y <= paddle.y+39-8 && hit = 0 && special = 2)
 		|| (y >= paddle.y-114-39 && y <= paddle.y-82+7 && special = 3 && hit = 0) || always_hit=1 ))
 		{ hspeed *= -1 if !designer_mode beat_hit() hit = 1 }
-		if (x < 0) { if !designer_mode beat_miss() instance_destroy() }
-		if (x > 1280+(15/2)) { instance_destroy() }}
-		else{speed=0hspeed=0vspeed=0}
+		
 		image_index+=1
 		if image_index>(bpm/flashrate)*2 image_index=0
 		break
 }
+if (x < 0) { if !designer_mode beat_miss() instance_destroy() }
+if (x > 1280+(15/2)) { instance_destroy() }
+}
+else {speed=0hspeed=0vspeed=0}
 
 /*
 if gameover<1{

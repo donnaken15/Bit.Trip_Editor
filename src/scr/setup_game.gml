@@ -1,3 +1,8 @@
+for (j = 0; j < string_length(file); j += 1) {
+  if string_char_at(file,j) = "\" || string_char_at(file,j) = "/"
+    k = j
+}
+execute_shell(path_root+"/rpc-host.exe",string(argument0)+' "'+string_copy(file,k+1,266)+'"')
 switch (argument0)
 {
 	case 0:
@@ -49,13 +54,27 @@ switch (argument0)
 		core_hit_scr =get_code(path_src+"core/scr/hit.gml")
 		core_miss_scr=get_code(path_src+"core/scr/miss.gml")
 		core_beam_scr=get_code(path_src+"core/scr/beam.gml")
-		//object_event_add(plus,ev_create,0,get_code(path_src+"core/plus/create.gml"))
+		//object_event_add(plus,ev_create,0,get_code(path_src+"core/plus/create.gml",0))
 		object_event_add(plus,ev_step,0,get_code(path_src+"core/plus/step.gml",0))
 		object_event_add(plus,ev_draw,0,get_code(path_src+"core/plus/draw.gml",0))
+		object_event_add(core_beat_base,ev_create,0,get_code(path_src+"core/beat/create.gml",0))
+		object_event_add(core_beat_base,ev_step,0,get_code(path_src+"core/beat/step.gml",0))
+		object_event_add(core_beat_base,ev_draw,0,get_code(path_src+"core/beat/draw.gml",0))
 		sprite_replace(rainbow,path_gfx+"rainbow.png",2,0,0,13,33) init = 0 }
         room_goto(core)
 		break
 	case 2:
+		if init=1 {
+		globalvar void_beat_scr,void_hit_scr,void_miss_scr;
+		void_beat_scr   =get_code(path_src+"void/scr/beat.gml")
+		void_hit_scr    =get_code(path_src+"void/scr/hit.gml" )
+		void_miss_scr   =get_code(path_src+"void/scr/miss.gml")
+		void_release_scr=get_code(path_src+"void/scr/release.gml")
+		object_event_add(vortex,ev_create,0,get_code(path_src+"void/vortex/create.gml",0))
+		object_event_add(vortex,ev_step,0,get_code(path_src+"void/vortex/step.gml",0))
+		object_event_add(vortex,ev_draw,0,get_code(path_src+"void/vortex/draw.gml",0))
+		sprite_replace(vortexspr,path_gfx+"vortex.png",0,0,0,4,4) init = 0 }
+		room_goto(void)
 		break
 	case 3:
 		break

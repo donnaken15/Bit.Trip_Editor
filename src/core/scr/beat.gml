@@ -27,28 +27,29 @@
 // 0-1 left to right up to down
 
 var _beat
-if room = core || room = designer
-  switch argument[0]
+if room = core || room = designer {
+  _beat = instance_create(!(argument[1] mod 2)*(argument[2]*room_width)+((argument[1]=1)*room_width),(argument[1] mod 2)*(argument[2]*room_height)+((argument[1]=2)*room_height),core_beat_base)
+  with _beat {
+  hit = 0 speed = argument[3] direction = 180 + argument[4] + (!(argument[1] mod 2) * 90) + ((argument[1] >= 2) * 180) lifetime = argument[5]
+  if designer_mode _beat.parent = id
+  type = argument[0]
+  switch type
   {
   case 0:
-     {
-         _beat = instance_create(!(argument[1] mod 2)*(argument[2]*room_width)+((argument[1]=1)*room_width),(argument[1] mod 2)*(argument[2]*room_height)+((argument[1]=2)*room_height),core_beat_normal)
-         if designer_mode _beat.parent = id
-         with _beat { hit = 0 speed = argument[3] direction = 180 + argument[4] + (!(argument[1] mod 2) * 90) + ((argument[1] >= 2) * 180) lifetime = argument[5] }
-     }
-     break
+     color = make_color_rgb(247,216,0)
+	 break
   case 1:
-     {
-         _beat = instance_create(!(argument[1] mod 2)*(argument[2]*room_width)+((argument[1]=1)*room_width),(argument[1] mod 2)*(argument[2]*room_height)+((argument[1]=2)*room_height),core_beat_orange)
-         if designer_mode _beat.parent = id
-         with _beat { hit = 0 speed = argument[3] origspeed = argument[3] direction = 180 + argument[4] + (!(argument[1] mod 2) * 90) + ((argument[1] >= 2) * 180) lifetime = argument[5] bouncex = argument[6] bouncey = argument[7] if argument_count > 8 lifetimeplus = argument[8] else lifetimeplus = 60 if argument_count > 9 keepsp = argument[9] else keepsp = 1 if argument_count > 10 hits = argument[10] else hits = 2 }
+	 if argument_count < 7 { show_error("Not enough arguments.",false) break }
+	 color = make_color_rgb(252,165,0)
+     origspeed = argument[3] bouncex = argument[6] bouncey = argument[7]
+	 if argument_count > 8 lifetimeplus = argument[8] else lifetimeplus = 60
+	 if argument_count > 9 keepsp = argument[9] else keepsp = 1 if argument_count > 10 hits = argument[10] else hits = 2
          // EXT: bouncex, bouncey, additional lifetime, keepsp, hits
 //         _beat = instance_create(0,0,core_beat_orange)
 //         if designer_mode _beat.parent = id
 //         with _beat { hit = 0 y = argument[1] speed = argument[2] origspeed = argument[2] direction = argument[3] - 180 bouncex = argument[4] bouncey = argument[5] hits = 2 if argument_count > 6 keepvsp = argument[6] if argument_count > 7 hits = argument[7] }
-     }
      break
-  case 3:
+  /*case 3:
      {
          _beat = instance_create(0,0,core_beat_follow)
          if designer_mode _beat.parent = id
@@ -103,12 +104,14 @@ if room = core || room = designer
          if designer_mode _beat.parent = id
          with _beat { hit = 0 y = argument[1] speed = argument[2] direction = argument[3] - 180 color = argument[4] execute_string(argument[5]) stepcode_ = argument[6] drawcolor_ = argument[7] }
      }
-     break
+     break*/
   default:
      {
          show_error("Invalid beat type.",false)
      }
      break
+    }
   }
+}
 
 return _beat

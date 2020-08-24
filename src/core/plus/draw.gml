@@ -63,7 +63,7 @@ draw_set_alpha(1)
 
 if (mode_animation>-360)
 {
-if floor(image_index/30) > 0
+if floor(image_index/(room_speed/2)) > 0
 draw_set_color(make_color_rgb(177,4,4))
 else draw_set_color(make_color_rgb(141,3,3))
 }

@@ -73,36 +73,44 @@ if keyboard_check_pressed(vk_space)
        keyboard_check(vk_right) || keyboard_check(ord('D')) ||
        keyboard_check(vk_down) || keyboard_check(ord('S'))
     beam = 7
-
-for (j = 0; j < 100; j += 1) {
-if beam > 0 {
-__hit = core_beam(((!uppressed&&!leftpressed&&!rightpressed&&!downpressed)*-1)
-+(uppressed)
-+((rightpressed)*2)
-+((downpressed)*3),core_beat_normal)
-if __hit != noone { core_hit() with __hit instance_destroy() __hitonce = 1 }
-__hit = core_beam(((!uppressed&&!leftpressed&&!rightpressed&&!downpressed)*-1)
-+(uppressed)
-+((rightpressed)*2)
-+((downpressed)*3),core_beat_orange)
-if __hit != noone { if __hit.hit_ticker = 0 { __hit.hit_ticker = beam core_hit() with __hit { if hit <= 0 hit = hits else hit -= 1 lifetime += lifetimeplus speed *= -1 if keepsp = 0 speed = 0 if hit = 1 instance_destroy() } } __hitonce = 1 } }
-if __hitonce = 0 && beam = 1 { if combo >= 10 misstxt = instance_create(plus.x+4,plus.y+4,core_particle_miss) combo = 0 } } } else {
-for (i = 0; i < 4; i += 1) if core_beam(i,core_beat_normal) != noone { bot_beam = i beam = 6 break }
-for (i = 0; i < 4; i += 1) if core_beam(i,core_beat_orange) != noone { bot_beam = i beam = 6 break }
+} else {
+for (i = 0; i < 4; i += 1) if core_beam(i,core_beat_base) != noone { bot_beam = i beam = 6 break }
 switch bot_beam {
   case 0: leftpressed = 1 uppressed = 0 rightpressed = 0 downpressed = 0 break
   case 1: leftpressed = 0 uppressed = 1 rightpressed = 0 downpressed = 0 break
   case 2: leftpressed = 0 uppressed = 0 rightpressed = 1 downpressed = 0 break
   case 3: leftpressed = 0 uppressed = 0 rightpressed = 0 downpressed = 1 break
   }
-for (j = 0; j < 100; j += 1) {
-__hit = core_beam(bot_beam,core_beat_normal)
-if __hit != noone { core_hit() with __hit instance_destroy() }
-__hit = core_beam(bot_beam,core_beat_orange)
-if __hit != noone { if __hit.hit_ticker = 0 { __hit.hit_ticker = beam core_hit() with __hit { if hit <= 0 hit = hits else hit -= 1 lifetime += lifetimeplus speed *= -1 if keepsp = 0 speed = 0 if hit = 1 instance_destroy() } } __hitonce = 1 }
-if beam <= 1 { leftpressed = 0 uppressed = 0 rightpressed = 0 downpressed = 0 } } }
+}
 
+for (j = 0; j < 100; j += 1) {
+if beam > 0 {
+__hit = core_beam(((!uppressed&&!leftpressed&&!rightpressed&&!downpressed)*-1)
++(uppressed)
++((rightpressed)*2)
++((downpressed)*3),core_beat_base)
+if __hit != noone
+with __hit {
+switch type
+{
+	case 0:
+		core_hit() plus.__hitonce = 1 instance_destroy()
+		break
+	case 1:
+	// TODO: prevent from being hit again while beam was active from the first hit
+		if hit_ticker = 0 { hit_ticker = beam core_hit()
+		if hit <= 0 hit = hits else hit -= 1 lifetime += lifetimeplus speed *= -1
+		if keepsp = 0 speed = 0 if hit = 1 instance_destroy() } __hitonce = 1
+		if __hitonce = 0 && plus.beam = 1 { if plus.combo >= 10 misstxt = instance_create(plus.x+4,plus.y+4,core_particle_miss) plus.combo = 0 }
+		break
+}
+}
+}
+if bot = 1 {
+if beam <= 1 { leftpressed = 0 uppressed = 0
+rightpressed = 0 downpressed = 0 }
 if beam = 0 __hitonce = 0 }
+}
 
 if image_index >= room_speed+(60-room_speed) - 1
 {
@@ -139,6 +147,7 @@ if win_>120 {room_goto(finalscore)}
 
 execute_string(stepcode)
 
+}
 /*__hit = core_beam(((keyboard_check(vk_up)||keyboard_check(ord('W'))))
 +((keyboard_check(vk_right)||keyboard_check(ord('D')))*2)
 +((keyboard_check(vk_down)||keyboard_check(ord('S'))))*3,core_beat_normal)/*

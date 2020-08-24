@@ -43,3 +43,12 @@ http_dll_2_3.gex
 *.md
 src\beat\paddle\alarms
 src\beat\paddle\keys
+src\beat\beat\*\create.gml
+src\beat\beat\*\draw.gml
+src\beat\beat\*\step.gml
+src\beat\beat\*\a*.gml
+src\beat\paddle\alarms
+src\beat\paddle\keys
+src\core\beat\base
+src\core\beat\orange
+

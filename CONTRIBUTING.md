@@ -29,6 +29,9 @@ will signify that you are enjoying the project and want to see more to come and 
 You can join the community by joining the forums: https://bittripeditor.boards.net
 
 
+## Sponsoring
+is really optional, especially for the fact this is just a fan game, but it's there if you'd like to. You can check the main page and see where you can donate.
+
 
 I thank you for any of the above you've done, and/or especially for if you're just playing the engine, because it shows that I helped to (re)make something cool
 
