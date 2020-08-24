@@ -194,7 +194,7 @@ if file_exists(parameter_string(1)) && parameter_string(1) != "-designer"
 	else
 		show_error("Specify a game number.",true)*/
 if parameter_string(1) = "-designer" {
-	execute_shell(path_root+"/rpc-host.exe","6")
+	if discord_rpc execute_shell(path_root+"/rpc-host.exe","6")
 	globalvar beat_beat_scr,core_beat_scr;
 	beat_beat_scr=get_code(path_src+"beat/scr/beat.gml",0)
 	core_beat_scr=get_code(path_src+"core/scr/beat.gml",0)

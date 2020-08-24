@@ -157,7 +157,7 @@ if win_>120 {room_goto(finalscore)}
 realframe+=1
 
 for (i=1;i<10;i+=1)
-current_mega_colors[i] = mega_colors[(floor(realframe/room_speed)+i) mod 9+1]
+current_mega_colors[i] = mega_colors[(floor(realframe/bpm)+i) mod 9+1]
 
 //for (i=0;i<12;i+=1)
 //{

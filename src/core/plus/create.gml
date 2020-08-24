@@ -11,6 +11,7 @@ score = 0
 multi = 1
 bomb = 1
 mode_animation = 0
+realframe = 0
 if init=0{
 sounds()
 init=1}

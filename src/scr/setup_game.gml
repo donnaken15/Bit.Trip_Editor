@@ -1,8 +1,8 @@
-for (j = 0; j < string_length(file); j += 1) {
+if discord_rpc { for (j = 0; j < string_length(file); j += 1) {
   if string_char_at(file,j) = "\" || string_char_at(file,j) = "/"
     k = j
 }
-execute_shell(path_root+"/rpc-host.exe",string(argument0)+' "'+string_copy(file,k+1,266)+'"')
+execute_shell(path_root+"/rpc-host.exe",string(argument0)+' "'+string_copy(file,k+1,266)+'"') }
 switch (argument0)
 {
 	case 0:

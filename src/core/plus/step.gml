@@ -125,6 +125,9 @@ if mode=0
 	}
 }
 
+for (i=1;i<10;i+=1)
+current_mega_colors[i] = mega_colors[(floor(realframe/bpm)+i) mod 9+1]
+
 rainbow_index += 1
 
 if rainbow_index = rainbow_speed rainbow_index = 0
@@ -144,6 +147,8 @@ if win_=1 {instance_create(0,0,endgamefade)}
 if win_>0 {win_+=1}
 
 if win_>120 {room_goto(finalscore)}
+
+realframe += 1
 
 execute_string(stepcode)
 
