@@ -1,6 +1,7 @@
 switch (argument0)
 {
 	case 0:
+		if init=1 {
 		globalvar beat_beat_scr,beat_hit_scr,beat_miss_scr;
 		beat_beat_scr=get_code(path_src+"beat/scr/beat.gml")
 		beat_hit_scr =get_code(path_src+"beat/scr/hit.gml" )
@@ -38,7 +39,7 @@ switch (argument0)
 		object_event_add(beat_challenge_finish,ev_create,0,get_code(path_src+"beat/particle/challenge/finish/create.gml",0))
 		object_event_add(beat_challenge_finish,ev_step,0,get_code(path_src+"beat/particle/challenge/finish/step.gml",0))
 		object_event_add(beat_challenge_finish,ev_draw,0,get_code(path_src+"beat/particle/challenge/finish/draw.gml",0))
-		sprite_replace(glados,path_gfx+"glados.png",2,0,0,13,33)
+		sprite_replace(glados,path_gfx+"glados.png",2,0,0,13,33) init = 0 }
         room_goto(beat)
 		break
 	case 1:
