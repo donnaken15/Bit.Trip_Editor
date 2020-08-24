@@ -3,6 +3,7 @@ switch type {
 	case 0:
 	case 1:
 	case 8:
+	case 10:
 	case 11:
 	case 99:
 		if !designer_mode { if mode != 0 {
@@ -56,4 +57,14 @@ switch type {
 		(x+(15/2))/4.05+(parent.x+(parent.sizex/2)-324),(y+(15/2))/4.05+(parent.y-174),
 		make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),make_color_rgb(247,216,0),false)
 		break
+}
+if debug_mode{
+	draw_set_font(global.fontx1[2])
+	draw_text(floor(x)+8,floor(y)+8,"x:"+string(x)+
+				 "#y:"+string(y)+
+				 "#speed:"+string(speed)+
+				 "#direction"+string(direction)+
+				 "#hspeed:"+string(hspeed)+
+				 "#vspeed:"+string(vspeed)+
+				 "#alarm0:"+string(alarm[0]))
 }

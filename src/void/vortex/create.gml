@@ -1,0 +1,27 @@
+//depth=-2147483645
+mode = 1
+hyper_up = 0
+hyper_lose = 0
+mega_up = 0
+mega_lose = 0
+super_up = 0
+super_lose = 0
+ultra_lose = 0
+nether_up = 0
+nether_lose = 0
+combo = 0
+score = 0
+multi = 1
+size = 0
+timeline_index=level
+timeline_position=-1
+timeline_running=1
+timeline_speed=1
+timeline_loop=0
+if init=0{
+sounds()
+timeline_position=-1
+init=1}
+show_score=0
+show_health=0
+show_lives=0

@@ -62,11 +62,13 @@ if room = beat || room = designer {
           // green
           if argument_count>4 flashrate = argument[4] else flashrate = 4
        break
-    //case 10:
+    /*case 10:
           // violet
    	      // PLEASE FREAKING WORK
-          //fliptime = argument[4] alarm[0] = fliptime velocity = argument[3] vspeed = velocity*.645
-       //break
+		  // might have to override direction or disable it from being changed
+		  direction = 180 color=make_color_rgb(128,122,255)
+		  fliptime = argument[4] velocity = argument[3]*.645 alarm[0]=fliptime
+       break*/
     case 11:
           // powerup
 		  color = make_color_rgb(255,255,255)

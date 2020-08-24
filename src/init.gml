@@ -4,8 +4,8 @@ nofail, bot, stopped, background_music, paused, mega_music,
 soundtype, stepcode, drawcode, nowin, KBsensitivity, windows,
 winid, designer_mode, init, updateout, rainbow_index, rainbow_speed,
 showscore, showmodes, showcombo, showmulti, showbars, showpaddletext, showpaddle,
-showparticles, background_music_free, try, /*Discord_Initialize,*/ lastgame, lastmusicfile, enablesounds,
-realtimesrc, loadonce, enable_error_logs, errlog, errlogpath, realframe,
+showparticles, background_music_free, try, lastgame, lastmusicfile, enablesounds,
+realtimesrc, loadonce, enable_error_logs, errlog, errlogpath, realframe, bpm, bgcolor, discord_rpc,
 path_root,path_src,
 path_gfx,path_sfx,
 path_mus,path_bin
@@ -42,10 +42,6 @@ global.fontx3[i] = font_add_sprite(fontsprX3,ord('!'),true,i)
 global.fontx4[i] = font_add_sprite(fontsprX4,ord('!'),true,i)
 global.fontx5[i] = font_add_sprite(fontsprX5,ord('!'),true,i)}
 
-//o-o
-//external_define('discord-rpc.dll','_Discord_Initialize',dll_cdecl,ty_real,4,ty_string,ty_real,ty_real,ty_real);
-//external_define('discord-rpc.dll','_Discord_Shutdown',dll_cdecl,ty_real,0);
-
 stepcode = ""
 drawcode = ""
 
@@ -68,6 +64,7 @@ window_set_region_size(ini_read_real("General","Width",1280),ini_read_real("Gene
 realtimesrc = ini_read_real("General","RealtimeSrc",0)
 loadonce = ini_read_real("General","LoadOnce",1)
 enable_error_logs = ini_read_real("General","LogErrors",1)
+discord_rpc = ini_read_real("General","DiscordRPC",1)
 window_center()
 
 if enable_error_logs {
@@ -81,6 +78,7 @@ mode = 1
 score = 0
 set_application_title("BIT . TRIP EDITOR")
 set_automatic_draw(true)
+bpm = 60
 
 globalvar skip_scr,skiprel_scr,set_bg_color_scr,toggle_scr,pause_scr,
 lose_scr,win_scr,nosounds_scr,sounds_scr,recursion_scr,draw_rainbow_scr,
@@ -114,6 +112,7 @@ load_level_scr = get_code(path_scr+"load_level.gml")
 timeline_load_scr = get_code(path_scr+"timeline_load.gml")
 newline_scr = get_code(path_scr+"newline.gml")
 setup_game_scr = get_code(path_scr+"setup_game.gml")
+//beat_text_particle_scr = get_code(path_scr+"beat_text_particle.gml")
 //game_init_default_scr = get_code(path_scr+"game_init_default.gml")
 
 music_scr = get_code(path_scr+"music/hyper.gml")
