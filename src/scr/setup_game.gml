@@ -48,7 +48,7 @@ switch (argument0)
         room_goto(beat)
 		break
 	case 1:
-		globalvar core_beat_scr,core_hit_scr,core_miss_scr,core_beam_scr;
+		if init=1 { globalvar core_beat_scr,core_hit_scr,core_miss_scr,core_beam_scr;
 		core_beat_scr=get_code(path_src+"core/scr/beat.gml")
 		core_hit_scr =get_code(path_src+"core/scr/hit.gml")
 		core_miss_scr=get_code(path_src+"core/scr/miss.gml")
