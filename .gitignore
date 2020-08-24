@@ -11,3 +11,6 @@ settings.ini
 *.btr
 *.btf
 *.btx
+.vs
+[Rr]elease
+*.[Vv][Cc].[Dd][Bb]

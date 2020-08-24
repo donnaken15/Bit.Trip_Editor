@@ -45,7 +45,7 @@ switch (argument0)
 		object_event_add(beat_challenge_finish,ev_step,0,get_code(path_src+"beat/particle/challenge/finish/step.gml",0))
 		object_event_add(beat_challenge_finish,ev_draw,0,get_code(path_src+"beat/particle/challenge/finish/draw.gml",0))
 		sprite_replace(glados,path_gfx+"glados.png",2,0,0,13,33) init = 0 }
-        room_goto(beat)
+    room_goto(beat)
 		break
 	case 1:
 		if init=1 { globalvar core_beat_scr,core_hit_scr,core_miss_scr,core_beam_scr;
@@ -60,7 +60,7 @@ switch (argument0)
 		object_event_add(core_beat_base,ev_step,0,get_code(path_src+"core/beat/step.gml",0))
 		object_event_add(core_beat_base,ev_draw,0,get_code(path_src+"core/beat/draw.gml",0))
 		sprite_replace(rainbow,path_gfx+"rainbow.png",2,0,0,13,33) init = 0 }
-        room_goto(core)
+    room_goto(core)
 		break
 	case 2:
 		if init=1 {
