@@ -66,5 +66,6 @@ if debug_mode{
 				 "#direction"+string(direction)+
 				 "#hspeed:"+string(hspeed)+
 				 "#vspeed:"+string(vspeed)+
-				 "#alarm0:"+string(alarm[0]))
+				 "#alarm0:"+string(alarm[0])+
+				 "#type:"+string(type))
 }

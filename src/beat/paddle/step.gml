@@ -10,9 +10,6 @@ switch special
   case 2:
     specialbumper = -8
     break
-  case 0:
-    specialbumper = 0
-    break
 }
 if !bot && mouse
 {
@@ -42,8 +39,8 @@ if !bot && mouse
 else if bot
 {
   window_set_cursor(cr_default)
-  nearest_beat = collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_normal,false,false)
-  if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_normal,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y if flip = 0 y=room_height/2}
+  nearest_beat = collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_base,false,false)
+  if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_base,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y if nearest_beat.type = 3 y=room_height/2}
   /*nearest_beat = collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_green,false,false)
   if collision_rectangle(45,136 + specialbumper,72,584 - specialbumper,beat_beat_green,false,false) && (nearest_beat.hit = 0 || nearest_beat.hit >= 2) {y=nearest_beat.y}
   nearest_beat = collision_rectangle(45,136 + specialbumper,80,584 - specialbumper,beat_beat_orange,false,false)
