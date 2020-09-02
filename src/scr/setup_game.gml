@@ -44,7 +44,11 @@ switch (argument0)
 		object_event_add(beat_challenge_finish,ev_create,0,get_code(path_src+"beat/particle/challenge/finish/create.gml",0))
 		object_event_add(beat_challenge_finish,ev_step,0,get_code(path_src+"beat/particle/challenge/finish/step.gml",0))
 		object_event_add(beat_challenge_finish,ev_draw,0,get_code(path_src+"beat/particle/challenge/finish/draw.gml",0))
-		sprite_replace(glados,path_gfx+"glados.png",2,0,0,13,33) init = 0 }
+		sprite_replace(glados,path_gfx+"glados.png",2,0,0,13,33) init = 0 }if os_type = os_windows
+			execute_string('sprite_replace(glados,path_gfx+"glados.png",2,0,0,13,33)')
+		else
+			sprite_replace(glados,path_gfx+"glados.png",2,0,0,0,0,13,33)
+		//sprite_load(glados,path_gfx+"glados.png",2,13,33)
     room_goto(beat)
 		break
 	case 1:
@@ -60,6 +64,10 @@ switch (argument0)
 		object_event_add(core_beat_base,ev_step,0,get_code(path_src+"core/beat/step.gml",0))
 		object_event_add(core_beat_base,ev_draw,0,get_code(path_src+"core/beat/draw.gml",0))
 		sprite_replace(rainbow,path_gfx+"rainbow.png",2,0,0,13,33) init = 0 }
+    if os_type = os_windows
+			execute_string('sprite_replace(rainbow,path_gfx+"rainbow.png",2,0,0,13,33)')
+		else
+			sprite_replace(rainbow,path_gfx+"rainbow.png",2,0,0,0,0,13,33)
     room_goto(core)
 		break
 	case 2:

@@ -1,4 +1,4 @@
-Thumbs.db
+*[Tt]humbs*.db
 ehthumbs.db
 ehthumbs_vista.db
 [Dd]esktop.ini
@@ -10,7 +10,7 @@ settings.ini
 *.btv
 *.btr
 *.btf
-*.btx
+*.btz
 .vs
 [Rr]elease
 *.[Vv][Cc].[Dd][Bb]
