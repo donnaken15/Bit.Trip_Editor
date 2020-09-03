@@ -13,7 +13,7 @@ snd_ballbuster = caster_load(path_sfx+"Common\BallBuster.ogg")
 // try optimizing along with other numbered files
 for (i=0;i<8;i+=1)
 {
-	execute_code('snd_score_tally_'+string(i)+' = caster_load(path_sfx+"Common\ScoreTally'+string(i)+'.ogg")')
+	execute_string('snd_score_tally_'+string(i)+' = caster_load(path_sfx+"Common\ScoreTally'+string(i)+'.ogg")')
 }
 /*
 snd_score_tally_1 = caster_load(path_sfx+"Common\ScoreTally1.ogg")
