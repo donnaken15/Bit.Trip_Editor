@@ -4,7 +4,7 @@ nofail, bot, stopped, background_music, paused, mega_music,
 soundtype, stepcode, drawcode, nowin, KBsensitivity, windows,
 winid, designer_mode, init, updateout, rainbow_index, rainbow_speed,
 showscore, showmodes, showcombo, showmulti, showbars, showpaddletext, showpaddle,
-showparticles, background_music_free, try, lastgame, lastmusicfile, enablesounds,
+showparticles, background_music_free, try, lastgame, lastmusicfile, enablesounds, tl_curlines,
 realtimesrc, loadonce, enable_error_logs, errlog, errlogpath, realframe, bpm, bgcolor, discord_rpc,
 path_root,path_src,
 path_gfx,path_sfx,
@@ -90,6 +90,7 @@ score = 0
 //set_application_title("BIT . TRIP EDITOR")
 set_automatic_draw(true)
 bpm = 60
+tl_curlines = 0
 
 globalvar skip_scr,skiprel_scr,set_bg_color_scr,toggle_scr,pause_scr,
 lose_scr,win_scr,nosounds_scr,sounds_scr,recursion_scr,draw_rainbow_scr,
@@ -160,7 +161,7 @@ music_mega_loop_scr = file_text_read_all(path_src+"scr/music/mega_loop.gml")
 music_play_scr = file_text_read_all(path_src+"scr/music/play.gml")
 music_stop_scr = file_text_read_all(path_src+"scr/music/stop.gml")
 
-execute_string("globalvar level;")
+//execute_string("globalvar level;")
 }
 
 // global objs

@@ -94,13 +94,13 @@ if test = 0 window_set_caption("BIT . TRIP BEAT")
 else window_set_caption("WE'VE GOT SOME TESTING TO DO")
 
 if test = 0 {
-draw_set_font(global.fontx5[4])
+draw_set_font(global.fontx5[floor(4/((os_type==2)*2.5))])
 if showmodes {
-draw_text_transformed_color(930,37+mode_animation,"MEGA",2.4,2.4,0,make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),1)
+draw_text_transformed_color(930,37+mode_animation,string(keyboard_key),2.4,2.4,0,make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),1)
 draw_text_transformed_color(829,640+mode_animation,"NETHER",2.4,2.4,0,make_color_rgb(172,170,191),make_color_rgb(172,170,191),make_color_rgb(172,170,191),make_color_rgb(172,170,191),1)
 draw_text_transformed_color(846,-720+37+mode_animation,"MULTI+",2.4,2.4,0,current_mega_colors[3],current_mega_colors[3],current_mega_colors[3],current_mega_colors[3],1)
 draw_text_transformed_color(884,-720+640+mode_animation,"HYPER",2.4,2.4,0,current_mega_colors[4],current_mega_colors[4],current_mega_colors[4],current_mega_colors[4],1) }
-draw_set_font(global.fontx5[9])
+draw_set_font(global.fontx5[floor(9/((os_type==2)*6))])
 if showscore {
 draw_text_transformed_color(85,37+mode_animation,string_replace_all(string_format(score,10,0)
 ,' ','0'),2.4,2.4,0,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,c_bittrip_cyan,1)

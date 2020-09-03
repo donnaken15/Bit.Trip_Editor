@@ -65,7 +65,7 @@ if !mouse
 
 if nowin=1 { hyper_up = 0 mega_multi = 0 nether_up = 0 }
 
-if keyboard_check_pressed(219) {
+if keyboard_check_pressed(219) || (os_type = 2 && keyboard_check_pressed(91)) {
 if mode = 1 {
    mode = 0
    caster_play(snd_mode_down,1,1)
@@ -90,7 +90,7 @@ if mode = 0 {
 }
 }
 
-if keyboard_check_pressed(221) {
+if keyboard_check_pressed(221) || (os_type = 2 && keyboard_check_pressed(93)) {
 if mode = 2 {
    mega_multi=0
    caster_play(snd_mode_multi,1,1)
@@ -115,7 +115,7 @@ if mode = 0 {
 if (mode = 0 && mode_animation > -720) mode_animation -= 48
 if (mode = 1 && mode_animation < 0) mode_animation += 48
 if (mode = 1 && mode_animation > 0) mode_animation -= 48
-if (mode = 2 && mode_animation < 720) mode_animation += 48	
+if (mode = 2 && mode_animation < 720) mode_animation += 48
 
 if special = 0
   sprite_index = paddle_coll
@@ -132,8 +132,8 @@ else room_caption = "WE'VE GOT SOME TESTING TO DO"
 if combo >= 10 { switch difficulty { case 0: combo_str = string_replace_all(string_format(combo+50,4,0),' ','0') break case 1: combo_str = string_replace_all(string_format(combo+100,4,0),' ','0') break } }
 if combo < 10 { switch difficulty { case 0: combo_str = "0050" break case 1: combo_str = "0100" break } }
 
-if keyboard_check_pressed(187) { beat_hit() }
-if keyboard_check_pressed(189) { beat_miss() }
+if keyboard_check_pressed(187) || (os_type = 2 && keyboard_check_pressed(61)) { beat_hit() }
+if keyboard_check_pressed(189) || (os_type = 2 && keyboard_check_pressed(45)) { beat_miss() }
 
 caster_set_volume(mega_music,mode-1)
 
@@ -162,6 +162,7 @@ current_mega_colors[i] = mega_colors[(floor(realframe/bpm)+i) mod 9+1]
 //}
 // why arent alarms working here
 // alarms apparently werent moving while watching the variables
+// may be because event didnt exist internally
 
 // figure out keyboard events and others
 
@@ -170,7 +171,7 @@ current_mega_colors[i] = mega_colors[(floor(realframe/bpm)+i) mod 9+1]
 if keyboard_check(ord('8')) tempvar+=1
 if keyboard_check_released(ord('8')) { beat_beat(8,mouse_y,10,0,tempvar) tempvar=0 }
 
-if keyboard_check_pressed(vk_enter) if !playtest_mode {
+if keyboard_check_pressed(vk_enter) || (os_type = 2 && keyboard_check_pressed(13)) if !playtest_mode {
 message_size(290,64)
 message_position(window_get_x()+(window_get_width()/2.5),window_get_y()+(window_get_height()/2.125))
 caster_pause(background_music)caster_pause(mega_music)
@@ -206,4 +207,3 @@ if keyboard_check_released(vk_down) vspeed-=KBsensitivity
 }
 
 if stepcode != "" execute_string(stepcode)
-
