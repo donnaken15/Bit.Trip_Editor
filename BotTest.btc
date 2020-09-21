@@ -1,0 +1,1 @@
+bot=1bpm=1for(j=0;j<4;j+=2)for(i=1;i<34;i+=1)core_beat(0,j,((i*6)+30)/480,16,0,120)timeline_loop=true//LAGGY

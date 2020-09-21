@@ -1,0 +1,4 @@
+note 1 - 90
+note 2 - 75
+note 3 - 90
+note 4 - 85
