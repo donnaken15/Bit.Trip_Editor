@@ -6,6 +6,7 @@ winid, designer_mode, init, updateout, rainbow_index, rainbow_speed,
 showscore, showmodes, showcombo, showmulti, showbars, showpaddletext, showpaddle,
 showparticles, background_music_free, try, lastgame, lastmusicfile, enablesounds, tl_curlines,
 realtimesrc, loadonce, enable_error_logs, errlog, errlogpath, realframe, bpm, bgcolor, discord_rpc,
+level_directory,
 path_root,path_src,
 path_gfx,path_sfx,
 path_mus,path_bin
