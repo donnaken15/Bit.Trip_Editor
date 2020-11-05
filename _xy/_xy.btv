@@ -1,0 +1,2 @@
+bgcolor=make_color(4,13,71)levelfiles=level_directory+"_xy.data\"execute_file(levelfiles+"src_load.gml")music_loop(levelfiles+"snd_hyper.ogg")
+//main color = make_color_rgb(102,188,255) / make_color_hsv(h138,s240,v168), darker color = make_color(14,23,34)

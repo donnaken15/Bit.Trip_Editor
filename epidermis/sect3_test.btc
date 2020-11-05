@@ -1,0 +1,1061 @@
+level_root=level_directory+"EpidermisDATA/"level_src=level_root+"SRC/"execute_file(level_src+"load.gml")skip(5)
+/// EPIDERMIS - VENETIAN SNARES
+/// LEVEL CREATED BY WESLEY
+/// TEST TEST TEST TEST
+/// TEST TEST TEST TEST//caster_play(caster_load(level_sfx+"AUD_sect3.ogg"),0,1)
+/*mode=2;mode_animation=720;*/music_stop();//nowin=1;nofail=1;
+core_beat(0, core_north, 000.866, 025, 000, 30)bgcolor=0
+
+
+
+
+
+
+
+
+core_beat(0, core_north, 000.866, 025, 000, 30)
+
+
+
+music(level_sfx+"AUD_sect3.ogg")bgcolor=make_color_rgb(6,2,8)
+
+
+
+
+
+core_beat(0, core_south, 000.277, 025, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+core_beat(0, core_east , 000.640, 050, 000, 30)
+
+
+core_beat(0, core_east , 000.320, 050, 000, 30)
+
+
+
+core_beat(0, core_south, 000.777, 025, 000, 30)
+
+
+
+
+
+
+core_beat(0, core_south, 000.333, 025, 000, 30)
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_west , 000.333, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+//&&& core_beat(0, core_west, 000.333, 050, 000, 30) might be cheap lol
+
+
+
+
+
+
+
+
+//&&& sleep(128)
+core_beat(0, core_north, 000.940, 050, -45, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_north, 000.630, 050, -45, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_north, 000.410, 050, -45, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_south, 000.580, 025, 000, 30)
+
+
+
+core_beat(0, core_east , 000.580, 050, 000, 30)
+
+
+
+core_beat(0, core_south, 000.580, 025, 000, 30)
+
+
+
+core_beat(0, core_east , 000.580, 050, 000, 30)
+
+
+
+
+
+core_beat(0, core_north, 000.670, 025, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_north, 000.080, 025, 000, 30)core_beat(0, core_north, 000.120, 025, 000, 30)core_beat(0, core_north, 000.160, 025, 000, 30)core_beat(0, core_north, 000.200, 025, 000, 30)core_beat(0, core_north, 000.240, 025, 000, 30)core_beat(0, core_north, 000.280, 025, 000, 30)core_beat(0, core_north, 000.320, 025, 000, 30)core_beat(0, core_north, 000.360, 025, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.120, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.160, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.200, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.240, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.280, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.360, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.440, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_south, 000.720, 025, 000, 30)
+
+
+
+
+
+core_beat(0, core_south, 000.780, 025, 000, 30)
+
+
+
+
+
+core_beat(0, core_south, 000.720, 025, 000, 30)
+
+
+
+
+
+core_beat(0, core_south, 000.780, 025, 000, 30)
+
+
+
+
+
+core_beat(0, core_south, 000.720, 025, 000, 30)
+
+
+
+
+
+core_beat(0, core_south, 000.780, 025, 000, 30)
+
+
+
+
+
+core_beat(0, core_south, 000.720, 025, 000, 30)
+
+
+
+
+
+core_beat(0, core_south, 000.780, 025, 000, 30)
+
+
+
+
+
+core_beat(0, core_west , 000.730, 050, 000, 30)
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.260, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_west , 000.730, 050, 000, 30)
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.260, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_west , 000.730, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.260, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bgcolor=0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.666, 050, 000, 30)core_beat(0, core_east , 000.666, 050, 000, 30)core_beat(0, core_east , 000.666, 050, 000, 30)core_beat(0, core_east , 000.666, 050, 000, 30)
+
+
+
+
+
+
+core_beat(0, core_south , 000.666, 025, 000, 30)core_beat(0, core_south , 000.666, 025, 000, 30)core_beat(0, core_south , 000.666, 025, 000, 30)core_beat(0, core_south , 000.666, 025, 000, 30)
+
+bgcolor=make_color_rgb(2,6,3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_south, 000.277, 025, 000, 30)
+
+
+
+
+core_beat(0, core_south, 000.277, 025, 000, 30)
+
+
+
+
+core_beat(0, core_south, 000.277, 025, 000, 30)
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_south, 000.750, 025, 000, 30)
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.800, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

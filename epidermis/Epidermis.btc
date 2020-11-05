@@ -1,4 +1,4 @@
-level_root=level_directory+"EpidermisDATA/"level_gfx=level_root+"GFX/"level_sfx=level+root+"SFX/"level_src=level+root+"SRC/"
+level_root=level_directory+"EpidermisDATA/"level_src=level_root+"SRC/"execute_file(level_src+"load.gml")skip(5)
 /// EPIDERMIS - VENETIAN SNARES
 /// LEVEL CREATED BY WESLEY
 /// bittripeditor.forums.net

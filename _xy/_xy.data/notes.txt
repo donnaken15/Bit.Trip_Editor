@@ -1,0 +1,4 @@
+frequencies
+note 1 - 150
+note 2 - 125
+note 3 - 160
