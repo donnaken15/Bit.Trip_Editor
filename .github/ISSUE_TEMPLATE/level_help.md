@@ -1,7 +1,7 @@
 ---
 name: Level help
 about: Ask how you want to do something specific in your level
-title: "[LEVEL.HELP] (Title here)"
+title: "[LEVEL.HELP] Title here | Game name"
 labels: question, level
 assignees: ''
 

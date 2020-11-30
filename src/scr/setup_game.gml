@@ -69,10 +69,10 @@ switch (argument0)
 		void_beat_scr   =get_code(path_src+"void/scr/beat.gml")
 		void_hit_scr    =get_code(path_src+"void/scr/hit.gml" )
 		void_miss_scr   =get_code(path_src+"void/scr/miss.gml")
-		void_release_scr=get_code(path_src+"void/scr/release.gml")
+		//void_release_scr=get_code(path_src+"void/scr/release.gml")
 		object_event_add(vortex,ev_create,0,get_code(path_src+"void/vortex/create.gml",0))
-		object_event_add(vortex,ev_step,0,get_code(path_src+"void/vortex/step.gml",0))
-		object_event_add(vortex,ev_draw,0,get_code(path_src+"void/vortex/draw.gml",0))
+		//object_event_add(vortex,ev_step,0,get_code(path_src+"void/vortex/step.gml",0))
+		object_event_add(vortex,ev_draw,0,get_code(path_src+"void/vortex/loop.gml",0))
 		sprite_load(vortexspr,path_gfx+"vortex.png",0,4,4) init = 0 }
 		room_goto(void)
 		break

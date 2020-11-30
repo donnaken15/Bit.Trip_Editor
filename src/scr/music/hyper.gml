@@ -2,8 +2,8 @@ if !designer_mode
 if argument0!=""
 {
    if !caster_is_playing(background_music)
-   { if argument0 != lastmusicfile background_music=caster_load(argument0)
-   lastmusicfile = argument0 caster_play(background_music,1,1) }
+   { if argument0 != lastmusicfile { background_music=caster_load(argument0)
+   lastmusicfile = argument0 } caster_play(background_music,1,1) }
 }
 else if argument0=""
 {
