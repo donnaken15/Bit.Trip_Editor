@@ -1,12 +1,12 @@
 ![](https://i.ibb.co/KFnG4Dm/bit-triptest.png)<br/>
 <!--link rel="shortcut icon" type="image/x-icon" href="https://storage.proboards.com/6944403/images/LCsrUrxjAmLwpmZiPHef.ico"/-->
 <!--![](https://img.shields.io/github/commit-activity/m/donnaken15/Bit.Trip_Editor)-->
-![](https://img.shields.io/github/v/tag/donnaken15/Bit.Trip_Editor)
+[![](https://img.shields.io/github/v/tag/donnaken15/Bit.Trip_Editor)](https://github.com/donnaken15/Bit.Trip_Editor/tags)
 [![](https://img.shields.io/badge/Made%20with-GameMaker%208-1f425f)](http://gamemaker81.weebly.com/)
 [![](https://img.shields.io/badge/forum-13%20users-orange)](http://bittripeditor.boards.net/)<br/>
-[![](https://img.shields.io/badge/License-AGPL--3.0_License-blue.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![](https://img.shields.io/badge/License-AGPL--3.0_License-blue.svg)](https://github.com/donnaken15/Bit.Trip_Editor/blob/master/LICENSE)
 [![](https://img.shields.io/github/languages/code-size/donnaken15/Bit.Trip_Editor)](https://github.com/donnaken15/Bit.Trip_Editor/tree/master/src)
-![](https://img.shields.io/github/last-commit/donnaken15/Bit.Trip_Editor)<br/>
+[![](https://img.shields.io/github/last-commit/donnaken15/Bit.Trip_Editor)](https://github.com/donnaken15/Bit.Trip_Editor/commits/master)<br/>
 ![](https://img.shields.io/badge/Open%20Source-%E2%99%A5-00b788)<!--https://i.ibb.co/k99mssc/osrc.png--><!--https://badges.frapsoft.com/os/v2/open-source.png?v=103-->
 ![](https://img.shields.io/github/downloads/donnaken15/Bit.Trip_Editor/total)
 ![](https://img.shields.io/badge/platform-windows-lightgrey)<!--%20|%20macos--><!--[![HitCount](http://hits.dwyl.com/donnaken15/Bit.Trip_Editor.svg)](http://hits.dwyl.com/donnaken15/BitTrip_editor)><br/-->
