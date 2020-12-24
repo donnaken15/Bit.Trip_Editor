@@ -17,7 +17,7 @@ core_beat(0, core_north, 000.866, 025, 000, 30)
 
 
 
-music(level_sfx+"AUD_sect3.ogg")bgcolor=make_color_rgb(6,2,8)
+bgcolor=make_color_rgb(6,2,8)music(level_sfx+"AUD_sect3.ogg")
 
 
 
@@ -410,7 +410,7 @@ core_beat(0, core_south, 000.750, 025, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_north, 000.210, 025, 000, 30)
 
 
 
@@ -430,7 +430,7 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_east , 000.200, 050, 000, 30)
 
 
 
@@ -440,37 +440,11 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_east , 000.400, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
-
-
-
-core_beat(0, core_east , 000.800, 050, 000, 30)
-
-
-
-
-
-
-
-
-core_beat(0, core_east , 000.800, 050, 000, 30)
-
-
-
-
-
-
-
-core_beat(0, core_east , 000.800, 050, 000, 30)
-
-
-
-core_beat(0, core_east , 000.800, 050, 000, 30)
-
+core_beat(0, core_east , 000.600, 050, 000, 30)
 
 
 
@@ -483,7 +457,7 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_south, 000.800, 025, 000, 30)
 
 
 
@@ -491,16 +465,16 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_north, 000.600, 025, 000, 30)
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
+core_beat(0, core_north, 000.400, 025, 000, 30)
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_south, 000.200, 025, 000, 30)
 
 
 
@@ -509,7 +483,7 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_west , 000.650, 050, 000, 30)
 
 
 
@@ -518,58 +492,60 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_west , 000.850, 050, 000, 30)
 
 
 
+core_beat(0, core_east , 000.250, 050, 000, 30)
 
 
 
+core_beat(0, core_north, 000.270, 025, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
 
+core_beat(0, core_north, 000.360, 025, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
 
+core_beat(0, core_north, 000.180, 025, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
 
+core_beat(0, core_west , 000.300, 050, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
 
+core_beat(0, core_east , 000.400, 050, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
 
+core_beat(0, core_north, 000.600, 025, 000, 30)
 
 
 
@@ -578,19 +554,19 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_south, 000.600, 025, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
+core_beat(0, core_east , 000.600, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
@@ -599,13 +575,13 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
 
+core_beat(0, core_north, 000.700, 025, 000, 30)
 
 
 
@@ -614,51 +590,52 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_north, 000.700, 025, 000, 30)core_beat(0, core_north, 000.750, 025, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
+core_beat(0, core_north, 000.700, 025, 000, 30)core_beat(0, core_north, 000.750, 025, 000, 30)core_beat(0, core_north, 000.800, 025, 000, 30)
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
 
+core_beat(0, core_south, 000.750, 025, 000, 30)
 
 
 
 
 
+core_beat(0, core_east , 000.750, 050, 000, 30)
 
 
 
 
 
+core_beat(0, core_west , 000.250, 050, 000, 30)
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
 
+core_beat(0, core_north, 000.250, 025, 000, 30)
 
 
 
@@ -676,6 +653,7 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_north, 000.920, 025, 000, 30)
 
 
 
@@ -689,7 +667,6 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
@@ -707,66 +684,50 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
+core_beat(0, core_south, 000.110, 025, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
+core_beat(0, core_east , 000.250, 050, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
+core_beat(0, core_east , 000.250, 050, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
+core_beat(0, core_west , 000.250, 050, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
+core_beat(0, core_south, 000.250, 025, 000, 30)
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
-
-
-core_beat(0, core_east , 000.800, 050, 000, 30)
-
-
-
-
-core_beat(0, core_east , 000.800, 050, 000, 30)
-
-
-
-
+core_beat(0, core_north, 000.175, 025, 000, 30)
 
 
 
@@ -776,38 +737,32 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_west , 000.800, 050, 000, 30)
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_north, 000.800, 025, 000, 30)
 
 
 
 
+core_beat(0, core_north, 000.600, 025, 000, 30)
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_south, 000.800, 050, 000, 30)
 
 
 
 
+core_beat(0, core_south, 000.600, 050, 000, 30)
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
-
-
-
-
-
-
-
-
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_east , 000.300, 050, 000, 30)
 
 
 
@@ -816,6 +771,7 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_south, 000.120, 025, 000, 30)
 
 
 
@@ -824,6 +780,7 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_north, 000.530, 025, 000, 30)
 
 
 
@@ -832,10 +789,7 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-
-
-
-
+core_beat(0, core_north, 000.660, 025, 000, 30)
 
 
 
@@ -853,7 +807,70 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_east , 000.600, 050, 000, 30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+core_beat(0, core_south, 000.400, 025, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_east , 000.300, 050, 000, 30)
+
+
+
+
+
+
+
+
+core_beat(0, core_west , 000.600, 050, 000, 30)
+
+
+
+core_beat(0, core_north, 000.400, 025, 000, 30)
+
+
+
+core_beat(0, core_south, 000.400, 025, 000, 30)
 
 
 
@@ -866,20 +883,18 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
+core_beat(0, core_east , 000.600, 050, 000, 30)
 
 
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
@@ -888,10 +903,10 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_north, 000.200, 025, 000, 30)
 
 
 
@@ -906,10 +921,10 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_west , 000.730, 050, 000, 30)
 
 
 
@@ -918,22 +933,22 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_north, 000.210, 025, 000, 30)
 
 
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
+core_beat(0, core_south, 000.750, 025, 000, 30)
 
 
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
@@ -942,10 +957,10 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_south, 000.277, 025, 000, 30)
 
 
 
@@ -954,22 +969,22 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_west , 000.800, 050, 000, 30)
 
 
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
+core_beat(0, core_east , 000.400, 050, 000, 30)
 
 
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
@@ -978,10 +993,10 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_north, 000.530, 025, 000, 30)
 
 
 
@@ -990,31 +1005,16 @@ core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
 
+core_beat(0, core_south, 000.750, 025, 000, 30)
 
 
 
 
 
 
-core_beat(0, core_east , 000.800, 050, 000, 30)
 
 
-
-
-
-
-
-
-core_beat(0, core_east , 000.800, 050, 000, 30)
-
-
-
-
-
-
-
-
-core_beat(0, core_east , 000.800, 050, 000, 30)
+core_beat(0, core_south, 000.750, 025, 000, 30)
 
 
 
