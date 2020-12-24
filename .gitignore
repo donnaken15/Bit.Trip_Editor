@@ -16,3 +16,8 @@ settings.ini
 *.[Vv][Cc].[Dd][Bb]
 .DS_Store
 lvl
+*.Cache
+obj
+Release
+Debug
+

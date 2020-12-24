@@ -3,7 +3,8 @@
 <!--![](https://img.shields.io/github/commit-activity/m/donnaken15/Bit.Trip_Editor)-->
 [![](https://img.shields.io/github/v/tag/donnaken15/Bit.Trip_Editor)](https://github.com/donnaken15/Bit.Trip_Editor/tags)
 [![](https://img.shields.io/badge/Made%20with-GameMaker%208-1f425f)](http://gamemaker81.weebly.com/)
-[![](https://img.shields.io/badge/forum-13%20users-orange)](http://bittripeditor.boards.net/)<br/>
+[![](https://img.shields.io/badge/forum-13%20users-orange)](http://bittripeditor.boards.net/)
+<img src="http://hits.dwyl.com/donnaken15/BitTrip_Editor.svg" alt="since December 14th, 2020" title="since December 14th, 2020"/><br/>
 [![](https://img.shields.io/badge/License-AGPL--3.0_License-blue.svg)](https://github.com/donnaken15/Bit.Trip_Editor/blob/master/LICENSE)
 [![](https://img.shields.io/github/languages/code-size/donnaken15/Bit.Trip_Editor)](https://github.com/donnaken15/Bit.Trip_Editor/tree/master/src)
 [![](https://img.shields.io/github/last-commit/donnaken15/Bit.Trip_Editor)](https://github.com/donnaken15/Bit.Trip_Editor/commits/master)<br/>
