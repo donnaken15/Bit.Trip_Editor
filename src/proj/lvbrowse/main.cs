@@ -31,7 +31,7 @@ namespace lvbrowse
             levellist.Rows.Clear();
             loadText.Text = "Downloading database...";
             DB = new XmlDocument();
-            DB.Load("http://localhost/test.xml");
+            DB.Load("https://raw.githubusercontent.com/donnaken15/Bit.Trip_Editor/levels/Community.xml");
             loadText.Text = "Creating list...";
             levels = DB.GetElementsByTagName("level");
             PlayButtons = new string[levels.Count];
