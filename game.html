@@ -1,18 +1,22 @@
 <html lang="en">
-  <head>
-    <meta charset="ansi"/>
-    <title>BIT . TRIP EDITOR</title>
-	<link rel="stylesheet" href="src/web/style.css">
-    <link rel="shortcut icon" href="https://storage.proboards.com/6944403/images/LCsrUrxjAmLwpmZiPHef.ico"/>
-  </head>
-  <body onkeypress="keys(event)" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onhashchange="debug()">
-    <script>
-      function getMouse(event) { mouse = event; }
-    </script>
-    <canvas id="game" onmousemove="getMouse(event)" oncontextmenu="getMouse(event)" onclick="getMouse(event)" ondblclick="getMouse(event)" onmousedown="getMouse(event)" onmouseenter="getMouse(event)" onmouseleave="getMouse(event)" onmouseout="if (mouseoutalert && (event.clientX < 56 * (1280/window.innerWidth) || event.clientX > 1224 * (1280/window.innerWidth))) alert('Mouse has left the game.\n\nOK to resume')" onmouseover="getMouse(event)" onmouseup="getMouse(event)" ontouchstart="getMouse(event)" ontouchmove="getMouse(event)" ontouchend="getMouse(event)" click="getMouse(event)" width="1280" height="720"></canvas>
-    <a id="info" style='position:absolute;top:0;left:0;font:8px "BIT.TRIP SMALL",sans-serif,Arial,sans-serif,Courier New,monospaced,Times New Roman,serif;color:white;'></a>
-    <div id="debugee"><textarea wrap="off" id="debugee-js-draw"></textarea></div>
-  </body>
+	<head>
+		<meta charset="ansi"/>
+		<title>BIT . TRIP EDITOR</title>
+		<link rel="stylesheet" href="src/web/style.css">
+		<link rel="shortcut icon" href="https://i.ibb.co/qyZc3mY/concept512.png"/>
+		<meta name="viewport" content= "width=640, user-scalable=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="mobile-web-app-capable" content="yes"/>
+	</head>
+	<body onkeypress="keys(event)" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onhashchange="debug()">
+		<script>
+			function getMouse(event) { mouse = event; }
+		</script>
+		<canvas id="game" onmousemove="getMouse(event)" oncontextmenu="getMouse(event)" onclick="getMouse(event)" ondblclick="getMouse(event)" onmousedown="getMouse(event)" onmouseenter="getMouse(event)" onmouseleave="getMouse(event)" onmouseout="if (mouseoutalert && (event.clientX < 56 * (1280/window.innerWidth) || event.clientX > 1224 * (1280/window.innerWidth))) alert('Mouse has left the game.\n\nOK to resume')" onmouseover="getMouse(event)" onmouseup="getMouse(event)" ontouchstart="getMouse(event)" ontouchmove="getMouse(event)" ontouchend="getMouse(event)" click="getMouse(event)" width="1280" height="720"></canvas>
+		<a id="info" style='position:absolute;top:0;left:0;font:8px "BIT.TRIP SMALL",sans-serif,Arial,sans-serif,Courier New,monospaced,Times New Roman,serif;color:white;'></a>
+		<div id="debugee"><textarea wrap="off" id="debugee-js-draw"></textarea></div>
+	</body>
 </html>
 
 <script src="src/web/struct.js"></script>

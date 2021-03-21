@@ -94,12 +94,8 @@ switch type {
 		|| (y >= paddle.y-39+8 && y <= paddle.y+39-8 && hit = 0 && special = 2)
 		|| (y >= paddle.y-114-39 && y <= paddle.y-82+7 && special = 3 && hit = 0) || always_hit=1 ))
 		{ hspeed *= -1 if !designer_mode beat_hit() hit = 1 }*/
-		if alarm[0] > -1 alarm[0] -= 1
-		if alarm[0] = 0 {
-		velocity *= -1
-		alarm[0]=fliptime
-		}
-		vspeed += velocity/10
+		y = ystart+(sin((sineframes*velocity)/10)*sineheight)
+		sineframes += 1
 		// i hate this beat so much
 		break
 	case 11:

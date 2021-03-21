@@ -98,7 +98,7 @@ if os_type=os_windows draw_set_font(global.fontx5[4])
 else draw_set_font(global.fontx5[1])
 if showmodes {
 draw_text_transformed_color(930,37+mode_animation,"MEGA",2.4,2.4,0,make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),make_color_rgb(0,255,0),1)
-draw_text_transformed_color(829,640+mode_animation,"NETHER",2.4,2.4,0,make_color_rgb(172,170,191),make_color_rgb(172,170,191),make_color_rgb(172,170,191),make_color_rgb(172,170,191),1)
+draw_text_transformed_color(835,640+mode_animation,"NETHER",2.4,2.4,0,make_color_rgb(172,170,191),make_color_rgb(172,170,191),make_color_rgb(172,170,191),make_color_rgb(172,170,191),1)
 draw_text_transformed_color(846,-720+37+mode_animation,"MULTI+",2.4,2.4,0,current_mega_colors[3],current_mega_colors[3],current_mega_colors[3],current_mega_colors[3],1)
 draw_text_transformed_color(884,-720+640+mode_animation,"HYPER",2.4,2.4,0,current_mega_colors[4],current_mega_colors[4],current_mega_colors[4],current_mega_colors[4],1) }
 if os_type=os_windows draw_set_font(global.fontx5[9])

@@ -22,6 +22,7 @@ namespace lvbrowse
         string randId;
         Process game;// lul just use process.start "pro"
         char bs = '\\'; // the BS button, activate the BS
+        //optional todo, set alternate url for custom level distribution url
 
         public main()
         {

@@ -81,7 +81,7 @@ window_center()
 
 if enable_error_logs {
 errlogpath = path_root+"error.log"
-errlog = f_text_open(errlogpath,f_mode_write)
+//errlog = f_text_open(errlogpath,f_mode_write)
 }
 
 combo = 0
